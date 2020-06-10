@@ -13,6 +13,11 @@
 		D01038A824913770008E1ADE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01038A624913770008E1ADE /* Main.storyboard */; };
 		D01038AA24913772008E1ADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D01038A924913772008E1ADE /* Assets.xcassets */; };
 		D01038AD24913772008E1ADE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01038AB24913772008E1ADE /* LaunchScreen.storyboard */; };
+		D01038B5249145B2008E1ADE /* timeburnernormal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D01038B4249145B2008E1ADE /* timeburnernormal.ttf */; };
+		D01038B824918F61008E1ADE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D01038B724918F61008E1ADE /* .gitignore */; };
+		D01038BA24918F84008E1ADE /* .github in Resources */ = {isa = PBXBuildFile; fileRef = D01038B924918F84008E1ADE /* .github */; };
+		D01038BC24919025008E1ADE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D01038BB24919024008E1ADE /* LICENSE */; };
+		D01038BE2491902B008E1ADE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D01038BD2491902B008E1ADE /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		D01038A924913772008E1ADE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D01038AC24913772008E1ADE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D01038AE24913772008E1ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D01038B4249145B2008E1ADE /* timeburnernormal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = timeburnernormal.ttf; sourceTree = "<group>"; };
+		D01038B724918F61008E1ADE /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		D01038B924918F84008E1ADE /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
+		D01038BB24919024008E1ADE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D01038BD2491902B008E1ADE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +52,10 @@
 			children = (
 				D010389F24913770008E1ADE /* Gridy */,
 				D010389E24913770008E1ADE /* Products */,
+				D01038B724918F61008E1ADE /* .gitignore */,
+				D01038B924918F84008E1ADE /* .github */,
+				D01038BB24919024008E1ADE /* LICENSE */,
+				D01038BD2491902B008E1ADE /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +70,7 @@
 		D010389F24913770008E1ADE /* Gridy */ = {
 			isa = PBXGroup;
 			children = (
+				D01038B6249145C2008E1ADE /* Fonts */,
 				D01038A024913770008E1ADE /* AppDelegate.swift */,
 				D01038A224913770008E1ADE /* SceneDelegate.swift */,
 				D01038A424913770008E1ADE /* ViewController.swift */,
@@ -65,6 +80,14 @@
 				D01038AE24913772008E1ADE /* Info.plist */,
 			);
 			path = Gridy;
+			sourceTree = "<group>";
+		};
+		D01038B6249145C2008E1ADE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D01038B4249145B2008E1ADE /* timeburnernormal.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +148,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D01038BA24918F84008E1ADE /* .github in Resources */,
+				D01038B824918F61008E1ADE /* .gitignore in Resources */,
 				D01038AD24913772008E1ADE /* LaunchScreen.storyboard in Resources */,
+				D01038BC24919025008E1ADE /* LICENSE in Resources */,
 				D01038AA24913772008E1ADE /* Assets.xcassets in Resources */,
+				D01038B5249145B2008E1ADE /* timeburnernormal.ttf in Resources */,
+				D01038BE2491902B008E1ADE /* README.md in Resources */,
 				D01038A824913770008E1ADE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

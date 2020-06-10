@@ -1,0 +1,33 @@
+name: Swift
+
+on: # rebuild any PRs and main branch changes
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  build: # make sure build/ci work properly
+    name: Build
+    timeout-minutes: 30
+    
+    runs-on: macos-latest
+#     strategy:
+#         matrix:
+#           destination: ['platform=iOS Simulator,OS=12.2,name=iPhone X']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+#       - name: Build
+#         run: |
+#           cd Shamaz
+#           xcodebuild clean test -project Shamaz.xcodeproj
+#         env: 
+#          destination: ${{ matrix.destination }}
+
+#       - name: Build
+#         run: swift build -v
+#       - name: Run tests
+#         run: swift test -v

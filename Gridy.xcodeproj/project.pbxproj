@@ -52,8 +52,8 @@
 			children = (
 				D010389F24913770008E1ADE /* Gridy */,
 				D010389E24913770008E1ADE /* Products */,
-				D01038B724918F61008E1ADE /* .gitignore */,
 				D01038B924918F84008E1ADE /* .github */,
+				D01038B724918F61008E1ADE /* .gitignore */,
 				D01038BB24919024008E1ADE /* LICENSE */,
 				D01038BD2491902B008E1ADE /* README.md */,
 			);
@@ -70,11 +70,11 @@
 		D010389F24913770008E1ADE /* Gridy */ = {
 			isa = PBXGroup;
 			children = (
+				D01038BF2492B512008E1ADE /* View */,
+				D01038C02492B5C0008E1ADE /* Controller */,
 				D01038B6249145C2008E1ADE /* Fonts */,
 				D01038A024913770008E1ADE /* AppDelegate.swift */,
 				D01038A224913770008E1ADE /* SceneDelegate.swift */,
-				D01038A424913770008E1ADE /* ViewController.swift */,
-				D01038A624913770008E1ADE /* Main.storyboard */,
 				D01038A924913772008E1ADE /* Assets.xcassets */,
 				D01038AB24913772008E1ADE /* LaunchScreen.storyboard */,
 				D01038AE24913772008E1ADE /* Info.plist */,
@@ -88,6 +88,22 @@
 				D01038B4249145B2008E1ADE /* timeburnernormal.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D01038BF2492B512008E1ADE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D01038A624913770008E1ADE /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D01038C02492B5C0008E1ADE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D01038A424913770008E1ADE /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

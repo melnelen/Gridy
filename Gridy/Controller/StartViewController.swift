@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StartViewController.swift
 //  Gridy
 //
 //  Created by Alexandra Ivanova on 10/06/2020.
@@ -11,6 +11,8 @@ import UIKit
 class StartViewController: UIViewController {
 
     @IBOutlet weak var gridyPickButton: UIButton!
+    @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var photoLibraryButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

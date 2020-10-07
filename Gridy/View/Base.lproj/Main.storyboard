@@ -28,13 +28,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Challenge yourself with a photo puzzle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Okp-qX-2S2">
-                                <rect key="frame" x="60" y="183" width="240" height="17"/>
+                                <rect key="frame" x="60" y="184.66666666666666" width="240" height="15.333333333333343"/>
                                 <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MK-ND-cDn">
-                                <rect key="frame" x="117.66666666666669" y="447" width="140" height="80"/>
+                                <rect key="frame" x="117.66666666666669" y="449.33333333333331" width="140" height="79.999999999999943"/>
                                 <color key="backgroundColor" name="Gridy beige"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="6Ig-Ql-kxl"/>
@@ -44,6 +44,9 @@
                                 <state key="normal" title=" Pick" image="Gridy-name-small-grey">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="pickRandomImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5rR-af-TwC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKL-jh-HGD">
                                 <rect key="frame" x="195" y="638" width="140" height="80"/>
@@ -56,9 +59,12 @@
                                 <state key="normal" title=" Photo Library" image="Gridy-library">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="pickPhotoLibraryImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qk9-sC-Re2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="— OR load your own —" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBX-nO-q6w">
-                                <rect key="frame" x="112.66666666666669" y="572" width="150" height="21"/>
+                                <rect key="frame" x="102.66666666666669" y="574.33333333333337" width="170" height="18.666666666666629"/>
                                 <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="16"/>
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -74,6 +80,9 @@
                                 <state key="normal" title=" Camera" image="Gridy-camera">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="pickCameraImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aOv-Ep-phI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="Gridy white"/>
@@ -105,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="137.4384236453202"/>
         </scene>
-        <!--Image Resize View Controller-->
+        <!--Image Editor View Controller-->
         <scene sceneID="0Ic-C8-3MR">
             <objects>
-                <viewController id="fqh-kg-PoI" customClass="ImageResizeViewController" customModule="Gridy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageEditorViewController" id="fqh-kg-PoI" customClass="ImageEditorViewController" customModule="Gridy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OgK-fM-DeC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -163,12 +163,12 @@
                         <viewLayoutGuide key="safeArea" id="PfV-aZ-E5Q"/>
                     </view>
                     <connections>
-                        <outlet property="CloseButton" destination="h39-Qd-GUC" id="ZX0-qf-JAO"/>
-                        <outlet property="ImageManipulationScrollView" destination="Hhp-nz-3VO" id="wFa-L2-0GQ"/>
-                        <outlet property="InstructionsLabel" destination="VCO-TC-K1r" id="EM4-Lw-erf"/>
-                        <outlet property="StartButton" destination="hzp-8i-wNG" id="95W-7l-ZNZ"/>
-                        <outlet property="UserImageImageView" destination="JWV-3x-gyw" id="Lc0-w4-6dT"/>
+                        <outlet property="closeButton" destination="h39-Qd-GUC" id="ZX0-qf-JAO"/>
                         <outlet property="gridImage" destination="n1U-hZ-Acp" id="9Pr-Pr-Aaj"/>
+                        <outlet property="imageManipulationScrollView" destination="Hhp-nz-3VO" id="wFa-L2-0GQ"/>
+                        <outlet property="instructionsLabel" destination="VCO-TC-K1r" id="EM4-Lw-erf"/>
+                        <outlet property="startButton" destination="hzp-8i-wNG" id="95W-7l-ZNZ"/>
+                        <outlet property="userImageImageView" destination="JWV-3x-gyw" id="Lc0-w4-6dT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7PF-MH-I2J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

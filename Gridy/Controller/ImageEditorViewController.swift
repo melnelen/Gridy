@@ -10,7 +10,7 @@ import UIKit
 
 class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
     var image: UIImage!
-    var imagesBound: [CGRect]!
+    var imageEditorView: ImageEditorView!
     
     @IBOutlet weak var imageManipulationScrollView: UIScrollView!
     @IBOutlet weak var userImageView: UIImageView!
@@ -22,6 +22,9 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imageEditorView = ImageEditorView.init(image: image!)
+        imageEditorView.setup(parentView: self.view)
         
         // #MARK: - Constraints
         
@@ -57,46 +60,5 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         self.userImageView
-    }
-    
-    private func setupLayer(view: UIView) {
-        let fadingOutAnimation = {
-            view.alpha = 0.0
-            self.startButton.alpha = 0.0
-            self.instructionsLabel.alpha = 0.0
-            self.closeButton.alpha = 0.0
-        }
-        
-        UIView.animate(withDuration: 0.1, animations: fadingOutAnimation) {
-            (done) in
-            if done {
-                view.layer.mask = self.createMaskLayer()
-                
-                let fadingInAnimation = {
-                    view.alpha = 1.0
-                    self.startButton.alpha = 1.0
-                    self.instructionsLabel.alpha = 1.0
-                    self.closeButton.alpha = 1.0
-                }
-                UIView.animate(withDuration: 0.75, animations: fadingInAnimation)
-            }
-        }
-    }
-    
-    private func createMaskLayer() -> CAShapeLayer {
-        let whiteView = UIView(frame: userImageView.bounds)
-        let path = CGMutablePath()
-        path.addRect(CGRect(origin: .zero, size: userImageView.bounds.size))
-        
-        imagesBound = Position.init(parentView: whiteView).getSquares()
-        for square in imagesBound {
-            path.addRect(square)
-        }
-        
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = path
-        maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
-        
-        return maskLayer
     }
 }

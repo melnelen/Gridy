@@ -10,16 +10,16 @@ import UIKit
 
 /// Calculate the frame of squares inside a view
 class Position {
-  private var safeArea: UIEdgeInsets
-  private var height: CGFloat
-  private var width: CGFloat
-  private var isLandscape: Bool
+  private let safeArea: UIEdgeInsets
+  private let height: CGFloat
+  private let width: CGFloat
+  private let isLandscape: Bool
   private var gapLength: CGFloat = 0
-  private var allGaps: CGFloat
+  private let allGaps: CGFloat
   private var countInRow: CGFloat = 0
   private var length: CGFloat = 0
-  private var allSquares: CGFloat
-  private var offset: CGFloat
+  private let allSquares: CGFloat
+  private let offset: CGFloat
   private var marginX: CGFloat = 0
   private var marginY: CGFloat = 0
   private var numberSquares: Int = 0

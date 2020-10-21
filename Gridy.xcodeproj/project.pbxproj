@@ -21,6 +21,7 @@
 		D0B0AD812533742D00560A1B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0AD802533742D00560A1B /* Constant.swift */; };
 		D0B0AD8325338CC200560A1B /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0AD8225338CC200560A1B /* Position.swift */; };
 		D0B7808D24CB4D4700A42090 /* ImageEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7808C24CB4D4700A42090 /* ImageEditorViewController.swift */; };
+		D0C5B56C2540CDE100B00797 /* ImageEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C5B56B2540CDE100B00797 /* ImageEditorView.swift */; };
 		D0D3EDFF2520F4CB007DB38A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D3EDFE2520F4CB007DB38A /* Helper.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		D0B0AD802533742D00560A1B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		D0B0AD8225338CC200560A1B /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		D0B7808C24CB4D4700A42090 /* ImageEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorViewController.swift; sourceTree = "<group>"; };
+		D0C5B56B2540CDE100B00797 /* ImageEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorView.swift; sourceTree = "<group>"; };
 		D0D3EDFE2520F4CB007DB38A /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 			children = (
 				D01038A624913770008E1ADE /* Main.storyboard */,
 				D0B0AD8225338CC200560A1B /* Position.swift */,
+				D0C5B56B2540CDE100B00797 /* ImageEditorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				D0D3EDFF2520F4CB007DB38A /* Helper.swift in Sources */,
 				D01038A124913770008E1ADE /* AppDelegate.swift in Sources */,
 				D0B7808D24CB4D4700A42090 /* ImageEditorViewController.swift in Sources */,
+				D0C5B56C2540CDE100B00797 /* ImageEditorView.swift in Sources */,
 				D01038A324913770008E1ADE /* SceneDelegate.swift in Sources */,
 				D0B0AD812533742D00560A1B /* Constant.swift in Sources */,
 			);

@@ -14,6 +14,11 @@ struct Constant {
             static let helveticaNeue = "Helvetica Neue"
             static let timeBurner = "TimeBurner"
         }
+        struct Size {
+            static let closeButtonLabel: CGFloat = 50
+            static let startButtonLabel: CGFloat = 15
+            static let instructionsLabel: CGFloat = 15
+        }
     }
     
     struct Layout {

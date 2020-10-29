@@ -10,7 +10,6 @@ import UIKit
 
 class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
     var image: UIImage!
-    var imageEditorView: ImageEditorView!
     
     @IBOutlet weak var imageManipulationScrollView: UIScrollView!
     @IBOutlet weak var userImageView: UIImageView!
@@ -22,9 +21,6 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        imageEditorView = ImageEditorView.init(image: image!)
-        imageEditorView.setup(parentView: self.view)
         
         // #MARK: - Constraints
         
@@ -49,13 +45,42 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
         
         self.userImageView.image = image
         self.userImageView.clipsToBounds = true
-        self.userImageView.backgroundColor = UIColor.lightGray
         self.userImageView.contentMode = .scaleAspectFill
         
         self.imageManipulationScrollView.clipsToBounds = false
         self.imageManipulationScrollView.minimumZoomScale = 0
         self.imageManipulationScrollView.maximumZoomScale = 3
         self.imageManipulationScrollView.delegate = self
+        
+        self.whiteView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        self.whiteView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        self.whiteView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        self.whiteView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        self.whiteView.translatesAutoresizingMaskIntoConstraints = false
+        self.whiteView.clipsToBounds = true
+        
+        let maskLayer = CAShapeLayer()
+
+        let radius : CGFloat = userImageView.bounds.width/3
+        let path = UIBezierPath(rect: userImageView.bounds)
+        maskLayer.path = path.cgPath
+        path.addArc(
+            withCenter: userImageView.center,
+            radius: radius,
+            startAngle: 0.0,
+            endAngle: CGFloat.pi*2,
+            clockwise: true
+        )
+        maskLayer.path = path.cgPath
+        maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
+        
+        self.whiteView.layer.mask = maskLayer
+        self.whiteView.clipsToBounds = true
+
+        self.whiteView.alpha = 0.8
+        self.whiteView.backgroundColor = UIColor.white
+        
+        view.addSubview(whiteView)
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

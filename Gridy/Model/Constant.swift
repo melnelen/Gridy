@@ -15,9 +15,9 @@ struct Constant {
             static let timeBurner = "TimeBurner"
         }
         struct Size {
-            static let closeButtonLabel: CGFloat = 50
-            static let startButtonLabel: CGFloat = 15
-            static let instructionsLabel: CGFloat = 15
+            static let closeButtonLabel: CGFloat = 40
+            static let startButtonLabel: CGFloat = 30
+            static let instructionsLabel: CGFloat = 20
         }
     }
     

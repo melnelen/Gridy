@@ -28,11 +28,10 @@ class whiteView: UIView {
         
         //Draw a rectangle
         let drawRectangle = CGRect(
-            x: (width * 0.1),
-            y: (height * 0.3),
-            width: (width * 0.8),
-            height: (width * 0.8)
-        )
+            x: (width * 0.05),
+            y: (height * 0.25),
+            width: (width * 0.9),
+            height: (width * 0.9))
         
         //Create a path with the rectangle in it
         let framePath = UIBezierPath(rect: self.bounds)

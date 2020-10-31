@@ -28,13 +28,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Challenge yourself with a photo puzzle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Okp-qX-2S2">
-                                <rect key="frame" x="60" y="183" width="240" height="17"/>
+                                <rect key="frame" x="60" y="184.66666666666666" width="240" height="15.333333333333343"/>
                                 <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MK-ND-cDn">
-                                <rect key="frame" x="117.66666666666669" y="447" width="140" height="80"/>
+                                <rect key="frame" x="117.66666666666669" y="449.33333333333331" width="140" height="79.999999999999943"/>
                                 <color key="backgroundColor" name="Gridy beige"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="6Ig-Ql-kxl"/>
@@ -64,7 +64,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="— OR load your own —" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBX-nO-q6w">
-                                <rect key="frame" x="112.66666666666669" y="572" width="150" height="21"/>
+                                <rect key="frame" x="102.66666666666669" y="574.33333333333337" width="170" height="18.666666666666629"/>
                                 <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="16"/>
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -132,25 +132,45 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzp-8i-wNG">
-                                <rect key="frame" x="158" y="659" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzp-8i-wNG">
+                                <rect key="frame" x="142.66666666666666" y="638" width="90" height="60"/>
+                                <color key="backgroundColor" red="0.27234470840000002" green="0.56661021710000004" blue="0.4431228042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="MHG-S8-L3u"/>
+                                    <constraint firstAttribute="width" constant="90" id="uX7-pD-Aru"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="30"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" name="Gridy white"/>
+                                </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCO-TC-K1r">
-                                <rect key="frame" x="174" y="169" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adjust the puzzle image: zoom, rotate, reposition" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCO-TC-K1r">
+                                <rect key="frame" x="77.666666666666686" y="169" width="220" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="FH7-nG-K0z"/>
+                                    <constraint firstAttribute="height" constant="50" id="WUA-dX-0E9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h39-Qd-GUC">
-                                <rect key="frame" x="293" y="82" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h39-Qd-GUC">
+                                <rect key="frame" x="325" y="49" width="30" height="59"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <state key="normal" title="x">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VCO-TC-K1r" firstAttribute="top" secondItem="PfV-aZ-E5Q" secondAttribute="top" constant="125" id="IAf-9h-fvI"/>
+                            <constraint firstItem="PfV-aZ-E5Q" firstAttribute="bottom" secondItem="hzp-8i-wNG" secondAttribute="bottom" constant="80" id="aWz-xc-5Rq"/>
+                            <constraint firstItem="h39-Qd-GUC" firstAttribute="top" secondItem="PfV-aZ-E5Q" secondAttribute="top" constant="5" id="ewl-b9-Inh"/>
+                            <constraint firstItem="hzp-8i-wNG" firstAttribute="centerX" secondItem="OgK-fM-DeC" secondAttribute="centerX" id="mpS-QR-HvP"/>
+                            <constraint firstItem="VCO-TC-K1r" firstAttribute="centerX" secondItem="OgK-fM-DeC" secondAttribute="centerX" id="sRd-sk-SU6"/>
+                            <constraint firstItem="PfV-aZ-E5Q" firstAttribute="trailing" secondItem="h39-Qd-GUC" secondAttribute="trailing" constant="20" id="tPB-5v-dSK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PfV-aZ-E5Q"/>
                     </view>
                     <connections>

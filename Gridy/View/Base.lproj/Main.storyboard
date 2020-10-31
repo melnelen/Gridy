@@ -28,13 +28,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Challenge yourself with a photo puzzle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Okp-qX-2S2">
-                                <rect key="frame" x="60" y="184.66666666666666" width="240" height="15.333333333333343"/>
+                                <rect key="frame" x="60" y="183" width="240" height="17"/>
                                 <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MK-ND-cDn">
-                                <rect key="frame" x="117.66666666666669" y="449.33333333333331" width="140" height="79.999999999999943"/>
+                                <rect key="frame" x="117.66666666666669" y="447" width="140" height="80"/>
                                 <color key="backgroundColor" name="Gridy beige"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="6Ig-Ql-kxl"/>
@@ -64,7 +64,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="— OR load your own —" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBX-nO-q6w">
-                                <rect key="frame" x="102.66666666666669" y="574.33333333333337" width="170" height="18.666666666666629"/>
+                                <rect key="frame" x="112.66666666666669" y="572" width="150" height="21"/>
                                 <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="16"/>
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -122,30 +122,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" minimumZoomScale="0.0" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="Hhp-nz-3VO" userLabel="Image Manipulation Scroll View">
-                                <rect key="frame" x="37" y="255" width="288" height="313"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alan-king-KZv7w34tluA-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="JWV-3x-gyw">
+                                <rect key="frame" x="-2" y="49" width="378" height="714"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alan-king-KZv7w34tluA-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="JWV-3x-gyw">
-                                        <rect key="frame" x="-39" y="-191" width="378" height="714"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <viewLayoutGuide key="safeArea" id="7fx-7P-ee4"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="qq8-8s-6q5"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="bvh-tj-bFi"/>
-                            </scrollView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wRg-iN-bz1" userLabel="White View">
-                                <rect key="frame" x="16" y="169" width="240" height="128"/>
+                                <viewLayoutGuide key="safeArea" id="7fx-7P-ee4"/>
+                            </imageView>
+                            <view userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wRg-iN-bz1" userLabel="White View" customClass="whiteView" customModule="Gridy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="49" width="376" height="714"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="n1U-hZ-Acp">
-                                <rect key="frame" x="26" y="231" width="322" height="349"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzp-8i-wNG">
                                 <rect key="frame" x="158" y="659" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -169,8 +155,6 @@
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="h39-Qd-GUC" id="ZX0-qf-JAO"/>
-                        <outlet property="gridImage" destination="n1U-hZ-Acp" id="9Pr-Pr-Aaj"/>
-                        <outlet property="imageManipulationScrollView" destination="Hhp-nz-3VO" id="wFa-L2-0GQ"/>
                         <outlet property="instructionsLabel" destination="VCO-TC-K1r" id="EM4-Lw-erf"/>
                         <outlet property="startButton" destination="hzp-8i-wNG" id="95W-7l-ZNZ"/>
                         <outlet property="userImageView" destination="JWV-3x-gyw" id="Lc0-w4-6dT"/>
@@ -187,7 +171,6 @@
         <image name="Gridy-library" width="18" height="14"/>
         <image name="Gridy-name-large-green" width="110" height="53.333332061767578"/>
         <image name="Gridy-name-small-grey" width="35" height="17"/>
-        <image name="Image" width="300" height="300"/>
         <image name="alan-king-KZv7w34tluA-unsplash" width="960" height="1439.5"/>
         <namedColor name="Gridy beige">
             <color red="0.9440000057220459" green="0.91500002145767212" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

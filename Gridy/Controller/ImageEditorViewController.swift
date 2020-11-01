@@ -17,15 +17,23 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var instructionsLabel: UILabel!
     
+    @IBAction func closeButtonTouched(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     private var isLandscapeOrientation: Bool {
-      guard let superview = self.view else { return false }
-      return superview.bounds.width > superview.bounds.height
+        guard let superview = self.view else { return false }
+        return superview.bounds.width > superview.bounds.height
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupVerticalLayout()
+        if (isLandscapeOrientation) {
+            setupHorizontalLayout()
+        } else {
+            setupVerticalLayout()
+        }
     }
     
     private func setupVerticalLayout() {
@@ -40,6 +48,20 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
         setupConstraintsForCloseButton()
         setupConstraintsForStartButton()
         setupConstraintsForInstructionsLabel()
+    }
+    
+    private func setupHorizontalLayout() {
+        setupUserImageView()
+        setupWhiteView()
+        setupCloseButton()
+        setupStartButton()
+        setupInstructionsLabel()
+        
+        setupConstraintsForUserImageView()
+        setupConstraintsForWhiteView()
+        setupConstraintsForCloseButton()
+        setupHorizontalConstraintsForStartButton()
+        setupHorizontalConstraintsForInstructionsLabel()
     }
     
     // #MARK: - Setup Elements
@@ -112,9 +134,18 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
     
     private func setupConstraintsForStartButton() {
         self.startButton.widthAnchor.constraint(equalToConstant: 90).isActive = true
-        self.startButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        self.startButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
         self.startButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height * 0.05)).isActive = true
         self.startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        self.startButton.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func setupHorizontalConstraintsForStartButton() {
+        self.startButton.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        self.startButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        self.startButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height * 0.05)).isActive = true
+        self.startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.height * 0.2)).isActive = true
+        self.startButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * 0.65).isActive = true
         self.startButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -123,6 +154,14 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
         self.instructionsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         self.instructionsLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
         self.instructionsLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        self.instructionsLabel.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func setupHorizontalConstraintsForInstructionsLabel() {
+        self.instructionsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * 0.65).isActive = true
+        self.instructionsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * 0.1)).isActive = true
+        self.instructionsLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.25).isActive = true
+        self.instructionsLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height * 0.4)).isActive = true
         self.instructionsLabel.translatesAutoresizingMaskIntoConstraints = false
     }
 }

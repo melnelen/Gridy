@@ -160,6 +160,9 @@
                                 <state key="normal" title="x">
                                     <color key="titleColor" name="GridyGray"/>
                                 </state>
+                                <connections>
+                                    <action selector="closeButtonTouched:" destination="fqh-kg-PoI" eventType="touchUpInside" id="YV2-kv-chU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

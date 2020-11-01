@@ -25,13 +25,21 @@ class whiteView: UIView {
         rectangleLayer.frame = self.bounds
         let width = self.bounds.width
         let height = self.bounds.height
-        
+        var drawRectangle = CGRect()
         //Draw a rectangle
-        let drawRectangle = CGRect(
-            x: (width * 0.05),
-            y: (height * 0.25),
-            width: (width * 0.9),
-            height: (width * 0.9))
+        if (height > width) {
+            drawRectangle = CGRect(
+                x: (width * 0.05),
+                y: (height * 0.25),
+                width: (width * 0.9),
+                height: (width * 0.9))
+        } else {
+            drawRectangle = CGRect(
+                x: (width * 0.05),
+                y: (height * 0.05),
+                width: (height * 0.9),
+                height: (height * 0.9))
+        }
         
         //Create a path with the rectangle in it
         let framePath = UIBezierPath(rect: self.bounds)

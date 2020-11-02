@@ -127,7 +127,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <viewLayoutGuide key="safeArea" id="7fx-7P-ee4"/>
                             </imageView>
-                            <view userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wRg-iN-bz1" userLabel="White View" customClass="whiteView" customModule="Gridy" customModuleProvider="target">
+                            <view userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wRg-iN-bz1" userLabel="White View" customClass="WhiteLayerView" customModule="Gridy" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="49" width="376" height="714"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

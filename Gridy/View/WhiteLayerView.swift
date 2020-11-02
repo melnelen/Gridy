@@ -8,7 +8,7 @@
 
 import UIKit
 
-class whiteView: UIView {
+class WhiteLayerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

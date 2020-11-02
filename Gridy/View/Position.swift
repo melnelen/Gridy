@@ -28,10 +28,10 @@ class Position {
     return isLandscape ? marginX : marginY
   }
   
-  init(parentView: UIView) {
-    safeArea = (parentView.superview?.safeAreaInsets)!
-    height = (parentView.superview?.bounds.height)! - safeArea.top - safeArea.bottom
-    width = (parentView.superview?.bounds.width)! - safeArea.right - safeArea.left
+  init?(parentView: UIView) {
+    safeArea = (parentView.superview!.safeAreaInsets)
+    height = (parentView.superview!.bounds.height) - safeArea.top - safeArea.bottom
+    width = (parentView.superview!.bounds.width) - safeArea.right - safeArea.left
     isLandscape = width > height
     countInRow = 4
     gapLength = 1

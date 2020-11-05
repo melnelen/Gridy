@@ -29,39 +29,11 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (isLandscapeOrientation) {
-            setupHorizontalLayout()
-        } else {
-            setupVerticalLayout()
-        }
-    }
-    
-    private func setupVerticalLayout() {
         setupUserImageView()
         setupWhiteView()
         setupCloseButton()
         setupStartButton()
         setupInstructionsLabel()
-        
-        setupConstraintsForUserImageView()
-        setupConstraintsForWhiteView()
-        setupConstraintsForCloseButton()
-        setupConstraintsForStartButton()
-        setupConstraintsForInstructionsLabel()
-    }
-    
-    private func setupHorizontalLayout() {
-        setupUserImageView()
-        setupWhiteView()
-        setupCloseButton()
-        setupStartButton()
-        setupInstructionsLabel()
-        
-        setupConstraintsForUserImageView()
-        setupConstraintsForWhiteView()
-        setupConstraintsForCloseButton()
-        setupHorizontalConstraintsForStartButton()
-        setupHorizontalConstraintsForInstructionsLabel()
     }
     
     // #MARK: - Setup Elements
@@ -106,62 +78,5 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
         self.instructionsLabel.font = UIFont(
             name: Constant.Font.Name.timeBurner,
             size: Constant.Font.Size.instructionsLabel)
-    }
-    
-    // #MARK: - Setup Constraints
-    
-    private func setupConstraintsForUserImageView() {
-        self.userImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        self.userImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        self.userImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        self.userImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        self.userImageView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setupConstraintsForWhiteView() {
-        self.whiteView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        self.whiteView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        self.whiteView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        self.whiteView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        self.whiteView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setupConstraintsForCloseButton() {
-        self.closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 5).isActive = true
-        self.closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        self.closeButton.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setupConstraintsForStartButton() {
-        self.startButton.widthAnchor.constraint(equalToConstant: 90).isActive = true
-        self.startButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        self.startButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height * 0.05)).isActive = true
-        self.startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        self.startButton.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setupHorizontalConstraintsForStartButton() {
-        self.startButton.widthAnchor.constraint(equalToConstant: 90).isActive = true
-        self.startButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        self.startButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height * 0.05)).isActive = true
-        self.startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.height * 0.2)).isActive = true
-        self.startButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * 0.65).isActive = true
-        self.startButton.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setupConstraintsForInstructionsLabel() {
-        self.instructionsLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.1).isActive = true
-        self.instructionsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        self.instructionsLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        self.instructionsLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        self.instructionsLabel.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setupHorizontalConstraintsForInstructionsLabel() {
-        self.instructionsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * 0.65).isActive = true
-        self.instructionsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * 0.1)).isActive = true
-        self.instructionsLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.25).isActive = true
-        self.instructionsLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height * 0.4)).isActive = true
-        self.instructionsLabel.translatesAutoresizingMaskIntoConstraints = false
     }
 }

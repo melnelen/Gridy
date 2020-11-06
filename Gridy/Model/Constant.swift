@@ -18,12 +18,13 @@ struct Constant {
             static let closeButtonLabel: CGFloat = 40
             static let startButtonLabel: CGFloat = 30
             static let instructionsLabel: CGFloat = 18
+            static let startScreenButtons: CGFloat = 13
         }
     }
     
     struct Layout {
         struct cornerRadius {
-            static let buttonRadius: CGFloat = 5
+            static let buttonRadius: CGFloat = 10
         }
     }
 }

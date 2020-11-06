@@ -59,14 +59,14 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func setupStartButton() {
-        startButton.setTitle("Start", for: .normal)
-        startButton.setTitleColor(UIColor.white, for: .normal)
-        startButton.backgroundColor = UIColor(named: "GridyGrassGreen")
-        startButton.titleLabel?.font = UIFont(
+        self.startButton.setTitle("Start", for: .normal)
+        self.startButton.setTitleColor(UIColor.white, for: .normal)
+        self.startButton.backgroundColor = UIColor(named: "GridyGrassGreen")
+        self.startButton.titleLabel?.font = UIFont(
             name: Constant.Font.Name.timeBurner,
             size: Constant.Font.Size.startButtonLabel)
-        startButton.layer.cornerRadius = 10
-        startButton.clipsToBounds = true
+        self.startButton.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
+        self.startButton.clipsToBounds = true
     }
     
     private func setupInstructionsLabel() {

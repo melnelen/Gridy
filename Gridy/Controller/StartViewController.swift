@@ -17,7 +17,46 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        setupGridyPickButton()
+        setupCameraButton()
+        setupPhotoLibraryButton()
+    }
+    
+    private func setupGridyPickButton() {
+        self.gridyPickButton.setImage(UIImage(named: "Gridy-name-small-grey"), for: .normal)
+        self.gridyPickButton.setTitle(" Pick", for: .normal)
+        self.gridyPickButton.setTitleColor(UIColor(named: "GridyGray"), for: .normal)
+        self.gridyPickButton.backgroundColor = UIColor(named: "GridyBeige")
+        self.gridyPickButton.titleLabel?.font = UIFont(
+            name: Constant.Font.Name.timeBurner,
+            size: Constant.Font.Size.startScreenButtons)
+        self.gridyPickButton.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
+        self.gridyPickButton.clipsToBounds = true
+    }
+    
+    private func setupCameraButton() {
+        self.cameraButton.setImage(UIImage(named: "Gridy-camera"), for: .normal)
+        self.cameraButton.setTitle(" Camera", for: .normal)
+        self.cameraButton.setTitleColor(UIColor(named: "GridyGray"), for: .normal)
+        self.cameraButton.backgroundColor = UIColor(named: "GridyBeige")
+        self.cameraButton.titleLabel?.font = UIFont(
+            name: Constant.Font.Name.timeBurner,
+            size: Constant.Font.Size.startScreenButtons)
+        self.cameraButton.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
+        self.cameraButton.clipsToBounds = true
+    }
+    
+    private func setupPhotoLibraryButton() {
+        self.photoLibraryButton.setImage(UIImage(named: "Gridy-library"), for: .normal)
+        self.photoLibraryButton.setTitle(" Photo Library", for: .normal)
+        self.photoLibraryButton.setTitleColor(UIColor(named: "GridyGray"), for: .normal)
+        self.photoLibraryButton.backgroundColor = UIColor(named: "GridyBeige")
+        self.photoLibraryButton.titleLabel?.font = UIFont(
+            name: Constant.Font.Name.timeBurner,
+            size: Constant.Font.Size.startScreenButtons)
+        self.photoLibraryButton.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
+        self.photoLibraryButton.clipsToBounds = true
     }
     
     @IBAction private func pickRandomImage(_ sender: Any) {

@@ -26,13 +26,14 @@ class WhiteLayerView: UIView {
         let width = self.bounds.width
         let height = self.bounds.height
         var drawRectangle = CGRect()
+        
         //Draw a rectangle
         if (height > width) {
             drawRectangle = CGRect(
-                x: (width * 0.05),
-                y: (height * 0.25),
-                width: (width * 0.9),
-                height: (width * 0.9))
+                x: (width * 0.05),      //GridFrameView.getX()
+                y: (height * 0.25),     //GridFrameView.getY()
+                width: (width * 0.9),   //GridFrameView.getWidth()
+                height: (width * 0.9))  //GridFrameView.getHeight()
         } else {
             drawRectangle = CGRect(
                 x: (width * 0.05),

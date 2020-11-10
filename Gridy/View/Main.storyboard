@@ -185,6 +185,7 @@
                                 <subviews>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6G-Ry-l0J" userLabel="GridFrameView" customClass="GridFrameView" customModule="Gridy" customModuleProvider="target">
                                         <rect key="frame" x="20" y="155" width="770" height="770"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="F6G-Ry-l0J" secondAttribute="height" multiplier="1:1" id="jZe-hj-NNf"/>
                                         </constraints>

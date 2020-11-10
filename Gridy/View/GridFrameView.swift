@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GridFrameView: UIView {
+class GridFrameView: UIView {    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -17,11 +17,11 @@ class GridFrameView: UIView {
         super.init(coder: coder)
     }
     
-    static func getX() ->CGFloat {
+    func getX() ->CGFloat {
         return self.frame.origin.x
     }
     
-    static func getY() ->CGFloat {
+    func getY() ->CGFloat {
         return self.frame.origin.y
     }
     

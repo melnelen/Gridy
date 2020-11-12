@@ -9,6 +9,8 @@
 import UIKit
 
 class WhiteLayerView: UIView {
+    let imageEditorViewController = ImageEditorViewController(nibName: "ImageEditorViewController", bundle: nil)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -26,15 +28,16 @@ class WhiteLayerView: UIView {
         let width = self.bounds.width
         let height = self.bounds.height
         var drawRectangle = CGRect()
-        let gridFrameView = GridFrameView()
+        let gridFrameView = imageEditorViewController.gridFrameView! // nil!!!
+//        self.WhiteView.gridFrameView=self.gridFrameView
         
         //Draw a rectangle
         if (height > width) {
             drawRectangle = CGRect(
-                x: (gridFrameView.getX()), // Not working :( 
-                y: (gridFrameView.getY()),
-                width: (gridFrameView.getWidth()),
-                height: (gridFrameView.getHeight()))
+                x: (gridFrameView.frame.origin.x),
+                y: (gridFrameView.frame.origin.y),
+                width: (gridFrameView.bounds.width),
+                height: (gridFrameView.bounds.height))
         } else {
             drawRectangle = CGRect(
                 x: (width * 0.05),

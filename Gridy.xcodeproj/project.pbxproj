@@ -17,7 +17,6 @@
 		D01038BA24918F84008E1ADE /* .github in Resources */ = {isa = PBXBuildFile; fileRef = D01038B924918F84008E1ADE /* .github */; };
 		D01038BC24919025008E1ADE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D01038BB24919024008E1ADE /* LICENSE */; };
 		D01038BE2491902B008E1ADE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D01038BD2491902B008E1ADE /* README.md */; };
-		D075E14E2558444F0088EEEA /* GridFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075E14D2558444F0088EEEA /* GridFrameView.swift */; };
 		D0B0AD812533742D00560A1B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0AD802533742D00560A1B /* Constant.swift */; };
 		D0B0AD8325338CC200560A1B /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0AD8225338CC200560A1B /* Position.swift */; };
 		D0B7808D24CB4D4700A42090 /* ImageEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7808C24CB4D4700A42090 /* ImageEditorViewController.swift */; };
@@ -39,7 +38,6 @@
 		D01038B924918F84008E1ADE /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		D01038BB24919024008E1ADE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D01038BD2491902B008E1ADE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D075E14D2558444F0088EEEA /* GridFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridFrameView.swift; sourceTree = "<group>"; };
 		D0B0AD802533742D00560A1B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		D0B0AD8225338CC200560A1B /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		D0B7808C24CB4D4700A42090 /* ImageEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				D0CAA578254DB03D0040A8C5 /* Main.storyboard */,
-				D075E14D2558444F0088EEEA /* GridFrameView.swift */,
 				D0D0A275254AFB8200CFD284 /* WhiteLayerView.swift */,
 			);
 			path = View;
@@ -224,7 +221,6 @@
 				D0B7808D24CB4D4700A42090 /* ImageEditorViewController.swift in Sources */,
 				D01038A324913770008E1ADE /* SceneDelegate.swift in Sources */,
 				D0B0AD812533742D00560A1B /* Constant.swift in Sources */,
-				D075E14E2558444F0088EEEA /* GridFrameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +355,6 @@
 		D01038B224913772008E1ADE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6WAA8E6R87;
 				INFOPLIST_FILE = Gridy/Info.plist;
@@ -377,7 +372,6 @@
 		D01038B324913772008E1ADE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6WAA8E6R87;
 				INFOPLIST_FILE = Gridy/Info.plist;

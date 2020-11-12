@@ -183,7 +183,7 @@
                             <view userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRg-iN-bz1" userLabel="White View" customClass="WhiteLayerView" customModule="Gridy" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                                 <subviews>
-                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6G-Ry-l0J" userLabel="GridFrameView" customClass="GridFrameView" customModule="Gridy" customModuleProvider="target">
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6G-Ry-l0J" userLabel="GridFrameView">
                                         <rect key="frame" x="20" y="155" width="770" height="770"/>
                                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -382,6 +382,7 @@
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="h39-Qd-GUC" id="ZX0-qf-JAO"/>
+                        <outlet property="gridFrameView" destination="F6G-Ry-l0J" id="Y84-SP-nIa"/>
                         <outlet property="instructionsLabel" destination="VCO-TC-K1r" id="EM4-Lw-erf"/>
                         <outlet property="startButton" destination="hzp-8i-wNG" id="95W-7l-ZNZ"/>
                         <outlet property="userImageView" destination="JWV-3x-gyw" id="Lc0-w4-6dT"/>

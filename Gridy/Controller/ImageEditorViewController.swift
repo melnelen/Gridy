@@ -12,18 +12,14 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
     var image: UIImage!
     
     @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var whiteView: UIView!
+    @IBOutlet weak var whiteView: WhiteLayerView!
+    @IBOutlet weak var gridFrameView: UIView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var instructionsLabel: UILabel!
     
     @IBAction func closeButtonTouched(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    private var isLandscapeOrientation: Bool {
-        guard let superview = self.view else { return false }
-        return superview.bounds.width > superview.bounds.height
     }
     
     override func viewDidLoad() {

@@ -24,10 +24,10 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     private func setupGridyPickButton() {
-        self.gridyPickButton.setImage(UIImage(named: "Gridy-name-small-grey"), for: .normal)
+        self.gridyPickButton.setImage(UIImage(named: Constant.Image.nameSmall), for: .normal)
         self.gridyPickButton.setTitle(" Pick", for: .normal)
-        self.gridyPickButton.setTitleColor(UIColor(named: "GridyGray"), for: .normal)
-        self.gridyPickButton.backgroundColor = UIColor(named: "GridyBeige")
+        self.gridyPickButton.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
+        self.gridyPickButton.backgroundColor = UIColor(named: Constant.Color.primaryLight)
         self.gridyPickButton.titleLabel?.font = UIFont(
             name: Constant.Font.Name.timeBurner,
             size: Constant.Font.Size.startScreenButtons)
@@ -36,10 +36,10 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     private func setupCameraButton() {
-        self.cameraButton.setImage(UIImage(named: "Gridy-camera"), for: .normal)
+        self.cameraButton.setImage(UIImage(named: Constant.Image.camera), for: .normal)
         self.cameraButton.setTitle(" Camera", for: .normal)
-        self.cameraButton.setTitleColor(UIColor(named: "GridyGray"), for: .normal)
-        self.cameraButton.backgroundColor = UIColor(named: "GridyBeige")
+        self.cameraButton.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
+        self.cameraButton.backgroundColor = UIColor(named: Constant.Color.primaryLight)
         self.cameraButton.titleLabel?.font = UIFont(
             name: Constant.Font.Name.timeBurner,
             size: Constant.Font.Size.startScreenButtons)
@@ -48,10 +48,10 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     private func setupPhotoLibraryButton() {
-        self.photoLibraryButton.setImage(UIImage(named: "Gridy-library"), for: .normal)
+        self.photoLibraryButton.setImage(UIImage(named: Constant.Image.library), for: .normal)
         self.photoLibraryButton.setTitle(" Photo Library", for: .normal)
-        self.photoLibraryButton.setTitleColor(UIColor(named: "GridyGray"), for: .normal)
-        self.photoLibraryButton.backgroundColor = UIColor(named: "GridyBeige")
+        self.photoLibraryButton.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
+        self.photoLibraryButton.backgroundColor = UIColor(named: Constant.Color.primaryLight)
         self.photoLibraryButton.titleLabel?.font = UIFont(
             name: Constant.Font.Name.timeBurner,
             size: Constant.Font.Size.startScreenButtons)

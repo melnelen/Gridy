@@ -43,12 +43,12 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
     private func setupWhiteView() {
         self.whiteView.clipsToBounds = true
         self.whiteView.alpha = 0.8
-        self.whiteView.backgroundColor = UIColor(named: "GridyWhite")
+        self.whiteView.backgroundColor = UIColor(named: Constant.Color.secondaryLight)
     }
     
     private func setupCloseButton() {
         self.closeButton.setTitle("x", for: .normal)
-        self.closeButton.setTitleColor(UIColor(named: "GridyGray"), for: .normal)
+        self.closeButton.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
         self.closeButton.titleLabel?.font = UIFont(
             name: Constant.Font.Name.helveticaNeue,
             size: Constant.Font.Size.closeButtonLabel)
@@ -56,8 +56,8 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
     
     private func setupStartButton() {
         self.startButton.setTitle("Start", for: .normal)
-        self.startButton.setTitleColor(UIColor.white, for: .normal)
-        self.startButton.backgroundColor = UIColor(named: "GridyGrassGreen")
+        self.startButton.setTitleColor(UIColor (named: Constant.Color.secondaryLight), for: .normal)
+        self.startButton.backgroundColor = UIColor(named: Constant.Color.primaryColor)
         self.startButton.titleLabel?.font = UIFont(
             name: Constant.Font.Name.timeBurner,
             size: Constant.Font.Size.startButtonLabel)
@@ -67,12 +67,18 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
     
     private func setupInstructionsLabel() {
         self.instructionsLabel.text = "Adjust the puzzle image:\nzoom, rotate, reposition"
-        self.instructionsLabel.textColor = UIColor(named: "GridyGray")
+        self.instructionsLabel.textColor = UIColor(named: Constant.Color.primaryDark)
         self.instructionsLabel.textAlignment = .center
         self.instructionsLabel.baselineAdjustment = .alignCenters
         self.instructionsLabel.numberOfLines = 0
         self.instructionsLabel.font = UIFont(
             name: Constant.Font.Name.timeBurner,
             size: Constant.Font.Size.instructionsLabel)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.whiteView.layoutIfNeeded()
+        self.whiteView.gridFrame = self.gridFrameView.frame
     }
 }

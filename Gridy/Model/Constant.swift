@@ -27,4 +27,18 @@ struct Constant {
             static let buttonRadius: CGFloat = 10
         }
     }
+    
+    struct Color {
+        static let primaryColor = "GrassGreen"
+        static let primaryLight = "SmoothBeige"
+        static let primaryDark = "DarkGray"
+        static let secondaryLight = "SnowWhite"
+        static let secondaryDark = "TwilightBlue"
+    }
+    
+    struct Image {
+        static let nameSmall = "Gridy-name-small-grey"
+        static let camera = "Gridy-camera"
+        static let library = "Gridy-library"
+    }
 }

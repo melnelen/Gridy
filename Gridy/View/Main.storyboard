@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad10_2" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -18,28 +18,32 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="StartViewController" customModule="Gridy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Gridy-name-large-green" translatesAutoresizingMaskIntoConstraints="NO" id="dAN-GZ-obR">
-                                <rect key="frame" x="280" y="35" width="250" height="130"/>
+                                <rect key="frame" x="62.666666666666657" y="79" width="249.99999999999997" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="EP0-kC-Q4s"/>
-                                    <constraint firstAttribute="width" constant="250" id="J2a-dJ-8Od"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="EP0-kC-Q4s">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="60"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="250" id="J2a-dJ-8Od">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="220"/>
+                                    </constraint>
                                     <constraint firstAttribute="width" secondItem="dAN-GZ-obR" secondAttribute="height" multiplier="2:1.04" id="Vmh-hB-0Rh"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Challenge yourself with a photo puzzle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Okp-qX-2S2">
-                                <rect key="frame" x="280" y="149.5" width="235" height="15.5"/>
+                                <rect key="frame" x="62.666666666666657" y="192" width="234.99999999999997" height="17"/>
                                 <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="13"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="DarkGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWs-PQ-pxf" userLabel="Bottom Container">
-                                <rect key="frame" x="0.0" y="540" width="810" height="540"/>
+                                <rect key="frame" x="0.0" y="445" width="375" height="367"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MK-ND-cDn">
-                                        <rect key="frame" x="355" y="0.0" width="100" height="75"/>
+                                        <rect key="frame" x="137.66666666666666" y="0.0" width="100" height="75"/>
                                         <color key="backgroundColor" name="GridyBeige"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="3MK-ND-cDn" secondAttribute="height" multiplier="4:3" id="GE9-Lt-9Zz"/>
@@ -47,39 +51,45 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="13"/>
                                         <state key="normal" title=" Pick" image="Gridy-name-small-grey">
-                                            <color key="titleColor" name="GridyGray"/>
+                                            <color key="titleColor" name="DarkGray"/>
                                         </state>
                                         <connections>
                                             <action selector="pickRandomImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5rR-af-TwC"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="— OR load your own —" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBX-nO-q6w" userLabel="Selection Label">
-                                        <rect key="frame" x="330" y="270" width="150" height="22"/>
+                                        <rect key="frame" x="112.66666666666669" y="183.66666666666663" width="150" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="7hP-Vl-8Rw"/>
-                                            <constraint firstAttribute="height" constant="22" id="kWr-J2-AJF"/>
+                                            <constraint firstAttribute="height" constant="20" id="kWr-J2-AJF"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="16"/>
-                                        <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" name="DarkGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pu2-Gr-gvc">
-                                        <rect key="frame" x="285" y="332" width="100" height="75"/>
-                                        <color key="backgroundColor" name="Gridy beige"/>
+                                        <rect key="frame" x="67.666666666666671" y="243.66666666666663" width="100.00000000000001" height="75"/>
+                                        <color key="backgroundColor" name="SmoothBeige"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="pu2-Gr-gvc" secondAttribute="height" multiplier="4:3" id="drC-Ws-0tc"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="13"/>
                                         <state key="normal" title=" Camera" image="Gridy-camera">
-                                            <color key="titleColor" name="GridyGray"/>
+                                            <color key="titleColor" name="DarkGray"/>
                                         </state>
                                         <connections>
                                             <action selector="pickCameraImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aOv-Ep-phI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKL-jh-HGD">
-                                        <rect key="frame" x="425" y="332" width="100" height="75"/>
-                                        <color key="backgroundColor" name="Gridy beige"/>
+                                        <rect key="frame" x="207.66666666666663" y="243.66666666666663" width="100" height="75"/>
+                                        <color key="backgroundColor" name="SmoothBeige"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="GKL-jh-HGD" secondAttribute="height" multiplier="4:3" id="vTo-7m-3RX"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="13"/>
                                         <state key="normal" title=" Photo Library" image="Gridy-library">
-                                            <color key="titleColor" name="GridyGray"/>
+                                            <color key="titleColor" name="DarkGray"/>
                                         </state>
                                         <connections>
                                             <action selector="pickPhotoLibraryImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qk9-sC-Re2"/>
@@ -88,25 +98,26 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="GKL-jh-HGD" firstAttribute="leading" secondItem="pu2-Gr-gvc" secondAttribute="trailing" constant="20" id="78O-dF-1Yi"/>
-                                    <constraint firstItem="GKL-jh-HGD" firstAttribute="height" secondItem="3MK-ND-cDn" secondAttribute="height" id="7vH-HD-37o"/>
+                                    <constraint firstItem="GKL-jh-HGD" firstAttribute="width" secondItem="3MK-ND-cDn" secondAttribute="width" id="7vH-HD-37o"/>
                                     <constraint firstItem="TBX-nO-q6w" firstAttribute="top" secondItem="EWs-PQ-pxf" secondAttribute="centerY" id="8LN-ai-4EA"/>
-                                    <constraint firstItem="pu2-Gr-gvc" firstAttribute="height" secondItem="3MK-ND-cDn" secondAttribute="height" id="8ph-cL-EvH"/>
+                                    <constraint firstItem="pu2-Gr-gvc" firstAttribute="width" secondItem="3MK-ND-cDn" secondAttribute="width" id="8ph-cL-EvH"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pu2-Gr-gvc" secondAttribute="bottom" constant="10" id="CgP-iQ-Aer"/>
                                     <constraint firstItem="3MK-ND-cDn" firstAttribute="trailing" secondItem="EWs-PQ-pxf" secondAttribute="centerX" constant="-120" id="DHF-fB-edV"/>
                                     <constraint firstItem="TBX-nO-q6w" firstAttribute="centerX" secondItem="EWs-PQ-pxf" secondAttribute="centerX" id="DgI-xb-ZcP"/>
                                     <constraint firstItem="3MK-ND-cDn" firstAttribute="centerY" secondItem="EWs-PQ-pxf" secondAttribute="centerY" id="Ect-ou-RHk"/>
-                                    <constraint firstItem="GKL-jh-HGD" firstAttribute="width" secondItem="3MK-ND-cDn" secondAttribute="width" id="NWv-fB-b6h"/>
                                     <constraint firstItem="TBX-nO-q6w" firstAttribute="centerX" secondItem="pu2-Gr-gvc" secondAttribute="trailing" constant="10" id="P1O-dT-4qB"/>
                                     <constraint firstItem="GKL-jh-HGD" firstAttribute="top" secondItem="pu2-Gr-gvc" secondAttribute="top" id="QFI-TZ-lWZ"/>
-                                    <constraint firstItem="pu2-Gr-gvc" firstAttribute="width" secondItem="3MK-ND-cDn" secondAttribute="width" id="ROy-eS-ZW6"/>
                                     <constraint firstItem="pu2-Gr-gvc" firstAttribute="centerY" secondItem="EWs-PQ-pxf" secondAttribute="centerY" id="V2M-nr-Hx8"/>
                                     <constraint firstAttribute="centerX" secondItem="pu2-Gr-gvc" secondAttribute="trailing" constant="20" id="Vst-tD-bC1"/>
                                     <constraint firstItem="pu2-Gr-gvc" firstAttribute="top" secondItem="TBX-nO-q6w" secondAttribute="bottom" priority="750" constant="40" id="YVJ-Bl-RtS"/>
                                     <constraint firstItem="TBX-nO-q6w" firstAttribute="top" secondItem="EWs-PQ-pxf" secondAttribute="top" constant="167" id="gRk-W8-RIe">
                                         <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="20"/>
                                     </constraint>
                                     <constraint firstItem="3MK-ND-cDn" firstAttribute="top" secondItem="EWs-PQ-pxf" secondAttribute="top" id="j9Z-bd-jco"/>
-                                    <constraint firstItem="pu2-Gr-gvc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="TBX-nO-q6w" secondAttribute="bottom" constant="10" id="nIx-VH-88W"/>
+                                    <constraint firstItem="pu2-Gr-gvc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="TBX-nO-q6w" secondAttribute="bottom" priority="750" constant="10" id="nIx-VH-88W">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="2"/>
+                                    </constraint>
                                     <constraint firstItem="GKL-jh-HGD" firstAttribute="leading" secondItem="EWs-PQ-pxf" secondAttribute="centerX" constant="20" id="nO1-Jc-3dt"/>
                                     <constraint firstItem="pu2-Gr-gvc" firstAttribute="leading" secondItem="EWs-PQ-pxf" secondAttribute="centerX" id="sb3-WR-szj"/>
                                 </constraints>
@@ -137,15 +148,33 @@
                                         <exclude reference="nO1-Jc-3dt"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="DHF-fB-edV"/>
+                                        <include reference="Ect-ou-RHk"/>
+                                        <exclude reference="j9Z-bd-jco"/>
+                                        <exclude reference="8LN-ai-4EA"/>
+                                        <exclude reference="DgI-xb-ZcP"/>
+                                        <include reference="P1O-dT-4qB"/>
+                                        <include reference="gRk-W8-RIe"/>
+                                        <include reference="V2M-nr-Hx8"/>
+                                        <exclude reference="Vst-tD-bC1"/>
+                                        <include reference="sb3-WR-szj"/>
+                                        <include reference="78O-dF-1Yi"/>
+                                        <exclude reference="nO1-Jc-3dt"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="Gridy white"/>
+                        <color key="backgroundColor" name="SnowWhite"/>
                         <constraints>
                             <constraint firstItem="Okp-qX-2S2" firstAttribute="bottom" secondItem="dAN-GZ-obR" secondAttribute="bottom" id="2w2-6l-eTc"/>
                             <constraint firstItem="Okp-qX-2S2" firstAttribute="leading" secondItem="dAN-GZ-obR" secondAttribute="leading" id="8YY-Gv-hue"/>
-                            <constraint firstItem="Okp-qX-2S2" firstAttribute="trailing" secondItem="dAN-GZ-obR" secondAttribute="trailing" constant="-15" id="DH4-wv-QSf"/>
+                            <constraint firstItem="Okp-qX-2S2" firstAttribute="trailing" secondItem="dAN-GZ-obR" secondAttribute="trailing" constant="-15" id="DH4-wv-QSf">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-24"/>
+                            </constraint>
                             <constraint firstItem="EWs-PQ-pxf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Law-3Q-LPh"/>
-                            <constraint firstItem="EWs-PQ-pxf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="NGI-uL-CfU"/>
+                            <constraint firstItem="EWs-PQ-pxf" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="NGI-uL-CfU"/>
                             <constraint firstItem="dAN-GZ-obR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="bod-eT-0wm"/>
                             <constraint firstItem="EWs-PQ-pxf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="inv-ro-nka"/>
                             <constraint firstItem="3MK-ND-cDn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="noe-td-8Et"/>
@@ -154,6 +183,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="noe-td-8Et"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
                             <mask key="constraints">
                                 <exclude reference="noe-td-8Et"/>
                             </mask>
@@ -174,27 +208,26 @@
             <objects>
                 <viewController storyboardIdentifier="ImageEditorViewController" id="fqh-kg-PoI" customClass="ImageEditorViewController" customModule="Gridy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OgK-fM-DeC">
-                        <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" image="alan-king-KZv7w34tluA-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="JWV-3x-gyw">
-                                <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <viewLayoutGuide key="safeArea" id="7fx-7P-ee4"/>
                             </imageView>
                             <view userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRg-iN-bz1" userLabel="White View" customClass="WhiteLayerView" customModule="Gridy" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6G-Ry-l0J" userLabel="GridFrameView">
-                                        <rect key="frame" x="20" y="155" width="770" height="770"/>
-                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="20" y="243.66666666666663" width="335" height="335"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="F6G-Ry-l0J" secondAttribute="height" multiplier="1:1" id="jZe-hj-NNf"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="SnowWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="F6G-Ry-l0J" secondAttribute="trailing" priority="750" constant="20" id="5Hz-w4-ea2"/>
-                                    <constraint firstItem="F6G-Ry-l0J" firstAttribute="trailing" secondItem="wRg-iN-bz1" secondAttribute="trailing" multiplier="1:2" id="Bel-7I-eEE"/>
+                                    <constraint firstItem="F6G-Ry-l0J" firstAttribute="trailing" secondItem="wRg-iN-bz1" secondAttribute="trailing" multiplier="1:2" priority="750" id="Bel-7I-eEE"/>
                                     <constraint firstItem="F6G-Ry-l0J" firstAttribute="centerY" secondItem="wRg-iN-bz1" secondAttribute="centerY" id="EUV-kd-x6H"/>
                                     <constraint firstItem="F6G-Ry-l0J" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wRg-iN-bz1" secondAttribute="top" constant="30" id="G0k-gI-LlW">
                                         <variation key="heightClass=compact-widthClass=compact" constant="5"/>
@@ -237,16 +270,16 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FEd-H7-cLY" userLabel="TopContainer">
-                                <rect key="frame" x="0.0" y="0.0" width="810" height="155"/>
+                                <rect key="frame" x="0.0" y="43.999999999999986" width="375" height="199.66666666666663"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adjust the puzzle image: zoom, rotate, reposition" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCO-TC-K1r">
-                                        <rect key="frame" x="295" y="47.5" width="220" height="60"/>
+                                        <rect key="frame" x="77.666666666666686" y="69.666666666666671" width="220" height="60.000000000000014"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="220" id="4By-wE-ZrH"/>
                                             <constraint firstAttribute="height" constant="60" id="hKr-zx-GeN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="18"/>
-                                        <color key="textColor" name="GridyGray"/>
+                                        <color key="textColor" name="DarkGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -257,7 +290,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h39-Qd-GUC">
-                                <rect key="frame" x="760" y="5" width="30" height="50"/>
+                                <rect key="frame" x="325" y="49" width="30" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="EvH-pD-H75"/>
                                     <constraint firstAttribute="width" secondItem="h39-Qd-GUC" secondAttribute="height" multiplier="3:5" id="VbH-AR-GDN"/>
@@ -265,25 +298,25 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <state key="normal" title="x">
-                                    <color key="titleColor" name="GridyGray"/>
+                                    <color key="titleColor" name="DarkGray"/>
                                 </state>
                                 <connections>
                                     <action selector="closeButtonTouched:" destination="fqh-kg-PoI" eventType="touchUpInside" id="YV2-kv-chU"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g27-9W-VGD" userLabel="Bottom Container">
-                                <rect key="frame" x="0.0" y="925" width="810" height="155"/>
+                                <rect key="frame" x="0.0" y="578.66666666666663" width="375" height="199.33333333333337"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzp-8i-wNG">
-                                        <rect key="frame" x="355" y="40" width="100" height="75"/>
-                                        <color key="backgroundColor" name="GridyGrassGreen"/>
+                                        <rect key="frame" x="137.66666666666666" y="62" width="100" height="75"/>
+                                        <color key="backgroundColor" name="GrassGreen"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="hzp-8i-wNG" secondAttribute="height" multiplier="4:3" id="4VV-7R-yDn"/>
                                             <constraint firstAttribute="width" constant="100" id="xDe-sT-HKg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="30"/>
                                         <state key="normal" title="Start">
-                                            <color key="titleColor" name="GridyWhite"/>
+                                            <color key="titleColor" name="SnowWhite"/>
                                         </state>
                                     </button>
                                 </subviews>
@@ -318,10 +351,10 @@
                             <constraint firstItem="JWV-3x-gyw" firstAttribute="leading" secondItem="OgK-fM-DeC" secondAttribute="leading" id="Xex-Q7-tlg"/>
                             <constraint firstItem="JWV-3x-gyw" firstAttribute="trailing" secondItem="OgK-fM-DeC" secondAttribute="trailing" id="YVG-KK-acB"/>
                             <constraint firstItem="PfV-aZ-E5Q" firstAttribute="leading" secondItem="FEd-H7-cLY" secondAttribute="leading" id="bHW-sV-lEC"/>
-                            <constraint firstItem="g27-9W-VGD" firstAttribute="leading" secondItem="F6G-Ry-l0J" secondAttribute="trailing" id="bWO-2x-32X"/>
+                            <constraint firstItem="g27-9W-VGD" firstAttribute="leading" secondItem="F6G-Ry-l0J" secondAttribute="trailing" priority="750" id="bWO-2x-32X"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="top" secondItem="FEd-H7-cLY" secondAttribute="bottom" id="hUK-sF-DJX"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="centerY" secondItem="PfV-aZ-E5Q" secondAttribute="centerY" id="lNl-Ha-XYL"/>
-                            <constraint firstItem="FEd-H7-cLY" firstAttribute="leading" secondItem="F6G-Ry-l0J" secondAttribute="trailing" id="m9p-Ye-5Uz"/>
+                            <constraint firstItem="FEd-H7-cLY" firstAttribute="leading" secondItem="F6G-Ry-l0J" secondAttribute="trailing" priority="750" id="m9p-Ye-5Uz"/>
                             <constraint firstItem="PfV-aZ-E5Q" firstAttribute="bottom" secondItem="g27-9W-VGD" secondAttribute="bottom" id="nBi-17-SMq"/>
                             <constraint firstItem="PfV-aZ-E5Q" firstAttribute="trailing" secondItem="h39-Qd-GUC" secondAttribute="trailing" constant="20" id="scc-p5-kco"/>
                             <constraint firstItem="FEd-H7-cLY" firstAttribute="top" secondItem="PfV-aZ-E5Q" secondAttribute="top" id="t07-iA-xvi"/>
@@ -400,22 +433,19 @@
         <image name="Gridy-name-large-green" width="110" height="53.333332061767578"/>
         <image name="Gridy-name-small-grey" width="35" height="17"/>
         <image name="alan-king-KZv7w34tluA-unsplash" width="960" height="1439.5"/>
-        <namedColor name="Gridy beige">
-            <color red="0.9440000057220459" green="0.91500002145767212" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="DarkGray">
+            <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Gridy white">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="GrassGreen">
+            <color red="0.2720000147819519" green="0.56699997186660767" blue="0.44299998879432678" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="GridyBeige">
             <color red="0.9440000057220459" green="0.91500002145767212" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="GridyGrassGreen">
-            <color red="0.2720000147819519" green="0.56699997186660767" blue="0.44299998879432678" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="SmoothBeige">
+            <color red="0.9440000057220459" green="0.91500002145767212" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="GridyGray">
-            <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="GridyWhite">
+        <namedColor name="SnowWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>

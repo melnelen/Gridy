@@ -355,6 +355,7 @@
 		D01038B224913772008E1ADE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6WAA8E6R87;
 				INFOPLIST_FILE = Gridy/Info.plist;
@@ -372,6 +373,7 @@
 		D01038B324913772008E1ADE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6WAA8E6R87;
 				INFOPLIST_FILE = Gridy/Info.plist;

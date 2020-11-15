@@ -9,10 +9,13 @@
 import UIKit
 
 class WhiteLayerView: UIView {
-    let imageEditorViewController = ImageEditorViewController(nibName: "ImageEditorViewController", bundle: nil)
+    var gridFrame: CGRect = .zero {
+        didSet { setup() }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -25,30 +28,10 @@ class WhiteLayerView: UIView {
         maskLayer.frame = self.bounds
         let rectangleLayer = CAShapeLayer()
         rectangleLayer.frame = self.bounds
-        let width = self.bounds.width
-        let height = self.bounds.height
-        var drawRectangle = CGRect()
-        let gridFrameView = imageEditorViewController.gridFrameView! // nil!!!
-//        self.WhiteView.gridFrameView=self.gridFrameView
-        
-        //Draw a rectangle
-        if (height > width) {
-            drawRectangle = CGRect(
-                x: (gridFrameView.frame.origin.x),
-                y: (gridFrameView.frame.origin.y),
-                width: (gridFrameView.bounds.width),
-                height: (gridFrameView.bounds.height))
-        } else {
-            drawRectangle = CGRect(
-                x: (width * 0.05),
-                y: (height * 0.05),
-                width: (height * 0.9),
-                height: (height * 0.9))
-        }
         
         //Create a path with the rectangle in it
         let framePath = UIBezierPath(rect: self.bounds)
-        let rectanglePath = UIBezierPath(rect: drawRectangle)
+        let rectanglePath = UIBezierPath(rect: gridFrame)
         
         //Reverse the filled in area to be outside of the rectangle
         rectanglePath.append(framePath.reversing())
@@ -57,10 +40,5 @@ class WhiteLayerView: UIView {
         rectangleLayer.path = rectanglePath.cgPath
         maskLayer.addSublayer(rectangleLayer)
         self.layer.mask = maskLayer
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.setup()
     }
 }

@@ -50,8 +50,8 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
         self.closeButton.setTitle("x", for: .normal)
         self.closeButton.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
         self.closeButton.titleLabel?.font = UIFont(
-            name: Constant.Font.Name.helveticaNeue,
-            size: Constant.Font.Size.closeButtonLabel)
+            name: Constant.Font.Name.primary,
+            size: Constant.Font.Size.closeButton)
     }
     
     private func setupStartButton() {
@@ -59,8 +59,8 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
         self.startButton.setTitleColor(UIColor (named: Constant.Color.secondaryLight), for: .normal)
         self.startButton.backgroundColor = UIColor(named: Constant.Color.primaryColor)
         self.startButton.titleLabel?.font = UIFont(
-            name: Constant.Font.Name.timeBurner,
-            size: Constant.Font.Size.startButtonLabel)
+            name: Constant.Font.Name.secondary,
+            size: Constant.Font.Size.primaryButton)
         self.startButton.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
         self.startButton.clipsToBounds = true
     }
@@ -72,8 +72,8 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
         self.instructionsLabel.baselineAdjustment = .alignCenters
         self.instructionsLabel.numberOfLines = 0
         self.instructionsLabel.font = UIFont(
-            name: Constant.Font.Name.timeBurner,
-            size: Constant.Font.Size.instructionsLabel)
+            name: Constant.Font.Name.secondary,
+            size: Constant.Font.Size.primaryLabel)
     }
     
     override func viewDidLayoutSubviews() {

@@ -11,14 +11,14 @@ import UIKit
 struct Constant {
     struct Font {
         struct Name {
-            static let helveticaNeue = "Helvetica Neue"
-            static let timeBurner = "TimeBurner"
+            static let primary = "Helvetica Neue"
+            static let secondary = "TimeBurner"
         }
         struct Size {
-            static let closeButtonLabel: CGFloat = 40
-            static let startButtonLabel: CGFloat = 30
-            static let instructionsLabel: CGFloat = 18
-            static let startScreenButtons: CGFloat = 13
+            static let closeButton: CGFloat = 40
+            static let primaryButton: CGFloat = 30
+            static let primaryLabel: CGFloat = 18
+            static let secondaryButton: CGFloat = 13
         }
     }
     

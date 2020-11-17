@@ -29,8 +29,8 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
         self.gridyPickButton.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
         self.gridyPickButton.backgroundColor = UIColor(named: Constant.Color.primaryLight)
         self.gridyPickButton.titleLabel?.font = UIFont(
-            name: Constant.Font.Name.timeBurner,
-            size: Constant.Font.Size.startScreenButtons)
+            name: Constant.Font.Name.secondary,
+            size: Constant.Font.Size.secondaryButton)
         self.gridyPickButton.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
         self.gridyPickButton.clipsToBounds = true
     }
@@ -41,8 +41,8 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
         self.cameraButton.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
         self.cameraButton.backgroundColor = UIColor(named: Constant.Color.primaryLight)
         self.cameraButton.titleLabel?.font = UIFont(
-            name: Constant.Font.Name.timeBurner,
-            size: Constant.Font.Size.startScreenButtons)
+            name: Constant.Font.Name.secondary,
+            size: Constant.Font.Size.secondaryButton)
         self.cameraButton.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
         self.cameraButton.clipsToBounds = true
     }
@@ -53,8 +53,8 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
         self.photoLibraryButton.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
         self.photoLibraryButton.backgroundColor = UIColor(named: Constant.Color.primaryLight)
         self.photoLibraryButton.titleLabel?.font = UIFont(
-            name: Constant.Font.Name.timeBurner,
-            size: Constant.Font.Size.startScreenButtons)
+            name: Constant.Font.Name.secondary,
+            size: Constant.Font.Size.secondaryButton)
         self.photoLibraryButton.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
         self.photoLibraryButton.clipsToBounds = true
     }

@@ -26,7 +26,6 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         setupUserImageView()
-        setupWhiteView()
         setupCloseButton()
         setupStartButton()
         setupInstructionsLabel()
@@ -38,12 +37,6 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
         self.userImageView.image = image
         self.userImageView.clipsToBounds = true
         self.userImageView.contentMode = .scaleAspectFill
-    }
-    
-    private func setupWhiteView() {
-        self.whiteView.clipsToBounds = true
-        self.whiteView.alpha = 0.8
-        self.whiteView.backgroundColor = UIColor(named: Constant.Color.secondaryLight)
     }
     
     private func setupCloseButton() {

@@ -15,7 +15,9 @@ class WhiteLayerView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        self.clipsToBounds = true
+        self.alpha = 0.8
+        self.backgroundColor = UIColor(named: Constant.Color.secondaryLight)
     }
     
     required init?(coder: NSCoder) {

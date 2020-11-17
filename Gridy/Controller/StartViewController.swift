@@ -26,37 +26,29 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
     private func setupGridyPickButton() {
         self.gridyPickButton.setImage(UIImage(named: Constant.Image.nameSmall), for: .normal)
         self.gridyPickButton.setTitle(" Pick", for: .normal)
-        self.gridyPickButton.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
-        self.gridyPickButton.backgroundColor = UIColor(named: Constant.Color.primaryLight)
-        self.gridyPickButton.titleLabel?.font = UIFont(
-            name: Constant.Font.Name.secondary,
-            size: Constant.Font.Size.secondaryButton)
-        self.gridyPickButton.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
-        self.gridyPickButton.clipsToBounds = true
+        setupSecondary(button: self.gridyPickButton)
     }
     
     private func setupCameraButton() {
         self.cameraButton.setImage(UIImage(named: Constant.Image.camera), for: .normal)
         self.cameraButton.setTitle(" Camera", for: .normal)
-        self.cameraButton.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
-        self.cameraButton.backgroundColor = UIColor(named: Constant.Color.primaryLight)
-        self.cameraButton.titleLabel?.font = UIFont(
-            name: Constant.Font.Name.secondary,
-            size: Constant.Font.Size.secondaryButton)
-        self.cameraButton.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
-        self.cameraButton.clipsToBounds = true
+        setupSecondary(button: self.cameraButton)
     }
     
     private func setupPhotoLibraryButton() {
         self.photoLibraryButton.setImage(UIImage(named: Constant.Image.library), for: .normal)
         self.photoLibraryButton.setTitle(" Photo Library", for: .normal)
-        self.photoLibraryButton.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
-        self.photoLibraryButton.backgroundColor = UIColor(named: Constant.Color.primaryLight)
-        self.photoLibraryButton.titleLabel?.font = UIFont(
+        setupSecondary(button: self.photoLibraryButton)
+    }
+    
+    private func setupSecondary(button: UIButton) {
+        button.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
+        button.backgroundColor = UIColor(named: Constant.Color.primaryLight)
+        button.titleLabel?.font = UIFont(
             name: Constant.Font.Name.secondary,
             size: Constant.Font.Size.secondaryButton)
-        self.photoLibraryButton.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
-        self.photoLibraryButton.clipsToBounds = true
+        button.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
+        button.clipsToBounds = true
     }
     
     @IBAction private func pickRandomImage(_ sender: Any) {

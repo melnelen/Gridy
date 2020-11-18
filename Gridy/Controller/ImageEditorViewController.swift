@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
+class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     var image: UIImage!
+    var initialImageViewOffset = CGPoint()
     
-    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var chosenImageView: UIImageView!
     @IBOutlet weak var whiteView: WhiteLayerView!
     @IBOutlet weak var gridFrameView: UIView!
     @IBOutlet weak var closeButton: UIButton!
@@ -29,14 +30,15 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
         setupCloseButton()
         setupStartButton()
         setupInstructionsLabel()
+        configureGestures()
     }
     
     // #MARK: - Setup Elements
     
     private func setupUserImageView() {
-        self.userImageView.image = image
-        self.userImageView.clipsToBounds = true
-        self.userImageView.contentMode = .scaleAspectFill
+        self.chosenImageView.image = image
+        self.chosenImageView.clipsToBounds = true
+        self.chosenImageView.contentMode = .scaleAspectFill
     }
     
     private func setupCloseButton() {
@@ -67,6 +69,75 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
         self.instructionsLabel.font = UIFont(
             name: Constant.Font.Name.secondary,
             size: Constant.Font.Size.primaryLabel)
+    }
+    
+    func configureGestures() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(rescaleImage(_:)))
+        tapGestureRecognizer.delegate = self
+        self.chosenImageView.addGestureRecognizer(tapGestureRecognizer)
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(moveImageView(_:)))
+        panGestureRecognizer.delegate = self
+        self.chosenImageView.addGestureRecognizer(panGestureRecognizer)
+        
+        let rotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(rotateImageView(_:)))
+        rotationGestureRecognizer.delegate = self
+        self.chosenImageView.addGestureRecognizer(rotationGestureRecognizer)
+        
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(scaleImageView(_:)))
+        pinchGestureRecognizer.delegate = self
+        self.chosenImageView.addGestureRecognizer(pinchGestureRecognizer)
+    }
+    
+    @objc func rescaleImage(_ sender: Any) {
+        print("rescaling image")
+        self.chosenImageView.transform = .identity
+    }
+    
+    @objc func moveImageView(_ sender: UIPanGestureRecognizer) {
+        print("moving")
+        let translation = sender.translation(in: self.chosenImageView.superview)
+        
+        if sender.state == .began {
+            initialImageViewOffset = self.chosenImageView.frame.origin
+        }
+        
+        let position = CGPoint(
+            x: translation.x + initialImageViewOffset.x - self.chosenImageView.frame.origin.x,
+            y: translation.y + initialImageViewOffset.y - self.chosenImageView.frame.origin.y)
+        
+        self.chosenImageView.transform = self.chosenImageView.transform.translatedBy(x: position.x, y: position.y)
+    }
+    
+    @objc func rotateImageView(_ sender: UIRotationGestureRecognizer) {
+        print("rotating")
+        self.chosenImageView.transform = self.chosenImageView.transform.rotated(by: sender.rotation)
+        sender.rotation = 0
+    }
+    
+    @objc func scaleImageView(_ sender: UIPinchGestureRecognizer) {
+        print("scaling")
+        self.chosenImageView.transform = self.chosenImageView.transform.scaledBy(x: sender.scale, y: sender.scale)
+        sender.scale = 1
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
+        -> Bool {
+            // simultaneous gesture recognition will only be supported for chosenImageView
+            if gestureRecognizer.view != chosenImageView {
+                return false
+            }
+            
+            // neither of the recognized gestures should not be tap gesture
+            if gestureRecognizer is UITapGestureRecognizer
+                || otherGestureRecognizer is UITapGestureRecognizer
+                || gestureRecognizer is UIPanGestureRecognizer
+                || otherGestureRecognizer is UIPanGestureRecognizer {
+                return false
+            }
+            
+            return true
     }
     
     override func viewDidLayoutSubviews() {

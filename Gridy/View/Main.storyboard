@@ -210,7 +210,7 @@
                     <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OgK-fM-DeC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" image="alan-king-KZv7w34tluA-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="JWV-3x-gyw">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" image="alan-king-KZv7w34tluA-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="JWV-3x-gyw">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <viewLayoutGuide key="safeArea" id="7fx-7P-ee4"/>
                             </imageView>
@@ -414,11 +414,11 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="chosenImageView" destination="JWV-3x-gyw" id="Lc0-w4-6dT"/>
                         <outlet property="closeButton" destination="h39-Qd-GUC" id="ZX0-qf-JAO"/>
                         <outlet property="gridFrameView" destination="F6G-Ry-l0J" id="Y84-SP-nIa"/>
                         <outlet property="instructionsLabel" destination="VCO-TC-K1r" id="EM4-Lw-erf"/>
                         <outlet property="startButton" destination="hzp-8i-wNG" id="95W-7l-ZNZ"/>
-                        <outlet property="userImageView" destination="JWV-3x-gyw" id="Lc0-w4-6dT"/>
                         <outlet property="whiteView" destination="wRg-iN-bz1" id="hYU-Lh-Wmb"/>
                     </connections>
                 </viewController>

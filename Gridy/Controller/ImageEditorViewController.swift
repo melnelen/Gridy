@@ -11,41 +11,67 @@ import UIKit
 class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
     var image: UIImage!
     
-    @IBOutlet weak var imageManipulationScrollView: UIScrollView!
-    @IBOutlet weak var userImageImageView: UIImageView!
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var whiteView: WhiteLayerView!
+    @IBOutlet weak var gridFrameView: UIView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var instructionsLabel: UILabel!
-    @IBOutlet weak var gridImage: UIImageView!
+    
+    @IBAction func closeButtonTouched(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.userImageImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        self.userImageImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        self.userImageImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        self.userImageImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        self.userImageImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.imageManipulationScrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        self.imageManipulationScrollView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
-        self.imageManipulationScrollView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        self.imageManipulationScrollView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-        self.imageManipulationScrollView.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.imageManipulationScrollView.clipsToBounds = false
-        self.imageManipulationScrollView.minimumZoomScale = 0
-        self.imageManipulationScrollView.maximumZoomScale = 2
-        self.imageManipulationScrollView.delegate = self
-        
-        self.gridImage.topAnchor.constraint(equalTo: imageManipulationScrollView.topAnchor, constant: 0).isActive = true
-        self.gridImage.bottomAnchor.constraint(equalTo: imageManipulationScrollView.bottomAnchor, constant: 0).isActive = true
-        self.gridImage.leadingAnchor.constraint(equalTo: imageManipulationScrollView.leadingAnchor, constant: 0).isActive = true
-        self.gridImage.trailingAnchor.constraint(equalTo: imageManipulationScrollView.trailingAnchor, constant: 0).isActive = true
-        
+        setupUserImageView()
+        setupCloseButton()
+        setupStartButton()
+        setupInstructionsLabel()
     }
     
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        self.userImageImageView
+    // #MARK: - Setup Elements
+    
+    private func setupUserImageView() {
+        self.userImageView.image = image
+        self.userImageView.clipsToBounds = true
+        self.userImageView.contentMode = .scaleAspectFill
+    }
+    
+    private func setupCloseButton() {
+        self.closeButton.setTitle("x", for: .normal)
+        self.closeButton.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
+        self.closeButton.titleLabel?.font = UIFont(
+            name: Constant.Font.Name.primary,
+            size: Constant.Font.Size.closeButton)
+    }
+    
+    private func setupStartButton() {
+        self.startButton.setTitle("Start", for: .normal)
+        self.startButton.setTitleColor(UIColor (named: Constant.Color.secondaryLight), for: .normal)
+        self.startButton.backgroundColor = UIColor(named: Constant.Color.primaryColor)
+        self.startButton.titleLabel?.font = UIFont(
+            name: Constant.Font.Name.secondary,
+            size: Constant.Font.Size.primaryButton)
+        self.startButton.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
+        self.startButton.clipsToBounds = true
+    }
+    
+    private func setupInstructionsLabel() {
+        self.instructionsLabel.text = "Adjust the puzzle image:\nzoom, rotate, reposition"
+        self.instructionsLabel.textColor = UIColor(named: Constant.Color.primaryDark)
+        self.instructionsLabel.textAlignment = .center
+        self.instructionsLabel.baselineAdjustment = .alignCenters
+        self.instructionsLabel.numberOfLines = 0
+        self.instructionsLabel.font = UIFont(
+            name: Constant.Font.Name.secondary,
+            size: Constant.Font.Size.primaryLabel)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.whiteView.layoutIfNeeded()
+        self.whiteView.gridFrame = self.gridFrameView.frame
     }
 }

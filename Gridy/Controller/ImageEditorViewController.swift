@@ -10,6 +10,7 @@ import UIKit
 
 class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     var image: UIImage!
+    var croppedImage: UIImage!
     var initialImageViewOffset = CGPoint()
     
     @IBOutlet weak var chosenImageView: UIImageView!
@@ -23,6 +24,10 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func startButtonTouched(_ sender: Any) {
+        self.croppedImage = cropImage(screenshot: image)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +35,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         setupCloseButton()
         setupStartButton()
         setupInstructionsLabel()
-        configureGestures()
+        configureGestures(view: self.chosenImageView)
     }
     
     // #MARK: - Setup Elements
@@ -71,31 +76,38 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
             size: Constant.Font.Size.primaryLabel)
     }
     
-    func configureGestures() {
+    func configureGestures(view: UIView) {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(rescaleImage(_:)))
+        tapGestureRecognizer.numberOfTapsRequired = 2
         tapGestureRecognizer.delegate = self
-        self.chosenImageView.addGestureRecognizer(tapGestureRecognizer)
+        view.addGestureRecognizer(tapGestureRecognizer)
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(moveImageView(_:)))
         panGestureRecognizer.delegate = self
-        self.chosenImageView.addGestureRecognizer(panGestureRecognizer)
+        view.addGestureRecognizer(panGestureRecognizer)
         
-        let rotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(rotateImageView(_:)))
-        rotationGestureRecognizer.delegate = self
-        self.chosenImageView.addGestureRecognizer(rotationGestureRecognizer)
+//        let rotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(rotateImageView(_:)))
+//        rotationGestureRecognizer.delegate = self
+//        view.addGestureRecognizer(rotationGestureRecognizer)
         
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(scaleImageView(_:)))
         pinchGestureRecognizer.delegate = self
-        self.chosenImageView.addGestureRecognizer(pinchGestureRecognizer)
+        view.addGestureRecognizer(pinchGestureRecognizer)
     }
     
     @objc func rescaleImage(_ sender: Any) {
-        print("rescaling image")
-        self.chosenImageView.transform = .identity
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0.0,
+            usingSpringWithDamping: 0.5,
+            initialSpringVelocity: 0.5,
+            options: [],
+            animations: {
+            self.chosenImageView.transform = .identity
+        }) { (success) in }
     }
     
     @objc func moveImageView(_ sender: UIPanGestureRecognizer) {
-        print("moving")
         let translation = sender.translation(in: self.chosenImageView.superview)
         
         if sender.state == .began {
@@ -109,35 +121,74 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         self.chosenImageView.transform = self.chosenImageView.transform.translatedBy(x: position.x, y: position.y)
     }
     
-    @objc func rotateImageView(_ sender: UIRotationGestureRecognizer) {
-        print("rotating")
-        self.chosenImageView.transform = self.chosenImageView.transform.rotated(by: sender.rotation)
-        sender.rotation = 0
-    }
+//    @objc func rotateImageView(_ sender: UIRotationGestureRecognizer) {
+//        self.chosenImageView.transform = self.chosenImageView.transform.rotated(by: sender.rotation)
+//        sender.rotation = 0
+//    }
     
     @objc func scaleImageView(_ sender: UIPinchGestureRecognizer) {
-        print("scaling")
-        self.chosenImageView.transform = self.chosenImageView.transform.scaledBy(x: sender.scale, y: sender.scale)
-        sender.scale = 1
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
-                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
-        -> Bool {
-            // simultaneous gesture recognition will only be supported for chosenImageView
-            if gestureRecognizer.view != chosenImageView {
-                return false
+        let minScale:CGFloat = 0.5
+        let maxScale:CGFloat = 5
+        let currentScale = self.chosenImageView.frame.width/self.chosenImageView.bounds.size.width
+        
+        switch sender.state {
+        case .began, .changed:
+            var newScale = sender.scale
+            if currentScale * sender.scale < minScale {
+                newScale = minScale / currentScale
+            } else if currentScale * sender.scale > maxScale {
+                newScale = maxScale / currentScale
             }
+            self.chosenImageView.transform = self.chosenImageView.transform.scaledBy(x: newScale, y: newScale)
             
-            // neither of the recognized gestures should not be tap gesture
-            if gestureRecognizer is UITapGestureRecognizer
-                || otherGestureRecognizer is UITapGestureRecognizer
-                || gestureRecognizer is UIPanGestureRecognizer
-                || otherGestureRecognizer is UIPanGestureRecognizer {
-                return false
+        case .ended:
+            print(gridFrameView.frame)
+            print(chosenImageView.frame)
+            print(self.view.convert(gridFrameView.bounds, from: gridFrameView))
+            print("--")
+            if !self.chosenImageView.frame.contains(self.gridFrameView.frame) {
+                UIView.animate(
+                    withDuration: 0.5,
+                    delay: 0.0,
+                    usingSpringWithDamping: 0.5,
+                    initialSpringVelocity: 0.5,
+                    options: [],
+                    animations: {
+                    self.chosenImageView.transform = .identity
+                }) { (success) in }
             }
+        default:
+            break
+        }
             
-            return true
+            sender.scale = 1
+        }
+        
+        func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                               shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
+            -> Bool {
+                // simultaneous gesture recognition will only be supported for chosenImageView
+                if gestureRecognizer.view != chosenImageView {
+                    return false
+                }
+                
+                // neither of the recognized gestures should not be tap gesture
+                if gestureRecognizer is UITapGestureRecognizer
+                    || otherGestureRecognizer is UITapGestureRecognizer
+                    || gestureRecognizer is UIPanGestureRecognizer
+                    || otherGestureRecognizer is UIPanGestureRecognizer {
+                    return false
+                }
+                
+                return true
+        }
+
+    func cropImage(screenshot: UIImage) -> UIImage {
+        let crop = self.chosenImageView.convert(self.gridFrameView.bounds, from: self.gridFrameView)
+        let cgImage = screenshot.cgImage!.cropping (to: crop)
+        let image: UIImage = UIImage (cgImage: cgImage!)
+        print(crop)
+        return image
     }
     
     override func viewDidLayoutSubviews() {

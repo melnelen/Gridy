@@ -71,6 +71,8 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
         displayMediaPicker(sourceType: sourceType)
     }
     
+    @IBAction func unwindToStart(_ sender: UIStoryboardSegue) {}
+    
     /// Use the Image Picker for: camera or photo library
     ///
     /// - Parameter sourceType: camera or photo library

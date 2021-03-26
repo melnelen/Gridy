@@ -195,6 +195,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="wXv-3G-bfl"/>
                     <connections>
                         <outlet property="cameraButton" destination="pu2-Gr-gvc" id="S7R-fj-Pcb"/>
                         <outlet property="gridyPickButton" destination="3MK-ND-cDn" id="ddb-p7-LuJ"/>
@@ -458,7 +459,8 @@
                                             <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="12"/>
                                         </variation>
                                         <connections>
-                                            <action selector="startNewGame:" destination="RzF-6g-6o0" eventType="touchUpInside" id="EBk-7f-Htg"/>
+                                            <action selector="startNewGame:" destination="RzF-6g-6o0" eventType="touchUpInside" id="vNl-hY-QOM"/>
+                                            <segue destination="2qJ-qg-42L" kind="unwind" unwindAction="unwindToStart:" id="zrT-3j-vra"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gridy-name-small-green" translatesAutoresizingMaskIntoConstraints="NO" id="NaT-Uc-Kn8" userLabel="Logo Image View">
@@ -691,7 +693,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="newGameButton" destination="tBk-0b-V4O" id="0A3-O9-1wL"/>
+                        <outlet property="newGameButton" destination="tBk-0b-V4O" id="8tq-K8-JsC"/>
                         <outletCollection property="puzzlePiecesImageViews" destination="a0X-cV-uvy" collectionClass="NSMutableArray" id="FAS-Q4-mGa"/>
                         <outletCollection property="puzzlePiecesImageViews" destination="wSf-ji-pWz" collectionClass="NSMutableArray" id="hB1-0s-41C"/>
                         <outletCollection property="puzzlePiecesImageViews" destination="dwM-BX-lBm" collectionClass="NSMutableArray" id="D92-qH-htR"/>
@@ -711,6 +713,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Apc-Ou-c91" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="2qJ-qg-42L" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1661.5384615384614" y="136.49289099526067"/>
         </scene>

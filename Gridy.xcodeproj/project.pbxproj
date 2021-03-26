@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00DD716260A2D30002CB1B1 /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00DD715260A2D30002CB1B1 /* PuzzleViewController.swift */; };
 		D01038A124913770008E1ADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01038A024913770008E1ADE /* AppDelegate.swift */; };
 		D01038A324913770008E1ADE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01038A224913770008E1ADE /* SceneDelegate.swift */; };
 		D01038A524913770008E1ADE /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01038A424913770008E1ADE /* StartViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D00DD715260A2D30002CB1B1 /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
 		D010389D24913770008E1ADE /* Gridy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gridy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D01038A024913770008E1ADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D01038A224913770008E1ADE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				D0B7808C24CB4D4700A42090 /* ImageEditorViewController.swift */,
+				D00DD715260A2D30002CB1B1 /* PuzzleViewController.swift */,
 				D01038A424913770008E1ADE /* StartViewController.swift */,
 			);
 			path = Controller;
@@ -164,7 +167,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Alex Ivanova";
 				TargetAttributes = {
 					D010389C24913770008E1ADE = {
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0B0AD8325338CC200560A1B /* Position.swift in Sources */,
+				D00DD716260A2D30002CB1B1 /* PuzzleViewController.swift in Sources */,
 				D01038A524913770008E1ADE /* StartViewController.swift in Sources */,
 				D0D3EDFF2520F4CB007DB38A /* Helper.swift in Sources */,
 				D01038A124913770008E1ADE /* AppDelegate.swift in Sources */,
@@ -264,6 +268,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -324,6 +329,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

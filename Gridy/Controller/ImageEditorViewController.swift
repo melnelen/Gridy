@@ -11,6 +11,7 @@ import UIKit
 class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     var image: UIImage!
     var croppedImage: UIImage!
+    var imagePieces: [UIImage]!
     var initialImageViewOffset = CGPoint()
     
     @IBOutlet weak var chosenImageView: UIImageView!
@@ -24,8 +25,9 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func startButtonTouched(_ sender: Any) {
-        self.croppedImage = cropImage(screenshot: image)
+    @IBAction func startButtonTouchedDown(_ sender: Any) {
+        self.croppedImage = crop(image: image)
+        self.imagePieces = cropIn(pieces: croppedImage)
     }
     
     override func viewDidLoad() {
@@ -86,9 +88,9 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         panGestureRecognizer.delegate = self
         view.addGestureRecognizer(panGestureRecognizer)
         
-//        let rotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(rotateImageView(_:)))
-//        rotationGestureRecognizer.delegate = self
-//        view.addGestureRecognizer(rotationGestureRecognizer)
+        let rotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(rotateImageView(_:)))
+        rotationGestureRecognizer.delegate = self
+        view.addGestureRecognizer(rotationGestureRecognizer)
         
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(scaleImageView(_:)))
         pinchGestureRecognizer.delegate = self
@@ -103,8 +105,8 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
             initialSpringVelocity: 0.5,
             options: [],
             animations: {
-            self.chosenImageView.transform = .identity
-        }) { (success) in }
+                self.chosenImageView.transform = .identity
+            }) { (success) in }
     }
     
     @objc func moveImageView(_ sender: UIPanGestureRecognizer) {
@@ -118,13 +120,17 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
             x: translation.x + initialImageViewOffset.x - self.chosenImageView.frame.origin.x,
             y: translation.y + initialImageViewOffset.y - self.chosenImageView.frame.origin.y)
         
+        //        var copyOfChosenImageViewFrame = self.chosenImageView.frame
+        //        copyOfChosenImageViewFrame.origin = position
+        //        self.chosenImageView.frame = copyOfChosenImageViewFrame
         self.chosenImageView.transform = self.chosenImageView.transform.translatedBy(x: position.x, y: position.y)
+        
     }
     
-//    @objc func rotateImageView(_ sender: UIRotationGestureRecognizer) {
-//        self.chosenImageView.transform = self.chosenImageView.transform.rotated(by: sender.rotation)
-//        sender.rotation = 0
-//    }
+    @objc func rotateImageView(_ sender: UIRotationGestureRecognizer) {
+        self.chosenImageView.transform = self.chosenImageView.transform.rotated(by: sender.rotation)
+        sender.rotation = 0
+    }
     
     @objc func scaleImageView(_ sender: UIPinchGestureRecognizer) {
         let minScale:CGFloat = 0.5
@@ -145,7 +151,6 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
             print(gridFrameView.frame)
             print(chosenImageView.frame)
             print(self.view.convert(gridFrameView.bounds, from: gridFrameView))
-            print("--")
             if !self.chosenImageView.frame.contains(self.gridFrameView.frame) {
                 UIView.animate(
                     withDuration: 0.5,
@@ -154,46 +159,81 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
                     initialSpringVelocity: 0.5,
                     options: [],
                     animations: {
-                    self.chosenImageView.transform = .identity
-                }) { (success) in }
+                        self.chosenImageView.transform = .identity
+                    }) { (success) in }
             }
         default:
             break
         }
-            
-            sender.scale = 1
+        
+        sender.scale = 1
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
+    -> Bool {
+        // simultaneous gesture recognition will only be supported for chosenImageView
+        if gestureRecognizer.view != chosenImageView {
+            return false
         }
         
-        func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
-                               shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
-            -> Bool {
-                // simultaneous gesture recognition will only be supported for chosenImageView
-                if gestureRecognizer.view != chosenImageView {
-                    return false
-                }
-                
-                // neither of the recognized gestures should not be tap gesture
-                if gestureRecognizer is UITapGestureRecognizer
-                    || otherGestureRecognizer is UITapGestureRecognizer
-                    || gestureRecognizer is UIPanGestureRecognizer
-                    || otherGestureRecognizer is UIPanGestureRecognizer {
-                    return false
-                }
-                
-                return true
+        // neither of the recognized gestures should not be tap gesture
+        if gestureRecognizer is UITapGestureRecognizer
+            || otherGestureRecognizer is UITapGestureRecognizer
+            || gestureRecognizer is UIPanGestureRecognizer
+            || otherGestureRecognizer is UIPanGestureRecognizer {
+            return false
         }
-
-    func cropImage(screenshot: UIImage) -> UIImage {
-        let crop = self.chosenImageView.convert(self.gridFrameView.bounds, from: self.gridFrameView)
-        let cgImage = screenshot.cgImage!.cropping (to: crop)
-        let image: UIImage = UIImage (cgImage: cgImage!)
-        print(crop)
-        return image
+        
+        return true
+    }
+    
+    private func crop(image: UIImage) -> UIImage {
+        let scale: CGFloat = image.scale
+        let rectangle = self.chosenImageView.convert(self.gridFrameView.bounds, from: self.gridFrameView)
+        let scaledRectangle = CGRect(x: rectangle.origin.x * scale,
+                                     y: rectangle.origin.y * scale,
+                                     width: rectangle.size.width * scale,
+                                     height: rectangle.size.height * scale)
+        let cgImage = image.cgImage!.cropping (to: scaledRectangle)
+        let croppedImage = UIImage(cgImage: cgImage!, scale: scale, orientation: .up)
+        return croppedImage
+    }
+    
+    private func cropIn(pieces image: UIImage) -> [UIImage] {
+        let piecesHeight = image.size.height / 4
+        let piecesWidth = image.size.width / 4
+        
+        var imagePieces: [UIImage] = []
+        var rectangle: CGRect
+        let scale: CGFloat = image.scale
+        
+        for line in 0..<4 {
+            for column in 0..<4 {
+                rectangle = CGRect(x: CGFloat(line) * piecesWidth,
+                                   y: CGFloat(column) * piecesHeight,
+                                   width: piecesWidth,
+                                   height: piecesHeight)
+                let cgImage = image.cgImage!.cropping (to: rectangle)
+                let croppedImage = UIImage(cgImage: cgImage!, scale: scale, orientation: .up)
+                imagePieces.append(croppedImage)
+            }
+        }
+        
+        return imagePieces
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.whiteView.layoutIfNeeded()
         self.whiteView.gridFrame = self.gridFrameView.frame
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "startGame" {
+            let newVC: PuzzleViewController = segue.destination as! PuzzleViewController
+            newVC.imagePieces = self.imagePieces
+            newVC.imageEditor = self
+        }
     }
 }

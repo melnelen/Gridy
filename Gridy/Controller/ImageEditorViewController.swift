@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
+class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     var image: UIImage!
+    var croppedImage: UIImage!
+    var initialImageViewOffset = CGPoint()
     
-    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var chosenImageView: UIImageView!
     @IBOutlet weak var whiteView: WhiteLayerView!
     @IBOutlet weak var gridFrameView: UIView!
     @IBOutlet weak var closeButton: UIButton!
@@ -22,6 +24,10 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func startButtonTouched(_ sender: Any) {
+        self.croppedImage = cropImage(screenshot: image)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,14 +35,15 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
         setupCloseButton()
         setupStartButton()
         setupInstructionsLabel()
+        configureGestures(view: self.chosenImageView)
     }
     
     // #MARK: - Setup Elements
     
     private func setupUserImageView() {
-        self.userImageView.image = image
-        self.userImageView.clipsToBounds = true
-        self.userImageView.contentMode = .scaleAspectFill
+        self.chosenImageView.image = image
+        self.chosenImageView.clipsToBounds = true
+        self.chosenImageView.contentMode = .scaleAspectFill
     }
     
     private func setupCloseButton() {
@@ -67,6 +74,121 @@ class ImageEditorViewController: UIViewController, UIScrollViewDelegate {
         self.instructionsLabel.font = UIFont(
             name: Constant.Font.Name.secondary,
             size: Constant.Font.Size.primaryLabel)
+    }
+    
+    func configureGestures(view: UIView) {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(rescaleImage(_:)))
+        tapGestureRecognizer.numberOfTapsRequired = 2
+        tapGestureRecognizer.delegate = self
+        view.addGestureRecognizer(tapGestureRecognizer)
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(moveImageView(_:)))
+        panGestureRecognizer.delegate = self
+        view.addGestureRecognizer(panGestureRecognizer)
+        
+//        let rotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(rotateImageView(_:)))
+//        rotationGestureRecognizer.delegate = self
+//        view.addGestureRecognizer(rotationGestureRecognizer)
+        
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(scaleImageView(_:)))
+        pinchGestureRecognizer.delegate = self
+        view.addGestureRecognizer(pinchGestureRecognizer)
+    }
+    
+    @objc func rescaleImage(_ sender: Any) {
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0.0,
+            usingSpringWithDamping: 0.5,
+            initialSpringVelocity: 0.5,
+            options: [],
+            animations: {
+            self.chosenImageView.transform = .identity
+        }) { (success) in }
+    }
+    
+    @objc func moveImageView(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: self.chosenImageView.superview)
+        
+        if sender.state == .began {
+            initialImageViewOffset = self.chosenImageView.frame.origin
+        }
+        
+        let position = CGPoint(
+            x: translation.x + initialImageViewOffset.x - self.chosenImageView.frame.origin.x,
+            y: translation.y + initialImageViewOffset.y - self.chosenImageView.frame.origin.y)
+        
+        self.chosenImageView.transform = self.chosenImageView.transform.translatedBy(x: position.x, y: position.y)
+    }
+    
+//    @objc func rotateImageView(_ sender: UIRotationGestureRecognizer) {
+//        self.chosenImageView.transform = self.chosenImageView.transform.rotated(by: sender.rotation)
+//        sender.rotation = 0
+//    }
+    
+    @objc func scaleImageView(_ sender: UIPinchGestureRecognizer) {
+        let minScale:CGFloat = 0.5
+        let maxScale:CGFloat = 5
+        let currentScale = self.chosenImageView.frame.width/self.chosenImageView.bounds.size.width
+        
+        switch sender.state {
+        case .began, .changed:
+            var newScale = sender.scale
+            if currentScale * sender.scale < minScale {
+                newScale = minScale / currentScale
+            } else if currentScale * sender.scale > maxScale {
+                newScale = maxScale / currentScale
+            }
+            self.chosenImageView.transform = self.chosenImageView.transform.scaledBy(x: newScale, y: newScale)
+            
+        case .ended:
+            print(gridFrameView.frame)
+            print(chosenImageView.frame)
+            print(self.view.convert(gridFrameView.bounds, from: gridFrameView))
+            print("--")
+            if !self.chosenImageView.frame.contains(self.gridFrameView.frame) {
+                UIView.animate(
+                    withDuration: 0.5,
+                    delay: 0.0,
+                    usingSpringWithDamping: 0.5,
+                    initialSpringVelocity: 0.5,
+                    options: [],
+                    animations: {
+                    self.chosenImageView.transform = .identity
+                }) { (success) in }
+            }
+        default:
+            break
+        }
+            
+            sender.scale = 1
+        }
+        
+        func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                               shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
+            -> Bool {
+                // simultaneous gesture recognition will only be supported for chosenImageView
+                if gestureRecognizer.view != chosenImageView {
+                    return false
+                }
+                
+                // neither of the recognized gestures should not be tap gesture
+                if gestureRecognizer is UITapGestureRecognizer
+                    || otherGestureRecognizer is UITapGestureRecognizer
+                    || gestureRecognizer is UIPanGestureRecognizer
+                    || otherGestureRecognizer is UIPanGestureRecognizer {
+                    return false
+                }
+                
+                return true
+        }
+
+    func cropImage(screenshot: UIImage) -> UIImage {
+        let crop = self.chosenImageView.convert(self.gridFrameView.bounds, from: self.gridFrameView)
+        let cgImage = screenshot.cgImage!.cropping (to: crop)
+        let image: UIImage = UIImage (cgImage: cgImage!)
+        print(crop)
+        return image
     }
     
     override func viewDidLayoutSubviews() {

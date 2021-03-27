@@ -36,7 +36,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Challenge yourself with a photo puzzle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Okp-qX-2S2">
-                                <rect key="frame" x="70" y="192" width="235" height="17"/>
+                                <rect key="frame" x="70" y="193.66666666666666" width="235" height="15.333333333333343"/>
                                 <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="13"/>
                                 <color key="textColor" name="DarkGray"/>
                                 <nil key="highlightedColor"/>

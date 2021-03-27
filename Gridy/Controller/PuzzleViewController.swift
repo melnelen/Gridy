@@ -49,7 +49,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
             puzzlePiece.contentMode = .scaleToFill
             puzzlePiece.layer.borderWidth = 1
             //fill puzzle pieces with images
-            puzzlePiece.image = randomizedImagePieces[index] //UIImage(named: Constant.Image.nameSmall)
+            puzzlePiece.image = randomizedImagePieces[index]
         }
     }
     

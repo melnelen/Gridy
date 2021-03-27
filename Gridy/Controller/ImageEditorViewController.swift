@@ -120,9 +120,6 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
             x: translation.x + initialImageViewOffset.x - self.chosenImageView.frame.origin.x,
             y: translation.y + initialImageViewOffset.y - self.chosenImageView.frame.origin.y)
         
-        //        var copyOfChosenImageViewFrame = self.chosenImageView.frame
-        //        copyOfChosenImageViewFrame.origin = position
-        //        self.chosenImageView.frame = copyOfChosenImageViewFrame
         self.chosenImageView.transform = self.chosenImageView.transform.translatedBy(x: position.x, y: position.y)
         
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -214,7 +214,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" image="alan-king-KZv7w34tluA-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="JWV-3x-gyw">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <rect key="frame" x="-285" y="-298" width="960" height="1440"/>
                                 <viewLayoutGuide key="safeArea" id="7fx-7P-ee4"/>
                             </imageView>
                             <view userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRg-iN-bz1" userLabel="White View" customClass="WhiteLayerView" customModule="Gridy" customModuleProvider="target">
@@ -342,11 +342,9 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="2"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="10"/>
                             </constraint>
-                            <constraint firstItem="JWV-3x-gyw" firstAttribute="top" secondItem="OgK-fM-DeC" secondAttribute="top" id="2vk-Ta-ciR"/>
                             <constraint firstItem="g27-9W-VGD" firstAttribute="height" secondItem="PfV-aZ-E5Q" secondAttribute="height" multiplier="1:2" id="6WP-pe-75g"/>
                             <constraint firstItem="g27-9W-VGD" firstAttribute="leading" secondItem="PfV-aZ-E5Q" secondAttribute="leading" id="7It-jb-6Zw"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="bottom" secondItem="g27-9W-VGD" secondAttribute="top" id="7un-vi-hda"/>
-                            <constraint firstItem="JWV-3x-gyw" firstAttribute="bottom" secondItem="OgK-fM-DeC" secondAttribute="bottom" id="Gbe-2q-5Gd"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="leading" secondItem="PfV-aZ-E5Q" secondAttribute="leading" constant="20" id="JZH-Et-UV2">
                                 <variation key="heightClass=compact-widthClass=compact" constant="2"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="10"/>
@@ -356,13 +354,13 @@
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="centerX" secondItem="PfV-aZ-E5Q" secondAttribute="centerX" id="U4n-Ei-W61"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="width" secondItem="OgK-fM-DeC" secondAttribute="height" multiplier="1:1.2" id="V1b-XA-Ray"/>
                             <constraint firstItem="wRg-iN-bz1" firstAttribute="bottom" secondItem="OgK-fM-DeC" secondAttribute="bottom" id="V1m-dh-W2z"/>
-                            <constraint firstItem="JWV-3x-gyw" firstAttribute="leading" secondItem="OgK-fM-DeC" secondAttribute="leading" id="Xex-Q7-tlg"/>
-                            <constraint firstItem="JWV-3x-gyw" firstAttribute="trailing" secondItem="OgK-fM-DeC" secondAttribute="trailing" id="YVG-KK-acB"/>
                             <constraint firstItem="PfV-aZ-E5Q" firstAttribute="leading" secondItem="FEd-H7-cLY" secondAttribute="leading" id="bHW-sV-lEC"/>
                             <constraint firstItem="g27-9W-VGD" firstAttribute="leading" secondItem="F6G-Ry-l0J" secondAttribute="trailing" priority="750" id="bWO-2x-32X"/>
+                            <constraint firstItem="JWV-3x-gyw" firstAttribute="centerY" secondItem="OgK-fM-DeC" secondAttribute="centerY" id="d7o-Mx-PdL"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="top" secondItem="FEd-H7-cLY" secondAttribute="bottom" id="hUK-sF-DJX"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="centerY" secondItem="PfV-aZ-E5Q" secondAttribute="centerY" priority="750" id="lNl-Ha-XYL"/>
                             <constraint firstItem="FEd-H7-cLY" firstAttribute="leading" secondItem="F6G-Ry-l0J" secondAttribute="trailing" priority="750" id="m9p-Ye-5Uz"/>
+                            <constraint firstItem="JWV-3x-gyw" firstAttribute="centerX" secondItem="OgK-fM-DeC" secondAttribute="centerX" id="meM-H1-RtJ"/>
                             <constraint firstItem="PfV-aZ-E5Q" firstAttribute="bottom" secondItem="g27-9W-VGD" secondAttribute="bottom" id="nBi-17-SMq"/>
                             <constraint firstItem="PfV-aZ-E5Q" firstAttribute="trailing" secondItem="h39-Qd-GUC" secondAttribute="trailing" constant="20" id="scc-p5-kco"/>
                             <constraint firstItem="FEd-H7-cLY" firstAttribute="top" secondItem="PfV-aZ-E5Q" secondAttribute="top" id="t07-iA-xvi"/>

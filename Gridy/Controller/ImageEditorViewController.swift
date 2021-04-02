@@ -207,10 +207,10 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         
         for line in 0..<4 {
             for column in 0..<4 {
-                rectangle = CGRect(x: CGFloat(line) * piecesWidth,
-                                   y: CGFloat(column) * piecesHeight,
-                                   width: piecesWidth,
-                                   height: piecesHeight)
+                rectangle = CGRect(x: CGFloat(line) * piecesWidth * scale,
+                                   y: CGFloat(column) * piecesHeight * scale,
+                                   width: piecesWidth  * scale,
+                                   height: piecesHeight  * scale)
                 let cgImage = image.cgImage!.cropping (to: rectangle)
                 let croppedImage = UIImage(cgImage: cgImage!, scale: scale, orientation: .up)
                 imagePieces.append(croppedImage)

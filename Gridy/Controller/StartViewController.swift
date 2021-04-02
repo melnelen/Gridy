@@ -54,8 +54,8 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
     @IBAction private func pickRandomImage(_ sender: Any) {
         let randomImageName = Helper.localImages.randomElement()!
         
-        if let image = UIImage(named: randomImageName) {
-            processPicked(image: image)
+        if let randomImage = UIImage(named: randomImageName) {
+            processPicked(image: randomImage)
         }
     }
     
@@ -70,6 +70,8 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
         
         displayMediaPicker(sourceType: sourceType)
     }
+    
+    @IBAction func unwindToStart(_ sender: UIStoryboardSegue) {}
     
     /// Use the Image Picker for: camera or photo library
     ///

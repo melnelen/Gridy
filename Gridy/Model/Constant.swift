@@ -17,6 +17,7 @@ struct Constant {
         struct Size {
             static let closeButton: CGFloat = 40
             static let primaryButton: CGFloat = 30
+            static let mediumButton: CGFloat = 16
             static let primaryLabel: CGFloat = 18
             static let secondaryButton: CGFloat = 13
         }

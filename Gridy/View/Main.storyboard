@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_0" orientation="portrait" appearance="dark"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -374,8 +374,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="m9p-Ye-5Uz"/>
                                 <exclude reference="tzf-GB-4JN"/>
+                                <exclude reference="m9p-Ye-5Uz"/>
                                 <exclude reference="2Lt-B1-4j5"/>
                                 <exclude reference="JZH-Et-UV2"/>
                                 <exclude reference="KAv-Xi-QB8"/>
@@ -386,9 +386,9 @@
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="m9p-Ye-5Uz"/>
                                 <exclude reference="bHW-sV-lEC"/>
                                 <include reference="tzf-GB-4JN"/>
+                                <include reference="m9p-Ye-5Uz"/>
                                 <include reference="2Lt-B1-4j5"/>
                                 <exclude reference="7un-vi-hda"/>
                                 <include reference="KAv-Xi-QB8"/>
@@ -403,9 +403,9 @@
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
                             <mask key="constraints">
-                                <include reference="m9p-Ye-5Uz"/>
                                 <exclude reference="bHW-sV-lEC"/>
                                 <include reference="tzf-GB-4JN"/>
+                                <include reference="m9p-Ye-5Uz"/>
                                 <include reference="2Lt-B1-4j5"/>
                                 <exclude reference="7un-vi-hda"/>
                                 <exclude reference="U4n-Ei-W61"/>
@@ -540,125 +540,97 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zk-Bk-pnX" userLabel="Puzzle Pieces Container">
                                 <rect key="frame" x="16" y="60" width="358" height="318"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="d16-ct-XRC">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="d16-ct-XRC">
                                         <rect key="frame" x="8" y="8" width="342" height="53"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a0X-cV-uvy" userLabel="Puzzle Piece 1 Image View">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lop-I4-POO" userLabel="Puzzle Piece 1 Paceholder View">
                                                 <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="a0X-cV-uvy" secondAttribute="height" multiplier="1:1" id="4fo-O8-ZZi"/>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="E2Y-PU-xEk"/>
-                                                    <constraint firstAttribute="height" priority="750" constant="80" id="RYe-UF-N8w"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="bZV-Wq-x07"/>
+                                                    <constraint firstAttribute="height" priority="750" constant="80" id="jZF-ao-cjK"/>
                                                 </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wSf-ji-pWz" userLabel="Puzzle Piece 2 Image View">
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gsv-lf-6v3" userLabel="Puzzle Piece 2 Paceholder View">
                                                 <rect key="frame" x="58" y="0.0" width="52.666666666666657" height="53"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="wSf-ji-pWz" secondAttribute="height" multiplier="1:1" id="aIH-cJ-DCb"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dwM-BX-lBm" userLabel="Puzzle Piece 3 Image View">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPX-cz-yrM" userLabel="Puzzle Piece 3 Paceholder View">
                                                 <rect key="frame" x="115.66666666666666" y="0.0" width="53" height="53"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="dwM-BX-lBm" secondAttribute="height" multiplier="1:1" id="J3K-gh-q4H"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Qg-9a-JWP" userLabel="Puzzle Piece 4 Image View">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rpp-kp-9tT" userLabel="Puzzle Piece 4 Paceholder View">
                                                 <rect key="frame" x="173.66666666666666" y="0.0" width="52.666666666666657" height="53"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="6Qg-9a-JWP" secondAttribute="height" multiplier="1:1" id="Atv-68-hJ3"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="owk-yE-ydS" userLabel="Puzzle Piece 5 Image View">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5X-w3-kj7" userLabel="Puzzle Piece 5 Paceholder View">
                                                 <rect key="frame" x="231.33333333333337" y="0.0" width="53" height="53"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="owk-yE-ydS" secondAttribute="height" multiplier="1:1" id="No9-9z-j2w"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U1H-O7-zwM" userLabel="Puzzle Piece 6 Image View">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4i-sk-XTc" userLabel="Puzzle Piece 6 Paceholder View">
                                                 <rect key="frame" x="289.33333333333331" y="0.0" width="52.666666666666686" height="53"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="U1H-O7-zwM" secondAttribute="height" multiplier="1:1" id="9cu-2w-sVI"/>
-                                                </constraints>
-                                            </imageView>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bAy-tc-DTo">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bAy-tc-DTo">
                                         <rect key="frame" x="8" y="66" width="342" height="52.666666666666657"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W8p-qD-K5E" userLabel="Puzzle Piece 7 Image View">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tDo-Az-lc5" userLabel="Puzzle Piece 7 Paceholder View">
                                                 <rect key="frame" x="0.0" y="0.0" width="53" height="52.666666666666664"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="W8p-qD-K5E" secondAttribute="height" multiplier="1:1" id="Db4-R9-DOa"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NRh-OX-dca" userLabel="Puzzle Piece 8 Image View">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzk-hC-oNm" userLabel="Puzzle Piece 8 Paceholder View">
                                                 <rect key="frame" x="58" y="0.0" width="52.666666666666657" height="52.666666666666664"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="NRh-OX-dca" secondAttribute="height" multiplier="1:1" id="QvK-l5-GH0"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q6N-vK-Nyv" userLabel="Puzzle Piece 9 Image View">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1x-fq-4Mw" userLabel="Puzzle Piece 9 Paceholder View">
                                                 <rect key="frame" x="115.66666666666666" y="0.0" width="53" height="52.666666666666664"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="q6N-vK-Nyv" secondAttribute="height" multiplier="1:1" id="liB-La-Zwz"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iUe-5i-6iY" userLabel="Puzzle Piece 10 Image View">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKB-s6-7Rx" userLabel="Puzzle Piece 10 Paceholder View">
                                                 <rect key="frame" x="173.66666666666666" y="0.0" width="52.666666666666657" height="52.666666666666664"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="iUe-5i-6iY" secondAttribute="height" multiplier="1:1" id="dwh-3o-kAn"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g3X-4k-gRc" userLabel="Puzzle Piece 11 Image View">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1HQ-ll-4kS" userLabel="Puzzle Piece 11 Paceholder View">
                                                 <rect key="frame" x="231.33333333333337" y="0.0" width="53" height="52.666666666666664"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="g3X-4k-gRc" secondAttribute="height" multiplier="1:1" id="bHY-nD-VaE"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FaS-ky-IWV" userLabel="Puzzle Piece 12 Image View">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4R-T1-DJ8" userLabel="Puzzle Piece 12 Paceholder View">
                                                 <rect key="frame" x="289.33333333333331" y="0.0" width="52.666666666666686" height="52.666666666666664"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="FaS-ky-IWV" secondAttribute="height" multiplier="1:1" id="dk9-0b-FdY"/>
-                                                </constraints>
-                                            </imageView>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SnI-le-0F8">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SnI-le-0F8">
                                         <rect key="frame" x="8" y="123.66666666666666" width="342" height="53"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C8g-ic-1tb" userLabel="Puzzle Piece 13 Image View">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cgu-u1-uVX" userLabel="Puzzle Piece 13 Paceholder View">
                                                 <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="C8g-ic-1tb" secondAttribute="height" multiplier="1:1" id="Y0p-tK-RhF"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mXg-bf-G6G" userLabel="Puzzle Piece 14 Image View">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cp8-jk-ejn" userLabel="Puzzle Piece 14 Paceholder View">
                                                 <rect key="frame" x="58" y="0.0" width="52.666666666666657" height="53"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="mXg-bf-G6G" secondAttribute="height" multiplier="1:1" id="IdR-B2-Pyb"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wsk-eR-yMZ" userLabel="Puzzle Piece 15 Image View">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cdt-cT-kQQ" userLabel="Puzzle Piece 15 Paceholder View">
                                                 <rect key="frame" x="115.66666666666666" y="0.0" width="53" height="53"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="wsk-eR-yMZ" secondAttribute="height" multiplier="1:1" id="ogh-GE-lmh"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eNR-7o-KBI" userLabel="Puzzle Piece 16 Image View">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zo-UN-afm" userLabel="Puzzle Piece 16 Paceholder View">
                                                 <rect key="frame" x="173.66666666666666" y="0.0" width="52.666666666666657" height="53"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="eNR-7o-KBI" secondAttribute="height" multiplier="1:1" id="7PD-r2-UQV"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lq1-k4-Idf">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gridy-sound-mute" translatesAutoresizingMaskIntoConstraints="NO" id="lq1-k4-Idf">
                                                 <rect key="frame" x="231.33333333333337" y="0.0" width="53" height="53"/>
+                                                <color key="tintColor" name="DarkGray"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="lq1-k4-Idf" secondAttribute="height" multiplier="1:1" id="Jbd-gk-Bqs"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gridy-lookup" translatesAutoresizingMaskIntoConstraints="NO" id="v1a-pO-3IJ">
                                                 <rect key="frame" x="289.33333333333331" y="0.0" width="52.666666666666686" height="53"/>
+                                                <color key="tintColor" name="DarkGray"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="v1a-pO-3IJ" secondAttribute="height" multiplier="1:1" id="PO2-yA-13H"/>
                                                 </constraints>
@@ -678,6 +650,8 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="tDo-Az-lc5" firstAttribute="height" secondItem="Lop-I4-POO" secondAttribute="height" id="6p7-Db-QQV"/>
+                                    <constraint firstItem="Cgu-u1-uVX" firstAttribute="height" secondItem="Lop-I4-POO" secondAttribute="height" id="6u2-pr-5gj"/>
                                     <constraint firstItem="OoI-Ec-JcH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SnI-le-0F8" secondAttribute="bottom" constant="8" id="ABd-iw-XCe"/>
                                     <constraint firstAttribute="bottom" secondItem="OoI-Ec-JcH" secondAttribute="bottom" constant="8" id="BMM-Ch-b2H"/>
                                     <constraint firstItem="bAy-tc-DTo" firstAttribute="leading" secondItem="6zk-Bk-pnX" secondAttribute="leading" constant="8" id="GDv-BK-vHu"/>
@@ -719,162 +693,114 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDt-Qm-Rn1" userLabel="Puzzle Container">
                                 <rect key="frame" x="24" y="406" width="342" height="342"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="0eW-PQ-vGG">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0eW-PQ-vGG">
                                         <rect key="frame" x="0.0" y="0.0" width="342" height="85.666666666666671"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Xj-Pd-iKL">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OCJ-qE-qtm" userLabel="Puzzle Block 1 View">
                                                 <rect key="frame" x="0.0" y="0.0" width="85.666666666666671" height="85.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="9Xj-Pd-iKL" secondAttribute="height" multiplier="1:1" id="P83-Xd-M92"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SKr-aN-tdZ">
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RH-Cb-Us1" userLabel="Puzzle Block 2 View">
                                                 <rect key="frame" x="85.666666666666686" y="0.0" width="85.333333333333314" height="85.666666666666671"/>
-                                                <color key="backgroundColor" name="GrassGreen"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="SKr-aN-tdZ" secondAttribute="height" multiplier="1:1" id="ixL-ef-ft9"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="87N-gP-jDL">
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcH-Py-fKh" userLabel="Puzzle Block 3 View">
                                                 <rect key="frame" x="171" y="0.0" width="85.666666666666686" height="85.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="87N-gP-jDL" secondAttribute="height" multiplier="1:1" id="UZ8-2V-1NX"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RWP-mD-K9J">
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1gj-un-hED" userLabel="Puzzle Block 4 View">
                                                 <rect key="frame" x="256.66666666666669" y="0.0" width="85.333333333333314" height="85.666666666666671"/>
-                                                <color key="backgroundColor" name="GrassGreen"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="RWP-mD-K9J" secondAttribute="height" multiplier="1:1" id="DoI-cZ-P9c"/>
-                                                </constraints>
-                                            </imageView>
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                            </view>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="eLF-NZ-zp1">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eLF-NZ-zp1">
                                         <rect key="frame" x="0.0" y="85.666666666666686" width="342" height="85.333333333333314"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rrl-he-4T3">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5C-LH-N9X" userLabel="Puzzle Block 5 View">
                                                 <rect key="frame" x="0.0" y="0.0" width="85.666666666666671" height="85.333333333333329"/>
-                                                <color key="backgroundColor" name="GrassGreen"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="rrl-he-4T3" secondAttribute="height" multiplier="1:1" id="sft-zf-a3g"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4fv-aC-iPd">
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEF-Bs-ZiF" userLabel="Puzzle Block 6 View">
                                                 <rect key="frame" x="85.666666666666686" y="0.0" width="85.333333333333314" height="85.333333333333329"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="4fv-aC-iPd" secondAttribute="height" multiplier="1:1" id="sYj-tc-TC7"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SvB-qR-kYh">
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X05-kS-fRR" userLabel="Puzzle Block 7 View">
                                                 <rect key="frame" x="171" y="0.0" width="85.666666666666686" height="85.333333333333329"/>
-                                                <color key="backgroundColor" name="GrassGreen"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="SvB-qR-kYh" secondAttribute="height" multiplier="1:1" id="AHN-2v-GRb"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hFC-9d-6q9">
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xve-S2-OwB" userLabel="Puzzle Block 8 View">
                                                 <rect key="frame" x="256.66666666666669" y="0.0" width="85.333333333333314" height="85.333333333333329"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="hFC-9d-6q9" secondAttribute="height" multiplier="1:1" id="tfw-m8-JmS"/>
-                                                </constraints>
-                                            </imageView>
+                                            </view>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="0N1-12-3D2">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0N1-12-3D2">
                                         <rect key="frame" x="0.0" y="171" width="342" height="85.666666666666686"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PCU-41-0nH">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0V-eP-MNX" userLabel="Puzzle Block 9 View">
                                                 <rect key="frame" x="0.0" y="0.0" width="85.666666666666671" height="85.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="PCU-41-0nH" secondAttribute="height" multiplier="1:1" id="fAe-aE-Esc"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fzx-Zc-Ms3">
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9g-If-g7e" userLabel="Puzzle Block 10 View">
                                                 <rect key="frame" x="85.666666666666686" y="0.0" width="85.333333333333314" height="85.666666666666671"/>
-                                                <color key="backgroundColor" name="GrassGreen"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Fzx-Zc-Ms3" secondAttribute="height" multiplier="1:1" id="oKN-xL-tCv"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TWI-YB-rPr">
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2e-K8-SrH" userLabel="Puzzle Block 11 View">
                                                 <rect key="frame" x="171" y="0.0" width="85.666666666666686" height="85.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="TWI-YB-rPr" secondAttribute="height" multiplier="1:1" id="ZTQ-9f-jpF"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tWY-vJ-MPg">
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2w-AI-nHR" userLabel="Puzzle Block 12 View">
                                                 <rect key="frame" x="256.66666666666669" y="0.0" width="85.333333333333314" height="85.666666666666671"/>
-                                                <color key="backgroundColor" name="GrassGreen"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="tWY-vJ-MPg" secondAttribute="height" multiplier="1:1" id="yNU-RG-P7a"/>
-                                                </constraints>
-                                            </imageView>
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                            </view>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Ugd-8c-cGD">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ugd-8c-cGD">
                                         <rect key="frame" x="0.0" y="256.66666666666663" width="342" height="85.333333333333314"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RBN-ZD-NML">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71P-gu-Hm2" userLabel="Puzzle Block 13 View">
                                                 <rect key="frame" x="0.0" y="0.0" width="85.666666666666671" height="85.333333333333329"/>
-                                                <color key="backgroundColor" name="GrassGreen"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="RBN-ZD-NML" secondAttribute="height" multiplier="1:1" id="xin-pI-dJs"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bXP-aG-BGl">
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBl-YW-ia7" userLabel="Puzzle Block 14 View">
                                                 <rect key="frame" x="85.666666666666686" y="0.0" width="85.333333333333314" height="85.333333333333329"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="bXP-aG-BGl" secondAttribute="height" multiplier="1:1" id="ISo-Ud-V8T"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C4B-KC-6bG">
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wbe-TK-CAe" userLabel="Puzzle Block 15 View">
                                                 <rect key="frame" x="171" y="0.0" width="85.666666666666686" height="85.333333333333329"/>
-                                                <color key="backgroundColor" name="GrassGreen"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="C4B-KC-6bG" secondAttribute="height" multiplier="1:1" id="D9m-cF-ezT"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1cd-3k-Kg1">
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hco-Og-Aqc" userLabel="Puzzle Block 16 View">
                                                 <rect key="frame" x="256.66666666666669" y="0.0" width="85.333333333333314" height="85.333333333333329"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="1cd-3k-Kg1" secondAttribute="height" multiplier="1:1" id="U2J-jO-gYO"/>
-                                                </constraints>
-                                            </imageView>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="PCU-41-0nH" firstAttribute="height" secondItem="9Xj-Pd-iKL" secondAttribute="height" id="106-CJ-Nxf"/>
+                                    <constraint firstItem="0N1-12-3D2" firstAttribute="height" secondItem="hDt-Qm-Rn1" secondAttribute="height" multiplier="0.25:1" id="0Ie-Fw-JtT"/>
                                     <constraint firstAttribute="trailing" secondItem="0N1-12-3D2" secondAttribute="trailing" id="15F-Nm-t0m"/>
                                     <constraint firstAttribute="trailing" secondItem="eLF-NZ-zp1" secondAttribute="trailing" id="4KR-Ol-vyk"/>
                                     <constraint firstItem="eLF-NZ-zp1" firstAttribute="top" secondItem="0eW-PQ-vGG" secondAttribute="bottom" id="6WB-mz-Zzl"/>
                                     <constraint firstAttribute="bottom" secondItem="Ugd-8c-cGD" secondAttribute="bottom" constant="5.6843418860808015e-14" id="6hW-AA-fdx"/>
                                     <constraint firstItem="0eW-PQ-vGG" firstAttribute="leading" secondItem="hDt-Qm-Rn1" secondAttribute="leading" id="F25-OG-R08"/>
+                                    <constraint firstItem="eLF-NZ-zp1" firstAttribute="height" secondItem="hDt-Qm-Rn1" secondAttribute="height" multiplier="0.25:1" id="GGd-ZP-Ek2"/>
                                     <constraint firstItem="Ugd-8c-cGD" firstAttribute="leading" secondItem="hDt-Qm-Rn1" secondAttribute="leading" id="L6L-qc-lCi"/>
                                     <constraint firstAttribute="width" secondItem="hDt-Qm-Rn1" secondAttribute="height" multiplier="1:1" id="Qae-Nu-Gms"/>
                                     <constraint firstItem="0N1-12-3D2" firstAttribute="top" secondItem="eLF-NZ-zp1" secondAttribute="bottom" id="Sk1-2L-vf2"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="VFa-Vq-UI9"/>
                                     <constraint firstItem="0eW-PQ-vGG" firstAttribute="top" secondItem="hDt-Qm-Rn1" secondAttribute="top" id="Xkl-yu-POb"/>
+                                    <constraint firstItem="0eW-PQ-vGG" firstAttribute="height" secondItem="hDt-Qm-Rn1" secondAttribute="height" multiplier="0.25:1" id="bI5-PR-dcd"/>
                                     <constraint firstItem="Ugd-8c-cGD" firstAttribute="top" secondItem="0N1-12-3D2" secondAttribute="bottom" id="dSg-rB-xdP"/>
                                     <constraint firstAttribute="trailing" secondItem="Ugd-8c-cGD" secondAttribute="trailing" id="fwF-iF-QoQ">
                                         <variation key="heightClass=compact" constant="0.0"/>
                                     </constraint>
-                                    <constraint firstItem="rrl-he-4T3" firstAttribute="height" secondItem="9Xj-Pd-iKL" secondAttribute="height" id="h5c-lE-TF9"/>
                                     <constraint firstItem="0N1-12-3D2" firstAttribute="leading" secondItem="hDt-Qm-Rn1" secondAttribute="leading" id="hFa-CF-8J6"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="250" id="jj5-Mr-Q6u"/>
                                     <constraint firstAttribute="trailing" secondItem="0eW-PQ-vGG" secondAttribute="trailing" id="lQS-4X-hFT"/>
                                     <constraint firstItem="eLF-NZ-zp1" firstAttribute="leading" secondItem="hDt-Qm-Rn1" secondAttribute="leading" id="tj8-H2-2f3"/>
-                                    <constraint firstItem="9Xj-Pd-iKL" firstAttribute="height" secondItem="hDt-Qm-Rn1" secondAttribute="height" multiplier="0.25" id="vab-PH-L3t"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" priority="750" constant="500" id="wa3-d9-kE7"/>
                                 </constraints>
                                 <variation key="default">
@@ -888,42 +814,170 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eNR-7o-KBI" userLabel="Puzzle Piece 16 Image View">
+                                <rect key="frame" x="197.66666666666666" y="183.66666666666666" width="52.666666666666657" height="53"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wsk-eR-yMZ" userLabel="Puzzle Piece 15 Image View">
+                                <rect key="frame" x="139.66666666666666" y="183.66666666666666" width="53" height="53"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mXg-bf-G6G" userLabel="Puzzle Piece 14 Image View">
+                                <rect key="frame" x="82" y="183.66666666666666" width="52.666666666666657" height="53"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C8g-ic-1tb" userLabel="Puzzle Piece 13 Image View">
+                                <rect key="frame" x="24" y="183.66666666666666" width="53" height="53"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FaS-ky-IWV" userLabel="Puzzle Piece 12 Image View">
+                                <rect key="frame" x="313.33333333333331" y="126.00000000000001" width="52.666666666666686" height="52.666666666666671"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g3X-4k-gRc" userLabel="Puzzle Piece 11 Image View">
+                                <rect key="frame" x="255.33333333333337" y="126.00000000000001" width="53" height="52.666666666666671"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iUe-5i-6iY" userLabel="Puzzle Piece 10 Image View">
+                                <rect key="frame" x="197.66666666666666" y="126.00000000000001" width="52.666666666666657" height="52.666666666666671"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q6N-vK-Nyv" userLabel="Puzzle Piece 9 Image View">
+                                <rect key="frame" x="139.66666666666666" y="126.00000000000001" width="53" height="52.666666666666671"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NRh-OX-dca" userLabel="Puzzle Piece 8 Image View">
+                                <rect key="frame" x="82" y="126.00000000000001" width="52.666666666666657" height="52.666666666666671"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W8p-qD-K5E" userLabel="Puzzle Piece 7 Image View">
+                                <rect key="frame" x="24" y="126.00000000000001" width="53" height="52.666666666666671"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U1H-O7-zwM" userLabel="Puzzle Piece 6 Image View">
+                                <rect key="frame" x="313.33333333333331" y="68" width="52.666666666666686" height="53"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="owk-yE-ydS" userLabel="Puzzle Piece 5 Image View">
+                                <rect key="frame" x="255.33333333333337" y="68" width="53" height="53"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Qg-9a-JWP" userLabel="Puzzle Piece 4 Image View">
+                                <rect key="frame" x="197.66666666666666" y="68" width="52.666666666666657" height="53"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dwM-BX-lBm" userLabel="Puzzle Piece 3 Image View">
+                                <rect key="frame" x="139.66666666666666" y="68" width="53" height="53"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wSf-ji-pWz" userLabel="Puzzle Piece 2 Image View">
+                                <rect key="frame" x="82" y="68" width="52.666666666666657" height="53"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a0X-cV-uvy" userLabel="Puzzle Piece 1 Image View">
+                                <rect key="frame" x="24" y="68" width="53" height="53"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tzJ-Nr-gy5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="a0X-cV-uvy" firstAttribute="top" secondItem="Lop-I4-POO" secondAttribute="top" id="03O-YK-ZoX"/>
                             <constraint firstItem="6zk-Bk-pnX" firstAttribute="leading" secondItem="tzJ-Nr-gy5" secondAttribute="leading" constant="16" id="0VN-9l-jYc"/>
+                            <constraint firstItem="W8p-qD-K5E" firstAttribute="top" secondItem="tDo-Az-lc5" secondAttribute="top" id="1F0-DU-H6l"/>
                             <constraint firstItem="bgs-Cz-E28" firstAttribute="top" secondItem="tzJ-Nr-gy5" secondAttribute="top" id="1uB-4H-NjL"/>
                             <constraint firstItem="6zk-Bk-pnX" firstAttribute="bottom" secondItem="tzJ-Nr-gy5" secondAttribute="bottom" id="2HM-wt-lLS"/>
                             <constraint firstItem="6zk-Bk-pnX" firstAttribute="top" secondItem="bgs-Cz-E28" secondAttribute="bottom" id="2xH-qt-cjC"/>
                             <constraint firstItem="hDt-Qm-Rn1" firstAttribute="centerX" secondItem="wJf-O3-mEP" secondAttribute="centerX" priority="750" id="3WG-h7-tx7"/>
+                            <constraint firstItem="C8g-ic-1tb" firstAttribute="top" secondItem="Cgu-u1-uVX" secondAttribute="top" id="3kp-ws-dmC"/>
+                            <constraint firstItem="FaS-ky-IWV" firstAttribute="width" secondItem="k4R-T1-DJ8" secondAttribute="width" id="5CE-ry-Bkf"/>
+                            <constraint firstItem="wsk-eR-yMZ" firstAttribute="top" secondItem="Cdt-cT-kQQ" secondAttribute="top" id="5Hi-oX-Lb8"/>
+                            <constraint firstItem="wSf-ji-pWz" firstAttribute="width" secondItem="Gsv-lf-6v3" secondAttribute="width" id="5zN-ET-F37"/>
+                            <constraint firstItem="q6N-vK-Nyv" firstAttribute="top" secondItem="y1x-fq-4Mw" secondAttribute="top" id="6Vk-jh-20N"/>
+                            <constraint firstItem="dwM-BX-lBm" firstAttribute="leading" secondItem="ZPX-cz-yrM" secondAttribute="leading" id="7e0-2Y-bU3"/>
+                            <constraint firstItem="iUe-5i-6iY" firstAttribute="height" secondItem="FKB-s6-7Rx" secondAttribute="height" id="8jT-Ov-FfT"/>
                             <constraint firstItem="hDt-Qm-Rn1" firstAttribute="centerY" secondItem="wJf-O3-mEP" secondAttribute="centerY" id="8t0-gB-hna"/>
+                            <constraint firstItem="NRh-OX-dca" firstAttribute="width" secondItem="Jzk-hC-oNm" secondAttribute="width" id="AcY-Qs-YgO"/>
+                            <constraint firstItem="W8p-qD-K5E" firstAttribute="leading" secondItem="tDo-Az-lc5" secondAttribute="leading" id="Ahs-FC-XWb"/>
+                            <constraint firstItem="FaS-ky-IWV" firstAttribute="leading" secondItem="k4R-T1-DJ8" secondAttribute="leading" id="BRs-hZ-fUO"/>
+                            <constraint firstItem="owk-yE-ydS" firstAttribute="top" secondItem="M5X-w3-kj7" secondAttribute="top" id="BRy-oE-20f"/>
+                            <constraint firstItem="mXg-bf-G6G" firstAttribute="width" secondItem="Cp8-jk-ejn" secondAttribute="width" id="Bel-Qr-10B"/>
+                            <constraint firstItem="wSf-ji-pWz" firstAttribute="top" secondItem="Gsv-lf-6v3" secondAttribute="top" id="Bgz-qr-Znu"/>
                             <constraint firstItem="hDt-Qm-Rn1" firstAttribute="top" secondItem="6zk-Bk-pnX" secondAttribute="bottom" priority="750" id="D0Q-f7-qGw"/>
+                            <constraint firstItem="C8g-ic-1tb" firstAttribute="height" secondItem="Cgu-u1-uVX" secondAttribute="height" id="DPX-Fv-zHy"/>
+                            <constraint firstItem="NRh-OX-dca" firstAttribute="leading" secondItem="Jzk-hC-oNm" secondAttribute="leading" id="EPA-YE-xeb"/>
+                            <constraint firstItem="owk-yE-ydS" firstAttribute="height" secondItem="M5X-w3-kj7" secondAttribute="height" id="F1i-hj-udJ"/>
+                            <constraint firstItem="U1H-O7-zwM" firstAttribute="leading" secondItem="y4i-sk-XTc" secondAttribute="leading" id="FcA-5h-tYU"/>
+                            <constraint firstItem="6Qg-9a-JWP" firstAttribute="leading" secondItem="Rpp-kp-9tT" secondAttribute="leading" id="Fra-aU-oaa"/>
+                            <constraint firstItem="wSf-ji-pWz" firstAttribute="leading" secondItem="Gsv-lf-6v3" secondAttribute="leading" id="GEJ-CJ-4wR"/>
+                            <constraint firstItem="6Qg-9a-JWP" firstAttribute="height" secondItem="Rpp-kp-9tT" secondAttribute="height" id="Gwe-gD-cZJ"/>
+                            <constraint firstItem="6Qg-9a-JWP" firstAttribute="top" secondItem="Rpp-kp-9tT" secondAttribute="top" id="IY1-6R-9eN"/>
                             <constraint firstItem="6zk-Bk-pnX" firstAttribute="trailing" secondItem="bgs-Cz-E28" secondAttribute="trailing" id="JNT-cg-Slu"/>
+                            <constraint firstItem="dwM-BX-lBm" firstAttribute="width" secondItem="ZPX-cz-yrM" secondAttribute="width" id="KLb-F3-orI"/>
                             <constraint firstItem="hDt-Qm-Rn1" firstAttribute="leading" secondItem="6zk-Bk-pnX" secondAttribute="trailing" id="Lx3-3Z-Tai">
                                 <variation key="heightClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="eNR-7o-KBI" firstAttribute="top" secondItem="0zo-UN-afm" secondAttribute="top" id="M5W-Fe-0qw"/>
                             <constraint firstItem="hDt-Qm-Rn1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tzJ-Nr-gy5" secondAttribute="leading" constant="24" id="Mfi-U7-la4"/>
                             <constraint firstItem="tzJ-Nr-gy5" firstAttribute="bottom" secondItem="6zk-Bk-pnX" secondAttribute="bottom" id="P60-SG-WqK"/>
                             <constraint firstItem="hDt-Qm-Rn1" firstAttribute="top" secondItem="tzJ-Nr-gy5" secondAttribute="top" priority="750" constant="8" id="POb-ar-qdm">
                                 <variation key="heightClass=compact" constant="8"/>
                             </constraint>
+                            <constraint firstItem="iUe-5i-6iY" firstAttribute="width" secondItem="FKB-s6-7Rx" secondAttribute="width" id="PV1-Jc-19y"/>
+                            <constraint firstItem="g3X-4k-gRc" firstAttribute="top" secondItem="1HQ-ll-4kS" secondAttribute="top" id="PZI-C6-tdK"/>
                             <constraint firstItem="tzJ-Nr-gy5" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hDt-Qm-Rn1" secondAttribute="trailing" constant="24" id="Pgo-wr-ufk">
                                 <variation key="heightClass=compact" constant="16"/>
                             </constraint>
+                            <constraint firstItem="C8g-ic-1tb" firstAttribute="leading" secondItem="Cgu-u1-uVX" secondAttribute="leading" id="Q5Q-FY-CdI"/>
                             <constraint firstItem="bgs-Cz-E28" firstAttribute="leading" secondItem="tzJ-Nr-gy5" secondAttribute="leading" constant="16" id="Rbm-ro-2vy"/>
+                            <constraint firstItem="wsk-eR-yMZ" firstAttribute="width" secondItem="Cdt-cT-kQQ" secondAttribute="width" id="S0P-pg-QeZ"/>
+                            <constraint firstItem="iUe-5i-6iY" firstAttribute="leading" secondItem="FKB-s6-7Rx" secondAttribute="leading" id="S5D-nK-rgT"/>
+                            <constraint firstItem="NRh-OX-dca" firstAttribute="top" secondItem="Jzk-hC-oNm" secondAttribute="top" id="SSt-hc-WKS"/>
+                            <constraint firstItem="wSf-ji-pWz" firstAttribute="height" secondItem="Gsv-lf-6v3" secondAttribute="height" id="TUn-Zb-cAX"/>
+                            <constraint firstItem="g3X-4k-gRc" firstAttribute="height" secondItem="1HQ-ll-4kS" secondAttribute="height" id="Ta9-JU-8Rg"/>
                             <constraint firstItem="tzJ-Nr-gy5" firstAttribute="centerX" secondItem="bgs-Cz-E28" secondAttribute="trailing" id="Tfd-RV-Siz"/>
+                            <constraint firstItem="q6N-vK-Nyv" firstAttribute="leading" secondItem="y1x-fq-4Mw" secondAttribute="leading" id="Udd-rq-vRj"/>
+                            <constraint firstItem="eNR-7o-KBI" firstAttribute="height" secondItem="0zo-UN-afm" secondAttribute="height" id="XoV-1N-HBm"/>
                             <constraint firstItem="tzJ-Nr-gy5" firstAttribute="centerY" secondItem="6zk-Bk-pnX" secondAttribute="bottom" id="Xr0-Sy-M2a"/>
+                            <constraint firstItem="iUe-5i-6iY" firstAttribute="top" secondItem="FKB-s6-7Rx" secondAttribute="top" id="YWN-jE-8BJ"/>
+                            <constraint firstItem="mXg-bf-G6G" firstAttribute="height" secondItem="Cp8-jk-ejn" secondAttribute="height" id="ZMl-VU-HCR"/>
+                            <constraint firstItem="W8p-qD-K5E" firstAttribute="height" secondItem="tDo-Az-lc5" secondAttribute="height" id="aWU-Na-hhe"/>
                             <constraint firstItem="hDt-Qm-Rn1" firstAttribute="top" secondItem="6zk-Bk-pnX" secondAttribute="bottom" priority="750" id="auu-Lc-WwT"/>
+                            <constraint firstItem="mXg-bf-G6G" firstAttribute="leading" secondItem="Cp8-jk-ejn" secondAttribute="leading" id="bM3-hi-gsp"/>
                             <constraint firstItem="hDt-Qm-Rn1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6zk-Bk-pnX" secondAttribute="bottom" id="bTW-s8-nKD"/>
+                            <constraint firstItem="g3X-4k-gRc" firstAttribute="leading" secondItem="1HQ-ll-4kS" secondAttribute="leading" id="cDR-ce-Cdj"/>
+                            <constraint firstItem="owk-yE-ydS" firstAttribute="leading" secondItem="M5X-w3-kj7" secondAttribute="leading" id="cgZ-eg-eNn"/>
+                            <constraint firstItem="FaS-ky-IWV" firstAttribute="top" secondItem="k4R-T1-DJ8" secondAttribute="top" id="cle-Uw-gd4"/>
+                            <constraint firstItem="NRh-OX-dca" firstAttribute="height" secondItem="Jzk-hC-oNm" secondAttribute="height" id="ffc-6I-PdE"/>
                             <constraint firstItem="tzJ-Nr-gy5" firstAttribute="centerX" secondItem="bgs-Cz-E28" secondAttribute="trailing" priority="250" constant="16" id="g5t-Z6-Bbs"/>
+                            <constraint firstItem="a0X-cV-uvy" firstAttribute="width" secondItem="Lop-I4-POO" secondAttribute="width" id="gEj-iw-VSa"/>
                             <constraint firstItem="hDt-Qm-Rn1" firstAttribute="bottom" secondItem="tzJ-Nr-gy5" secondAttribute="bottom" id="gaM-gs-8ws"/>
+                            <constraint firstItem="C8g-ic-1tb" firstAttribute="width" secondItem="Cgu-u1-uVX" secondAttribute="width" id="gpH-2S-Nap"/>
+                            <constraint firstItem="q6N-vK-Nyv" firstAttribute="height" secondItem="y1x-fq-4Mw" secondAttribute="height" id="gta-Ul-ZCM"/>
+                            <constraint firstItem="a0X-cV-uvy" firstAttribute="height" secondItem="Lop-I4-POO" secondAttribute="height" id="ie4-2o-7DK"/>
                             <constraint firstItem="tzJ-Nr-gy5" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hDt-Qm-Rn1" secondAttribute="bottom" priority="750" constant="8" id="jmY-6s-i6c"/>
+                            <constraint firstItem="mXg-bf-G6G" firstAttribute="top" secondItem="Cp8-jk-ejn" secondAttribute="top" id="jrC-dF-v5b"/>
+                            <constraint firstItem="U1H-O7-zwM" firstAttribute="width" secondItem="y4i-sk-XTc" secondAttribute="width" id="l2p-rp-7O2"/>
                             <constraint firstItem="tzJ-Nr-gy5" firstAttribute="trailing" secondItem="6zk-Bk-pnX" secondAttribute="trailing" constant="16" id="lWr-xc-lAN"/>
+                            <constraint firstItem="g3X-4k-gRc" firstAttribute="width" secondItem="1HQ-ll-4kS" secondAttribute="width" id="mUK-Lw-wiH"/>
                             <constraint firstItem="tzJ-Nr-gy5" firstAttribute="trailing" secondItem="bgs-Cz-E28" secondAttribute="trailing" constant="16" id="miR-TP-CGi"/>
+                            <constraint firstItem="FaS-ky-IWV" firstAttribute="height" secondItem="k4R-T1-DJ8" secondAttribute="height" id="nGw-YG-geq"/>
+                            <constraint firstItem="U1H-O7-zwM" firstAttribute="height" secondItem="y4i-sk-XTc" secondAttribute="height" id="osB-ap-9mZ"/>
+                            <constraint firstItem="a0X-cV-uvy" firstAttribute="leading" secondItem="Lop-I4-POO" secondAttribute="leading" id="pHV-6v-I58"/>
+                            <constraint firstItem="W8p-qD-K5E" firstAttribute="width" secondItem="tDo-Az-lc5" secondAttribute="width" id="pk1-zu-c27"/>
+                            <constraint firstItem="dwM-BX-lBm" firstAttribute="height" secondItem="ZPX-cz-yrM" secondAttribute="height" id="qWq-qH-SlU"/>
+                            <constraint firstItem="dwM-BX-lBm" firstAttribute="top" secondItem="ZPX-cz-yrM" secondAttribute="top" id="qnC-d5-Kq1"/>
                             <constraint firstItem="hDt-Qm-Rn1" firstAttribute="leading" secondItem="bgs-Cz-E28" secondAttribute="trailing" constant="16" id="sOE-z3-lFw"/>
+                            <constraint firstItem="q6N-vK-Nyv" firstAttribute="width" secondItem="y1x-fq-4Mw" secondAttribute="width" id="sRL-St-koM"/>
+                            <constraint firstItem="owk-yE-ydS" firstAttribute="width" secondItem="M5X-w3-kj7" secondAttribute="width" id="tR2-pV-f3B"/>
+                            <constraint firstItem="U1H-O7-zwM" firstAttribute="top" secondItem="y4i-sk-XTc" secondAttribute="top" id="taB-SK-wq7"/>
+                            <constraint firstItem="wsk-eR-yMZ" firstAttribute="height" secondItem="Cdt-cT-kQQ" secondAttribute="height" id="tbX-X9-QlN"/>
+                            <constraint firstItem="eNR-7o-KBI" firstAttribute="leading" secondItem="0zo-UN-afm" secondAttribute="leading" id="tho-4X-pTP"/>
+                            <constraint firstItem="eNR-7o-KBI" firstAttribute="width" secondItem="0zo-UN-afm" secondAttribute="width" id="upO-3C-SXe"/>
                             <constraint firstItem="tzJ-Nr-gy5" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hDt-Qm-Rn1" secondAttribute="bottom" constant="8" id="vYk-gj-dff"/>
+                            <constraint firstItem="wsk-eR-yMZ" firstAttribute="leading" secondItem="Cdt-cT-kQQ" secondAttribute="leading" id="w58-3a-6Vk"/>
                             <constraint firstItem="tzJ-Nr-gy5" firstAttribute="bottom" secondItem="hDt-Qm-Rn1" secondAttribute="bottom" constant="8" id="yP5-J0-ck4"/>
+                            <constraint firstItem="6Qg-9a-JWP" firstAttribute="width" secondItem="Rpp-kp-9tT" secondAttribute="width" id="z4p-Aa-tSm"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -965,7 +1019,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="brb-i6-tfb"/>
                     <connections>
+                        <outlet property="hintImageView" destination="v1a-pO-3IJ" id="nVK-Ef-rQV"/>
+                        <outlet property="movesLabel" destination="rGm-Km-7fz" id="IjO-AW-8NR"/>
+                        <outlet property="movesNimberLabel" destination="w6H-Ny-FNK" id="Zej-eR-dBE"/>
                         <outlet property="newGameButton" destination="tBk-0b-V4O" id="8tq-K8-JsC"/>
+                        <outlet property="soundImageView" destination="lq1-k4-Idf" id="utF-Tf-2IO"/>
                         <outletCollection property="puzzlePiecesImageViews" destination="a0X-cV-uvy" collectionClass="NSMutableArray" id="FAS-Q4-mGa"/>
                         <outletCollection property="puzzlePiecesImageViews" destination="wSf-ji-pWz" collectionClass="NSMutableArray" id="hB1-0s-41C"/>
                         <outletCollection property="puzzlePiecesImageViews" destination="dwM-BX-lBm" collectionClass="NSMutableArray" id="D92-qH-htR"/>
@@ -982,6 +1040,38 @@
                         <outletCollection property="puzzlePiecesImageViews" destination="mXg-bf-G6G" collectionClass="NSMutableArray" id="rzL-nn-Vlu"/>
                         <outletCollection property="puzzlePiecesImageViews" destination="wsk-eR-yMZ" collectionClass="NSMutableArray" id="1qM-Ph-Yyz"/>
                         <outletCollection property="puzzlePiecesImageViews" destination="eNR-7o-KBI" collectionClass="NSMutableArray" id="dlK-ul-6cd"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="Lop-I4-POO" collectionClass="NSMutableArray" id="DGO-Qt-9BV"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="Gsv-lf-6v3" collectionClass="NSMutableArray" id="50c-zY-XXT"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="ZPX-cz-yrM" collectionClass="NSMutableArray" id="ChR-Qh-NSJ"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="Rpp-kp-9tT" collectionClass="NSMutableArray" id="sCl-rZ-08V"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="M5X-w3-kj7" collectionClass="NSMutableArray" id="7aF-fd-c81"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="y4i-sk-XTc" collectionClass="NSMutableArray" id="Lbw-4K-Xcy"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="tDo-Az-lc5" collectionClass="NSMutableArray" id="TO8-8U-Piw"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="Jzk-hC-oNm" collectionClass="NSMutableArray" id="8W5-GD-Fm8"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="y1x-fq-4Mw" collectionClass="NSMutableArray" id="zGe-Xf-qSk"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="FKB-s6-7Rx" collectionClass="NSMutableArray" id="0Th-4q-C8Z"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="1HQ-ll-4kS" collectionClass="NSMutableArray" id="WPo-qe-bDp"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="k4R-T1-DJ8" collectionClass="NSMutableArray" id="Jj6-Bl-jKC"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="Cgu-u1-uVX" collectionClass="NSMutableArray" id="Cd7-JF-gYi"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="Cp8-jk-ejn" collectionClass="NSMutableArray" id="qpd-0y-aex"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="Cdt-cT-kQQ" collectionClass="NSMutableArray" id="oSO-J3-dsf"/>
+                        <outletCollection property="puzzlePiecesPlaceholdersViews" destination="0zo-UN-afm" collectionClass="NSMutableArray" id="aau-no-9d2"/>
+                        <outletCollection property="puzzleBlocksViews" destination="OCJ-qE-qtm" collectionClass="NSMutableArray" id="fFn-Wd-8TW"/>
+                        <outletCollection property="puzzleBlocksViews" destination="0RH-Cb-Us1" collectionClass="NSMutableArray" id="dl9-Uo-4Qx"/>
+                        <outletCollection property="puzzleBlocksViews" destination="qcH-Py-fKh" collectionClass="NSMutableArray" id="TkH-h2-xaq"/>
+                        <outletCollection property="puzzleBlocksViews" destination="1gj-un-hED" collectionClass="NSMutableArray" id="Bkk-5r-n97"/>
+                        <outletCollection property="puzzleBlocksViews" destination="e5C-LH-N9X" collectionClass="NSMutableArray" id="2KR-dX-xwC"/>
+                        <outletCollection property="puzzleBlocksViews" destination="DEF-Bs-ZiF" collectionClass="NSMutableArray" id="P4C-kj-7Uo"/>
+                        <outletCollection property="puzzleBlocksViews" destination="X05-kS-fRR" collectionClass="NSMutableArray" id="dtL-Xy-6PJ"/>
+                        <outletCollection property="puzzleBlocksViews" destination="Xve-S2-OwB" collectionClass="NSMutableArray" id="7Am-KY-jrq"/>
+                        <outletCollection property="puzzleBlocksViews" destination="w0V-eP-MNX" collectionClass="NSMutableArray" id="jYB-Wq-UkF"/>
+                        <outletCollection property="puzzleBlocksViews" destination="h9g-If-g7e" collectionClass="NSMutableArray" id="Kgf-33-twN"/>
+                        <outletCollection property="puzzleBlocksViews" destination="g2e-K8-SrH" collectionClass="NSMutableArray" id="8Yb-CQ-Dgj"/>
+                        <outletCollection property="puzzleBlocksViews" destination="Y2w-AI-nHR" collectionClass="NSMutableArray" id="tRd-RY-3ef"/>
+                        <outletCollection property="puzzleBlocksViews" destination="71P-gu-Hm2" collectionClass="NSMutableArray" id="OJv-XI-Rnd"/>
+                        <outletCollection property="puzzleBlocksViews" destination="WBl-YW-ia7" collectionClass="NSMutableArray" id="wvP-eA-6wf"/>
+                        <outletCollection property="puzzleBlocksViews" destination="Wbe-TK-CAe" collectionClass="NSMutableArray" id="Ffx-Dq-wyw"/>
+                        <outletCollection property="puzzleBlocksViews" destination="hco-Og-Aqc" collectionClass="NSMutableArray" id="kgL-Vd-CR6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Apc-Ou-c91" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -991,12 +1081,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Gridy-camera" width="18" height="14"/>
-        <image name="Gridy-library" width="18" height="14"/>
-        <image name="Gridy-lookup" width="18" height="14"/>
+        <image name="Gridy-camera" width="36" height="28"/>
+        <image name="Gridy-library" width="36" height="28"/>
+        <image name="Gridy-lookup" width="36" height="28"/>
         <image name="Gridy-name-large-green" width="110" height="53.333332061767578"/>
         <image name="Gridy-name-small-green" width="35" height="17"/>
         <image name="Gridy-name-small-grey" width="35" height="17"/>
+        <image name="Gridy-sound-mute" width="100" height="100"/>
         <image name="alan-king-KZv7w34tluA-unsplash" width="960" height="1439.5"/>
         <namedColor name="DarkGray">
             <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1012,6 +1103,12 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

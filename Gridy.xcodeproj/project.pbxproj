@@ -18,6 +18,7 @@
 		D01038BA24918F84008E1ADE /* .github in Resources */ = {isa = PBXBuildFile; fileRef = D01038B924918F84008E1ADE /* .github */; };
 		D01038BC24919025008E1ADE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D01038BB24919024008E1ADE /* LICENSE */; };
 		D01038BE2491902B008E1ADE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D01038BD2491902B008E1ADE /* README.md */; };
+		D0B04C202656C69A009FD569 /* UIGestureRecognizer+DragAndDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B04C1F2656C69A009FD569 /* UIGestureRecognizer+DragAndDrop.swift */; };
 		D0B0AD812533742D00560A1B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0AD802533742D00560A1B /* Constant.swift */; };
 		D0B0AD8325338CC200560A1B /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0AD8225338CC200560A1B /* Position.swift */; };
 		D0B7808D24CB4D4700A42090 /* ImageEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7808C24CB4D4700A42090 /* ImageEditorViewController.swift */; };
@@ -40,6 +41,7 @@
 		D01038B924918F84008E1ADE /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		D01038BB24919024008E1ADE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D01038BD2491902B008E1ADE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D0B04C1F2656C69A009FD569 /* UIGestureRecognizer+DragAndDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+DragAndDrop.swift"; sourceTree = "<group>"; };
 		D0B0AD802533742D00560A1B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		D0B0AD8225338CC200560A1B /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		D0B7808C24CB4D4700A42090 /* ImageEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		D010389F24913770008E1ADE /* Gridy */ = {
 			isa = PBXGroup;
 			children = (
+				D0B04C1E2656C63A009FD569 /* Helper */,
 				D0865B51251CEE5300D17136 /* Model */,
 				D01038BF2492B512008E1ADE /* View */,
 				D01038C02492B5C0008E1ADE /* Controller */,
@@ -125,6 +128,14 @@
 				D0B0AD8225338CC200560A1B /* Position.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D0B04C1E2656C63A009FD569 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D0B04C1F2656C69A009FD569 /* UIGestureRecognizer+DragAndDrop.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		D0D3EDFD2520F162007DB38A /* Supporting Files */ = {
@@ -224,6 +235,7 @@
 				D0D0A276254AFB8200CFD284 /* WhiteLayerView.swift in Sources */,
 				D0B7808D24CB4D4700A42090 /* ImageEditorViewController.swift in Sources */,
 				D01038A324913770008E1ADE /* SceneDelegate.swift in Sources */,
+				D0B04C202656C69A009FD569 /* UIGestureRecognizer+DragAndDrop.swift in Sources */,
 				D0B0AD812533742D00560A1B /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

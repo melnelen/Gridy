@@ -32,7 +32,9 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         
         setupNewGameButton()
         setupPuzzlePiecesImageViews()
-        configureGestures(view: self.puzzlePiecesImageViews[0]) //I don't know how to configure gestures for an array of elements :(
+        self.puzzlePiecesImageViews.forEach { puzzlePiece in
+            configureGestures(view: puzzlePiece)
+        }
     }
     
     private func setupNewGameButton() {
@@ -49,15 +51,9 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     private func setupPuzzlePiecesImageViews() {
         let randomizedImagePieces = imagePieces.shuffled()
         
-        //I want to apply to the puzzle pieces the same frames as the pieces placeholders
-        for puzzlePiece in puzzlePiecesImageViews {
-            for puzzlePiecePlaceholder in puzzlePiecesPlaceholdersViews {
-                puzzlePiece.frame = puzzlePiecePlaceholder.frame
-            }
-        }
-        
         for (index, puzzlePiece) in puzzlePiecesImageViews.enumerated() {
             //fill puzzle pieces with images
+            puzzlePiece.frame = puzzlePiece.convert(puzzlePiecesPlaceholdersViews[index].bounds, from: puzzlePiecesPlaceholdersViews[index])
             puzzlePiece.image = randomizedImagePieces[index]
         }
     }
@@ -84,10 +80,14 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(movePuzzlePieceImageView(_:)))
         panGestureRecognizer.delegate = self
         view.addGestureRecognizer(panGestureRecognizer)
+        
+        view.isUserInteractionEnabled = true
     }
     
     @objc func selectPuzzlePieceImageView(_ sender: UILongPressGestureRecognizer) {
-        origin = view.frame
+        origin = sender.view?.frame
+        sender.view?.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
+        print(sender.view)
     }
     
     @objc func movePuzzlePieceImageView(_ sender: UIPanGestureRecognizer) {
@@ -104,9 +104,13 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
             )
         }
         
+        if sender.state == .cancelled {
+            
+        }
+        
         if sender.state == .ended {
             if !self.view.frame.contains(self.view.frame) {
-                view.frame = origin
+                sender.view?.frame = origin
             }
         }
     }

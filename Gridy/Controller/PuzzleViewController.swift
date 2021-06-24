@@ -37,6 +37,14 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        DispatchQueue.main.async {
+            self.updatePuzzlePiecesImageViews()
+        }
+        
+    }
+    
     private func setupNewGameButton() {
         self.newGameButton.setTitle("New game", for: .normal)
         self.newGameButton.setTitleColor(UIColor (named: Constant.Color.secondaryLight), for: .normal)
@@ -52,9 +60,14 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         let randomizedImagePieces = imagePieces.shuffled()
         
         for (index, puzzlePiece) in puzzlePiecesImageViews.enumerated() {
-            //fill puzzle pieces with images
-            puzzlePiece.frame = puzzlePiece.convert(puzzlePiecesPlaceholdersViews[index].bounds, from: puzzlePiecesPlaceholdersViews[index])
+            puzzlePiece.translatesAutoresizingMaskIntoConstraints = true
             puzzlePiece.image = randomizedImagePieces[index]
+        }
+    }
+    
+    private func updatePuzzlePiecesImageViews() {
+        for (index, puzzlePiece) in puzzlePiecesImageViews.enumerated() {
+            puzzlePiece.frame = self.view.convert(puzzlePiecesPlaceholdersViews[index].bounds, from: puzzlePiecesPlaceholdersViews[index])
         }
     }
     
@@ -73,9 +86,9 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func configureGestures(view: UIView) {
-        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(selectPuzzlePieceImageView(_:)))
-        longPressGestureRecognizer.delegate = self
-        view.addGestureRecognizer(longPressGestureRecognizer)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectPuzzlePieceImageView(_:)))
+        tapGestureRecognizer.delegate = self
+        view.addGestureRecognizer(tapGestureRecognizer)
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(movePuzzlePieceImageView(_:)))
         panGestureRecognizer.delegate = self
@@ -87,7 +100,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     @objc func selectPuzzlePieceImageView(_ sender: UILongPressGestureRecognizer) {
         origin = sender.view?.frame
         sender.view?.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
-        print(sender.view)
+//        print(sender.view)
     }
     
     @objc func movePuzzlePieceImageView(_ sender: UIPanGestureRecognizer) {
@@ -117,23 +130,23 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
                            shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
-    -> Bool {
-        // simultaneous gesture recognition will only be supported for a puzzlePiece
-        for puzzlePiece in puzzlePiecesImageViews {
-            if gestureRecognizer.view != puzzlePiece {
+        -> Bool {
+            // simultaneous gesture recognition will only be supported for a puzzlePiece
+            for puzzlePiece in puzzlePiecesImageViews {
+                if gestureRecognizer.view != puzzlePiece {
+                    return false
+                }
+            }
+            
+            // neither of the recognized gestures should not be tap gesture
+            if gestureRecognizer is UITapGestureRecognizer
+                || otherGestureRecognizer is UITapGestureRecognizer
+                || gestureRecognizer is UIPanGestureRecognizer
+                || otherGestureRecognizer is UIPanGestureRecognizer {
                 return false
             }
-        }
-        
-        // neither of the recognized gestures should not be tap gesture
-        if gestureRecognizer is UITapGestureRecognizer
-            || otherGestureRecognizer is UITapGestureRecognizer
-            || gestureRecognizer is UIPanGestureRecognizer
-            || otherGestureRecognizer is UIPanGestureRecognizer {
-            return false
-        }
-        
-        return true
+            
+            return true
     }
     
 }

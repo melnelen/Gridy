@@ -34,7 +34,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Challenge yourself with a photo puzzle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Okp-qX-2S2">
-                                <rect key="frame" x="82" y="192" width="235" height="17"/>
+                                <rect key="frame" x="82" y="193.5" width="235" height="15.5"/>
                                 <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="13"/>
                                 <color key="textColor" name="DarkGray"/>
                                 <nil key="highlightedColor"/>
@@ -539,10 +539,10 @@
                                 <rect key="frame" x="16" y="60" width="382" height="344"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="d16-ct-XRC">
-                                        <rect key="frame" x="8" y="8" width="366" height="80"/>
+                                        <rect key="frame" x="0.0" y="8" width="382" height="59.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lop-I4-POO" userLabel="Puzzle Piece 1 Paceholder View">
-                                                <rect key="frame" x="0.0" y="0.0" width="57" height="80"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" placeholder="YES" id="bZV-Wq-x07"/>
@@ -550,81 +550,84 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gsv-lf-6v3" userLabel="Puzzle Piece 2 Paceholder View">
-                                                <rect key="frame" x="62" y="0.0" width="56.5" height="80"/>
+                                                <rect key="frame" x="64.5" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPX-cz-yrM" userLabel="Puzzle Piece 3 Paceholder View">
-                                                <rect key="frame" x="123.5" y="0.0" width="57" height="80"/>
+                                                <rect key="frame" x="129" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rpp-kp-9tT" userLabel="Puzzle Piece 4 Paceholder View">
-                                                <rect key="frame" x="185.5" y="0.0" width="57" height="80"/>
+                                                <rect key="frame" x="193.5" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5X-w3-kj7" userLabel="Puzzle Piece 5 Paceholder View">
-                                                <rect key="frame" x="247.5" y="0.0" width="56.5" height="80"/>
+                                                <rect key="frame" x="258" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4i-sk-XTc" userLabel="Puzzle Piece 6 Paceholder View">
-                                                <rect key="frame" x="309" y="0.0" width="57" height="80"/>
+                                                <rect key="frame" x="322.5" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="d16-ct-XRC" secondAttribute="height" multiplier="366:57" id="2AD-Wg-VeR"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bAy-tc-DTo">
-                                        <rect key="frame" x="8" y="93" width="366" height="80"/>
+                                        <rect key="frame" x="0.0" y="72.5" width="382" height="59.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tDo-Az-lc5" userLabel="Puzzle Piece 7 Paceholder View">
-                                                <rect key="frame" x="0.0" y="0.0" width="57" height="80"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzk-hC-oNm" userLabel="Puzzle Piece 8 Paceholder View">
-                                                <rect key="frame" x="62" y="0.0" width="56.5" height="80"/>
+                                                <rect key="frame" x="64.5" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1x-fq-4Mw" userLabel="Puzzle Piece 9 Paceholder View">
-                                                <rect key="frame" x="123.5" y="0.0" width="57" height="80"/>
+                                                <rect key="frame" x="129" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKB-s6-7Rx" userLabel="Puzzle Piece 10 Paceholder View">
-                                                <rect key="frame" x="185.5" y="0.0" width="57" height="80"/>
+                                                <rect key="frame" x="193.5" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1HQ-ll-4kS" userLabel="Puzzle Piece 11 Paceholder View">
-                                                <rect key="frame" x="247.5" y="0.0" width="56.5" height="80"/>
+                                                <rect key="frame" x="258" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4R-T1-DJ8" userLabel="Puzzle Piece 12 Paceholder View">
-                                                <rect key="frame" x="309" y="0.0" width="57" height="80"/>
+                                                <rect key="frame" x="322.5" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SnI-le-0F8">
-                                        <rect key="frame" x="8" y="178" width="366" height="80"/>
+                                        <rect key="frame" x="0.0" y="137" width="382" height="59.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cgu-u1-uVX" userLabel="Puzzle Piece 13 Paceholder View">
-                                                <rect key="frame" x="0.0" y="0.0" width="57" height="80"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cp8-jk-ejn" userLabel="Puzzle Piece 14 Paceholder View">
-                                                <rect key="frame" x="62" y="0.0" width="56.5" height="80"/>
+                                                <rect key="frame" x="64.5" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cdt-cT-kQQ" userLabel="Puzzle Piece 15 Paceholder View">
-                                                <rect key="frame" x="123.5" y="0.0" width="57" height="80"/>
+                                                <rect key="frame" x="129" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zo-UN-afm" userLabel="Puzzle Piece 16 Paceholder View">
-                                                <rect key="frame" x="185.5" y="0.0" width="57" height="80"/>
+                                                <rect key="frame" x="193.5" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gridy-sound-mute" translatesAutoresizingMaskIntoConstraints="NO" id="lq1-k4-Idf">
-                                                <rect key="frame" x="247.5" y="0.0" width="56.5" height="80"/>
+                                                <rect key="frame" x="258" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="tintColor" name="DarkGray"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gridy-lookup" translatesAutoresizingMaskIntoConstraints="NO" id="v1a-pO-3IJ">
-                                                <rect key="frame" x="309" y="0.0" width="57" height="80"/>
+                                                <rect key="frame" x="322.5" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="tintColor" name="DarkGray"/>
                                             </imageView>
                                         </subviews>
@@ -642,29 +645,30 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="d16-ct-XRC" firstAttribute="centerX" secondItem="6zk-Bk-pnX" secondAttribute="centerX" id="3dZ-ap-0ge"/>
                                     <constraint firstItem="tDo-Az-lc5" firstAttribute="height" secondItem="Lop-I4-POO" secondAttribute="height" id="6p7-Db-QQV"/>
                                     <constraint firstItem="Cgu-u1-uVX" firstAttribute="height" secondItem="Lop-I4-POO" secondAttribute="height" id="6u2-pr-5gj"/>
                                     <constraint firstItem="OoI-Ec-JcH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SnI-le-0F8" secondAttribute="bottom" constant="8" id="ABd-iw-XCe"/>
                                     <constraint firstAttribute="bottom" secondItem="OoI-Ec-JcH" secondAttribute="bottom" constant="8" id="BMM-Ch-b2H"/>
-                                    <constraint firstItem="bAy-tc-DTo" firstAttribute="leading" secondItem="6zk-Bk-pnX" secondAttribute="leading" constant="8" id="GDv-BK-vHu"/>
-                                    <constraint firstAttribute="trailing" secondItem="SnI-le-0F8" secondAttribute="trailing" constant="8" id="GaS-PG-5ak"/>
                                     <constraint firstItem="SnI-le-0F8" firstAttribute="height" secondItem="bAy-tc-DTo" secondAttribute="height" id="OeT-Xg-t8r"/>
                                     <constraint firstItem="bAy-tc-DTo" firstAttribute="height" secondItem="d16-ct-XRC" secondAttribute="height" id="Q7b-eB-XY2"/>
-                                    <constraint firstItem="SnI-le-0F8" firstAttribute="leading" secondItem="6zk-Bk-pnX" secondAttribute="leading" constant="8" id="dIh-cf-mam"/>
+                                    <constraint firstItem="bAy-tc-DTo" firstAttribute="leading" secondItem="d16-ct-XRC" secondAttribute="leading" id="V2L-1s-gfN"/>
                                     <constraint firstItem="SnI-le-0F8" firstAttribute="top" secondItem="bAy-tc-DTo" secondAttribute="bottom" constant="5" id="eAr-N8-LNF"/>
                                     <constraint firstAttribute="bottom" secondItem="OoI-Ec-JcH" secondAttribute="bottom" constant="108" id="ee2-P1-hu4">
                                         <variation key="heightClass=compact" constant="8"/>
                                     </constraint>
-                                    <constraint firstItem="d16-ct-XRC" firstAttribute="leading" secondItem="6zk-Bk-pnX" secondAttribute="leading" constant="8" id="jUx-6h-WRE"/>
+                                    <constraint firstItem="SnI-le-0F8" firstAttribute="leading" secondItem="d16-ct-XRC" secondAttribute="leading" id="foC-bU-3PY"/>
+                                    <constraint firstItem="d16-ct-XRC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6zk-Bk-pnX" secondAttribute="leading" id="jUx-6h-WRE"/>
+                                    <constraint firstItem="SnI-le-0F8" firstAttribute="trailing" secondItem="d16-ct-XRC" secondAttribute="trailing" id="mJX-Nk-KPJ"/>
                                     <constraint firstAttribute="trailing" secondItem="bAy-tc-DTo" secondAttribute="trailing" constant="8" id="qfh-AA-sN7"/>
                                     <constraint firstAttribute="bottom" secondItem="OoI-Ec-JcH" secondAttribute="bottom" constant="7.6666666666666288" id="rDY-n9-O2S">
                                         <variation key="heightClass=compact" constant="8"/>
                                     </constraint>
-                                    <constraint firstAttribute="trailing" secondItem="d16-ct-XRC" secondAttribute="trailing" constant="8" id="u4L-ae-evf"/>
+                                    <constraint firstItem="bAy-tc-DTo" firstAttribute="trailing" secondItem="d16-ct-XRC" secondAttribute="trailing" id="t3j-5u-XS4"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="d16-ct-XRC" secondAttribute="trailing" id="u4L-ae-evf"/>
                                     <constraint firstItem="d16-ct-XRC" firstAttribute="top" secondItem="6zk-Bk-pnX" secondAttribute="top" constant="8" id="u91-Z0-8L6"/>
                                     <constraint firstItem="OoI-Ec-JcH" firstAttribute="centerX" secondItem="6zk-Bk-pnX" secondAttribute="centerX" id="vt9-y2-zh8"/>
                                     <constraint firstItem="bAy-tc-DTo" firstAttribute="top" secondItem="d16-ct-XRC" secondAttribute="bottom" constant="5" id="wMx-LB-xAq"/>
-                                    <constraint firstAttribute="trailing" secondItem="bAy-tc-DTo" secondAttribute="trailing" constant="8" id="yBw-FU-5eK"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -807,67 +811,67 @@
                                 </variation>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eNR-7o-KBI" userLabel="Puzzle Piece 16 Image View">
-                                <rect key="frame" x="209.5" y="238" width="57" height="80"/>
+                                <rect key="frame" x="209.5" y="197" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wsk-eR-yMZ" userLabel="Puzzle Piece 15 Image View">
-                                <rect key="frame" x="147.5" y="238" width="57" height="80"/>
+                                <rect key="frame" x="145" y="197" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mXg-bf-G6G" userLabel="Puzzle Piece 14 Image View">
-                                <rect key="frame" x="86" y="238" width="56.5" height="80"/>
+                                <rect key="frame" x="80.5" y="197" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C8g-ic-1tb" userLabel="Puzzle Piece 13 Image View">
-                                <rect key="frame" x="24" y="238" width="57" height="80"/>
+                                <rect key="frame" x="16" y="197" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FaS-ky-IWV" userLabel="Puzzle Piece 12 Image View">
-                                <rect key="frame" x="333" y="153" width="57" height="80"/>
+                                <rect key="frame" x="338.5" y="132.5" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g3X-4k-gRc" userLabel="Puzzle Piece 11 Image View">
-                                <rect key="frame" x="271.5" y="153" width="56.5" height="80"/>
+                                <rect key="frame" x="274" y="132.5" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iUe-5i-6iY" userLabel="Puzzle Piece 10 Image View">
-                                <rect key="frame" x="209.5" y="153" width="57" height="80"/>
+                                <rect key="frame" x="209.5" y="132.5" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q6N-vK-Nyv" userLabel="Puzzle Piece 9 Image View">
-                                <rect key="frame" x="147.5" y="153" width="57" height="80"/>
+                                <rect key="frame" x="145" y="132.5" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NRh-OX-dca" userLabel="Puzzle Piece 8 Image View">
-                                <rect key="frame" x="86" y="153" width="56.5" height="80"/>
+                                <rect key="frame" x="80.5" y="132.5" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W8p-qD-K5E" userLabel="Puzzle Piece 7 Image View">
-                                <rect key="frame" x="24" y="153" width="57" height="80"/>
+                                <rect key="frame" x="16" y="132.5" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U1H-O7-zwM" userLabel="Puzzle Piece 6 Image View">
-                                <rect key="frame" x="333" y="68" width="57" height="80"/>
+                                <rect key="frame" x="338.5" y="68" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="owk-yE-ydS" userLabel="Puzzle Piece 5 Image View">
-                                <rect key="frame" x="271.5" y="68" width="56.5" height="80"/>
+                                <rect key="frame" x="274" y="68" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Qg-9a-JWP" userLabel="Puzzle Piece 4 Image View">
-                                <rect key="frame" x="209.5" y="68" width="57" height="80"/>
+                                <rect key="frame" x="209.5" y="68" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dwM-BX-lBm" userLabel="Puzzle Piece 3 Image View">
-                                <rect key="frame" x="147.5" y="68" width="57" height="80"/>
+                                <rect key="frame" x="145" y="68" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wSf-ji-pWz" userLabel="Puzzle Piece 2 Image View">
-                                <rect key="frame" x="86" y="68" width="56.5" height="80"/>
+                                <rect key="frame" x="80.5" y="68" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a0X-cV-uvy" userLabel="Puzzle Piece 1 Image View">
-                                <rect key="frame" x="24" y="68" width="57" height="80"/>
+                                <rect key="frame" x="16" y="68" width="59.5" height="59.5"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                         </subviews>
@@ -1079,7 +1083,7 @@
         <image name="Gridy-name-large-green" width="110" height="53.333332061767578"/>
         <image name="Gridy-name-small-green" width="35" height="17"/>
         <image name="Gridy-name-small-grey" width="35" height="17"/>
-        <image name="Gridy-sound-mute" width="100" height="100"/>
+        <image name="Gridy-sound-mute" width="400" height="400"/>
         <image name="alan-king-KZv7w34tluA-unsplash" width="960" height="1439.5"/>
         <namedColor name="DarkGray">
             <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

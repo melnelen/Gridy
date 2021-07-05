@@ -16,6 +16,8 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     var initialImageViewOffset = CGPoint()
     var translation: CGPoint = .zero
     
+    private var isDragging = false
+    
     @IBOutlet var puzzlePiecesImageViews: [UIImageView]!
     @IBOutlet var puzzlePiecesPlaceholdersViews: [UIView]!
     @IBOutlet var puzzleBlocksViews: [UIView]!
@@ -24,7 +26,6 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var soundImageView: UIImageView!
     @IBOutlet weak var movesLabel: UILabel!
     @IBOutlet weak var movesNimberLabel: UILabel!
-    
     
     
     override func viewDidLoad() {
@@ -99,22 +100,20 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func selectPuzzlePieceImageView(_ sender: UILongPressGestureRecognizer) {
         origin = sender.view?.frame
-        sender.view?.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
-//        print(sender.view)
+//        sender.view?.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
     }
     
     @objc func movePuzzlePieceImageView(_ sender: UIPanGestureRecognizer) {
-        let translation = sender.translation(in: self.view)
+        let location = sender.location(in: self.view)
+//        let oldX = location.x
+//        let oldY = location.y
         
         if sender.state == .began {
-            initialImageViewOffset = self.translation
+//            initialImageViewOffset = self.translation
         }
         
         if sender.state == .changed {
-            self.translation = CGPoint(
-                x: initialImageViewOffset.x + translation.x,
-                y: initialImageViewOffset.y + translation.y
-            )
+            sender.view?.frame = CGRect(x: location.x - (sender.view!.frame.width/2), y: location.y - (sender.view!.frame.height/2), width: sender.view!.frame.width, height: sender.view!.frame.height)
         }
         
         if sender.state == .cancelled {

@@ -25,7 +25,18 @@
 		D0CAA579254DB03D0040A8C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0CAA578254DB03D0040A8C5 /* Main.storyboard */; };
 		D0D0A276254AFB8200CFD284 /* WhiteLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D0A275254AFB8200CFD284 /* WhiteLayerView.swift */; };
 		D0D3EDFF2520F4CB007DB38A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D3EDFE2520F4CB007DB38A /* Helper.swift */; };
+		D0FB6CE7269369040089AC79 /* GridyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB6CE6269369040089AC79 /* GridyUITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D0FB6CE9269369040089AC79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D010389524913770008E1ADE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D010389C24913770008E1ADE;
+			remoteInfo = Gridy;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D00DD715260A2D30002CB1B1 /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
@@ -48,10 +59,20 @@
 		D0CAA578254DB03D0040A8C5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D0D0A275254AFB8200CFD284 /* WhiteLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteLayerView.swift; sourceTree = "<group>"; };
 		D0D3EDFE2520F4CB007DB38A /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		D0FB6CE4269369040089AC79 /* GridyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GridyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0FB6CE6269369040089AC79 /* GridyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridyUITests.swift; sourceTree = "<group>"; };
+		D0FB6CE8269369040089AC79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D010389A24913770008E1ADE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0FB6CE1269369040089AC79 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -65,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				D010389F24913770008E1ADE /* Gridy */,
+				D0FB6CE5269369040089AC79 /* GridyUITests */,
 				D010389E24913770008E1ADE /* Products */,
 				D01038B924918F84008E1ADE /* .github */,
 				D01038B724918F61008E1ADE /* .gitignore */,
@@ -77,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				D010389D24913770008E1ADE /* Gridy.app */,
+				D0FB6CE4269369040089AC79 /* GridyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,6 +174,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D0FB6CE5269369040089AC79 /* GridyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB6CE6269369040089AC79 /* GridyUITests.swift */,
+				D0FB6CE8269369040089AC79 /* Info.plist */,
+			);
+			path = GridyUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -171,18 +203,40 @@
 			productReference = D010389D24913770008E1ADE /* Gridy.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D0FB6CE3269369040089AC79 /* GridyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0FB6CED269369040089AC79 /* Build configuration list for PBXNativeTarget "GridyUITests" */;
+			buildPhases = (
+				D0FB6CE0269369040089AC79 /* Sources */,
+				D0FB6CE1269369040089AC79 /* Frameworks */,
+				D0FB6CE2269369040089AC79 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0FB6CEA269369040089AC79 /* PBXTargetDependency */,
+			);
+			name = GridyUITests;
+			productName = GridyUITests;
+			productReference = D0FB6CE4269369040089AC79 /* GridyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D010389524913770008E1ADE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1170;
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Alex Ivanova";
 				TargetAttributes = {
 					D010389C24913770008E1ADE = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					D0FB6CE3269369040089AC79 = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = D010389C24913770008E1ADE;
 					};
 				};
 			};
@@ -200,6 +254,7 @@
 			projectRoot = "";
 			targets = (
 				D010389C24913770008E1ADE /* Gridy */,
+				D0FB6CE3269369040089AC79 /* GridyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -217,6 +272,13 @@
 				D01038AA24913772008E1ADE /* Assets.xcassets in Resources */,
 				D01038B5249145B2008E1ADE /* timeburnernormal.ttf in Resources */,
 				D01038BE2491902B008E1ADE /* README.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0FB6CE2269369040089AC79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +302,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D0FB6CE0269369040089AC79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0FB6CE7269369040089AC79 /* GridyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D0FB6CEA269369040089AC79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D010389C24913770008E1ADE /* Gridy */;
+			targetProxy = D0FB6CE9269369040089AC79 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D01038AB24913772008E1ADE /* LaunchScreen.storyboard */ = {
@@ -406,6 +484,46 @@
 			};
 			name = Release;
 		};
+		D0FB6CEB269369040089AC79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6WAA8E6R87;
+				INFOPLIST_FILE = GridyUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexivanova.GridyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gridy;
+			};
+			name = Debug;
+		};
+		D0FB6CEC269369040089AC79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6WAA8E6R87;
+				INFOPLIST_FILE = GridyUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexivanova.GridyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gridy;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -423,6 +541,15 @@
 			buildConfigurations = (
 				D01038B224913772008E1ADE /* Debug */,
 				D01038B324913772008E1ADE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0FB6CED269369040089AC79 /* Build configuration list for PBXNativeTarget "GridyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0FB6CEB269369040089AC79 /* Debug */,
+				D0FB6CEC269369040089AC79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

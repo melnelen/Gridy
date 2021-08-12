@@ -133,20 +133,17 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
                 if self.view.convert(puzzleBlock.bounds, from: puzzleBlock).contains(location) {
                     sender.view?.frame = self.view.convert(puzzleBlock.bounds, from: puzzleBlock)
                     sender.view?.tag = index + 1
-                    break
-                } else {
-                    sender.view?.frame = origin
+                    return
                 }
             }
             for (index, puzzlePiecePlaceholder) in puzzlePiecesPlaceholdersViews.enumerated() {
                 if self.view.convert(puzzlePiecePlaceholder.bounds, from: puzzlePiecePlaceholder).contains(location) {
                     sender.view?.frame = self.view.convert(puzzlePiecePlaceholder.bounds, from: puzzlePiecePlaceholder)
                     sender.view?.tag = index + 17
-                    break
-                } else {
-                    sender.view?.frame = origin
+                    return
                 }
             }
+            sender.view?.frame = origin
         }
     }
     

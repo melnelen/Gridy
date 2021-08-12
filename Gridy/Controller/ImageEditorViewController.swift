@@ -200,7 +200,6 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func applyTransformations() {
-        
         self.chosenImageView.transform = CGAffineTransform.identity
             .translatedBy(x: self.translation.x, y: self.translation.y)
             .rotated(by: self.rotation)

@@ -68,7 +68,13 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func updatePuzzlePiecesImageViews() {
         for (index, puzzlePiece) in puzzlePiecesImageViews.enumerated() {
-            puzzlePiece.frame = self.view.convert(puzzlePiecesPlaceholdersViews[index].bounds, from: puzzlePiecesPlaceholdersViews[index])
+            if (puzzlePiece.tag >= 1 && puzzlePiece.tag <= 16) {
+                puzzlePiece.frame = self.view.convert(puzzleBlocksViews[puzzlePiece.tag - 1].bounds, from: puzzleBlocksViews[puzzlePiece.tag - 1])
+            } else if (puzzlePiece.tag >= 17 && puzzlePiece.tag <= 33) {
+                puzzlePiece.frame = self.view.convert(puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 17].bounds, from: puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 17])
+            } else {
+                puzzlePiece.frame = self.view.convert(puzzlePiecesPlaceholdersViews[index].bounds, from: puzzlePiecesPlaceholdersViews[index])
+            }
         }
     }
     
@@ -100,29 +106,46 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func selectPuzzlePieceImageView(_ sender: UILongPressGestureRecognizer) {
         origin = sender.view?.frame
-//        sender.view?.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
     }
     
     @objc func movePuzzlePieceImageView(_ sender: UIPanGestureRecognizer) {
         let location = sender.location(in: self.view)
-//        let oldX = location.x
-//        let oldY = location.y
         
         if sender.state == .began {
-//            initialImageViewOffset = self.translation
+            origin = sender.view?.frame
+            //            puzzlePeceState
         }
         
         if sender.state == .changed {
-            sender.view?.frame = CGRect(x: location.x - (sender.view!.frame.width/2), y: location.y - (sender.view!.frame.height/2), width: sender.view!.frame.width, height: sender.view!.frame.height)
+            sender.view?.frame = CGRect(x: location.x - (sender.view!.frame.width/2),
+                                        y: location.y - (sender.view!.frame.height/2),
+                                        width: sender.view!.frame.width,
+                                        height: sender.view!.frame.height)
         }
         
         if sender.state == .cancelled {
-            
+            sender.view?.frame = origin
+            sender.view?.tag = 0
         }
         
         if sender.state == .ended {
-            if !self.view.frame.contains(self.view.frame) {
-                sender.view?.frame = origin
+            for (index, puzzleBlock) in puzzleBlocksViews.enumerated() {
+                if self.view.convert(puzzleBlock.bounds, from: puzzleBlock).contains(location) {
+                    sender.view?.frame = self.view.convert(puzzleBlock.bounds, from: puzzleBlock)
+                    sender.view?.tag = index + 1
+                    break
+                } else {
+                    sender.view?.frame = origin
+                }
+            }
+            for (index, puzzlePiecePlaceholder) in puzzlePiecesPlaceholdersViews.enumerated() {
+                if self.view.convert(puzzlePiecePlaceholder.bounds, from: puzzlePiecePlaceholder).contains(location) {
+                    sender.view?.frame = self.view.convert(puzzlePiecePlaceholder.bounds, from: puzzlePiecePlaceholder)
+                    sender.view?.tag = index + 17
+                    break
+                } else {
+                    sender.view?.frame = origin
+                }
             }
         }
     }

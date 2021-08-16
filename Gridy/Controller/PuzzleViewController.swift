@@ -63,15 +63,18 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         for (index, puzzlePiece) in puzzlePiecesImageViews.enumerated() {
             puzzlePiece.translatesAutoresizingMaskIntoConstraints = true
             puzzlePiece.image = randomizedImagePieces[index]
+            puzzlePiece.tag = index + 1
         }
     }
     
     private func updatePuzzlePiecesImageViews() {
         for (index, puzzlePiece) in puzzlePiecesImageViews.enumerated() {
             if (puzzlePiece.tag >= 1 && puzzlePiece.tag <= 16) {
-                puzzlePiece.frame = self.view.convert(puzzleBlocksViews[puzzlePiece.tag - 1].bounds, from: puzzleBlocksViews[puzzlePiece.tag - 1])
+                puzzlePiece.frame = self.view.convert(puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 1].bounds, from: puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 1])
+//                puzzlePiece.frame = self.view.convert(puzzleBlocksViews[puzzlePiece.tag - 1].bounds, from: puzzleBlocksViews[puzzlePiece.tag - 1])
             } else if (puzzlePiece.tag >= 17 && puzzlePiece.tag <= 33) {
-                puzzlePiece.frame = self.view.convert(puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 17].bounds, from: puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 17])
+                puzzlePiece.frame = self.view.convert(puzzleBlocksViews[puzzlePiece.tag - 17].bounds, from: puzzleBlocksViews[puzzlePiece.tag - 17])
+//                puzzlePiece.frame = self.view.convert(puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 17].bounds, from: puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 17])
             } else {
                 puzzlePiece.frame = self.view.convert(puzzlePiecesPlaceholdersViews[index].bounds, from: puzzlePiecesPlaceholdersViews[index])
             }
@@ -129,16 +132,23 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         
         if sender.state == .ended {
-            for (index, puzzleBlock) in puzzleBlocksViews.enumerated() {
-                if self.view.convert(puzzleBlock.bounds, from: puzzleBlock).contains(location) {
-                    sender.view?.frame = self.view.convert(puzzleBlock.bounds, from: puzzleBlock)
-                    sender.view?.tag = index + 1
+            for puzzlePiece in puzzlePiecesImageViews {
+                if self.view.convert(puzzlePiece.bounds, from: puzzlePiece).contains(location)
+                    && sender.view?.tag != puzzlePiece.tag {
+                    sender.view?.frame = origin
                     return
                 }
             }
             for (index, puzzlePiecePlaceholder) in puzzlePiecesPlaceholdersViews.enumerated() {
                 if self.view.convert(puzzlePiecePlaceholder.bounds, from: puzzlePiecePlaceholder).contains(location) {
                     sender.view?.frame = self.view.convert(puzzlePiecePlaceholder.bounds, from: puzzlePiecePlaceholder)
+                    sender.view?.tag = index + 1
+                    return
+                }
+            }
+            for (index, puzzleBlock) in puzzleBlocksViews.enumerated() {
+                if self.view.convert(puzzleBlock.bounds, from: puzzleBlock).contains(location) {
+                    sender.view?.frame = self.view.convert(puzzleBlock.bounds, from: puzzleBlock)
                     sender.view?.tag = index + 17
                     return
                 }
@@ -146,7 +156,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
             sender.view?.frame = origin
         }
     }
-    
+
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
                            shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
         -> Bool {
@@ -156,7 +166,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
                     return false
                 }
             }
-            
+
             // neither of the recognized gestures should not be tap gesture
             if gestureRecognizer is UITapGestureRecognizer
                 || otherGestureRecognizer is UITapGestureRecognizer
@@ -164,8 +174,8 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
                 || otherGestureRecognizer is UIPanGestureRecognizer {
                 return false
             }
-            
+
             return true
     }
-    
+
 }

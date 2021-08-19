@@ -68,13 +68,21 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func updatePuzzlePiecesImageViews() {
+        var puzzlePiecesInPlace = 0
+
         for (index, puzzlePiece) in puzzlePiecesImageViews.enumerated() {
             if (puzzlePiece.tag >= 1 && puzzlePiece.tag <= 16) {
                 puzzlePiece.frame = self.view.convert(puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 1].bounds, from: puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 1])
-//                puzzlePiece.frame = self.view.convert(puzzleBlocksViews[puzzlePiece.tag - 1].bounds, from: puzzleBlocksViews[puzzlePiece.tag - 1])
             } else if (puzzlePiece.tag >= 17 && puzzlePiece.tag <= 33) {
                 puzzlePiece.frame = self.view.convert(puzzleBlocksViews[puzzlePiece.tag - 17].bounds, from: puzzleBlocksViews[puzzlePiece.tag - 17])
-//                puzzlePiece.frame = self.view.convert(puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 17].bounds, from: puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 17])
+                for (index, puzzlePiece) in puzzlePiecesImageViews.enumerated() {
+                    if index == puzzlePiece.tag - 17 {
+                        puzzlePiecesInPlace += 1
+                    }
+                }
+                if puzzlePiecesInPlace == 16 {
+                    print("Success!")
+                }
             } else {
                 puzzlePiece.frame = self.view.convert(puzzlePiecesPlaceholdersViews[index].bounds, from: puzzlePiecesPlaceholdersViews[index])
             }
@@ -113,10 +121,9 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func movePuzzlePieceImageView(_ sender: UIPanGestureRecognizer) {
         let location = sender.location(in: self.view)
-        
+
         if sender.state == .began {
             origin = sender.view?.frame
-            //            puzzlePeceState
         }
         
         if sender.state == .changed {

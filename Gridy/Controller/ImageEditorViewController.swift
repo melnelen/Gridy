@@ -226,8 +226,8 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         var rectangle: CGRect
         let scale: CGFloat = image.scale
         
-        for line in 0..<4 {
-            for column in 0..<4 {
+        for column in 0..<4 {
+            for line in 0..<4 {
                 rectangle = CGRect(x: CGFloat(line) * piecesWidth * scale,
                                    y: CGFloat(column) * piecesHeight * scale,
                                    width: piecesWidth  * scale,
@@ -250,7 +250,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "startGame" {
             let newVC: PuzzleViewController = segue.destination as! PuzzleViewController
-            newVC.imagePieces = self.imagePieces
+            newVC.originalImagePieces = self.imagePieces
             newVC.imageEditor = self
         }
     }

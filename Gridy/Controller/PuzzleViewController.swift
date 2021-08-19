@@ -10,7 +10,7 @@ import UIKit
 
 class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     
-    var imagePieces: [UIImage]!
+    var originalImagePieces: [UIImage]!
     var imageEditor: ImageEditorViewController!
     var origin: CGRect!
     var initialImageViewOffset = CGPoint()
@@ -58,7 +58,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func setupPuzzlePiecesImageViews() {
-        let randomizedImagePieces = imagePieces.shuffled()
+        let randomizedImagePieces = originalImagePieces.shuffled()
         
         for (index, puzzlePiece) in puzzlePiecesImageViews.enumerated() {
             puzzlePiece.translatesAutoresizingMaskIntoConstraints = true
@@ -68,27 +68,19 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func updatePuzzlePiecesImageViews() {
-        var puzzlePiecesInPlace = 0
-
         for (index, puzzlePiece) in puzzlePiecesImageViews.enumerated() {
             if (puzzlePiece.tag >= 1 && puzzlePiece.tag <= 16) {
-                puzzlePiece.frame = self.view.convert(puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 1].bounds, from: puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 1])
+                puzzlePiece.frame = self.view.convert(puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 1].bounds,
+                                                      from: puzzlePiecesPlaceholdersViews[puzzlePiece.tag - 1])
             } else if (puzzlePiece.tag >= 17 && puzzlePiece.tag <= 33) {
-                puzzlePiece.frame = self.view.convert(puzzleBlocksViews[puzzlePiece.tag - 17].bounds, from: puzzleBlocksViews[puzzlePiece.tag - 17])
-                for (index, puzzlePiece) in puzzlePiecesImageViews.enumerated() {
-                    if index == puzzlePiece.tag - 17 {
-                        puzzlePiecesInPlace += 1
-                    }
-                }
-                if puzzlePiecesInPlace == 16 {
-                    print("Success!")
-                }
+                puzzlePiece.frame = self.view.convert(puzzleBlocksViews[puzzlePiece.tag - 17].bounds,
+                                                      from: puzzleBlocksViews[puzzlePiece.tag - 17])
             } else {
                 puzzlePiece.frame = self.view.convert(puzzlePiecesPlaceholdersViews[index].bounds, from: puzzlePiecesPlaceholdersViews[index])
             }
         }
     }
-    
+
     private func setupPuzzlePiecesPlaceholdersViews() {
         for puzzlePiecePlaceholder in puzzlePiecesPlaceholdersViews {
             //setup image views borders
@@ -98,46 +90,46 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
             puzzlePiecePlaceholder.layer.borderWidth = 1
         }
     }
-    
+
     @IBAction func startNewGame(_ sender: Any) {
         dismiss(animated: true)
     }
-    
+
     func configureGestures(view: UIView) {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectPuzzlePieceImageView(_:)))
         tapGestureRecognizer.delegate = self
         view.addGestureRecognizer(tapGestureRecognizer)
-        
+
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(movePuzzlePieceImageView(_:)))
         panGestureRecognizer.delegate = self
         view.addGestureRecognizer(panGestureRecognizer)
-        
+
         view.isUserInteractionEnabled = true
     }
-    
+
     @objc func selectPuzzlePieceImageView(_ sender: UILongPressGestureRecognizer) {
         origin = sender.view?.frame
     }
-    
+
     @objc func movePuzzlePieceImageView(_ sender: UIPanGestureRecognizer) {
         let location = sender.location(in: self.view)
 
         if sender.state == .began {
             origin = sender.view?.frame
         }
-        
+
         if sender.state == .changed {
             sender.view?.frame = CGRect(x: location.x - (sender.view!.frame.width/2),
                                         y: location.y - (sender.view!.frame.height/2),
                                         width: sender.view!.frame.width,
                                         height: sender.view!.frame.height)
         }
-        
+
         if sender.state == .cancelled {
             sender.view?.frame = origin
             sender.view?.tag = 0
         }
-        
+
         if sender.state == .ended {
             for puzzlePiece in puzzlePiecesImageViews {
                 if self.view.convert(puzzlePiece.bounds, from: puzzlePiece).contains(location)
@@ -157,12 +149,32 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
                 if self.view.convert(puzzleBlock.bounds, from: puzzleBlock).contains(location) {
                     sender.view?.frame = self.view.convert(puzzleBlock.bounds, from: puzzleBlock)
                     sender.view?.tag = index + 17
+                    if checkSuccessCondition() {
+                        print("Success!")
+                    }
                     return
                 }
             }
             sender.view?.frame = origin
         }
     }
+
+    private func checkSuccessCondition() -> Bool{
+            for puzzlePiece in puzzlePiecesImageViews {
+                guard (puzzlePiece.tag >= 17 && puzzlePiece.tag <= 33) else {
+                    return false
+                }
+                let indexInPuzzleContainer = puzzlePiece.tag - 17
+                let expectedImage = originalImagePieces[indexInPuzzleContainer]
+
+                if puzzlePiece.image != expectedImage {
+                    return false
+                } else {
+                    continue
+                }
+            }
+            return true
+        }
 
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
                            shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)

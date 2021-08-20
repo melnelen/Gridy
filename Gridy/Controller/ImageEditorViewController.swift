@@ -115,7 +115,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
             options: [],
             animations: {
                 self.applyTransformations()
-            },
+        },
             completion: nil
         )
     }
@@ -163,40 +163,21 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
             print(chosenImageView.frame)
             print(self.view.convert(gridFrameView.bounds, from: gridFrameView))
             if !self.chosenImageView.frame.contains(self.gridFrameView.frame) {
-                                UIView.animate(
-                                    withDuration: 0.5,
-                                    delay: 0.0,
-                                    usingSpringWithDamping: 0.5,
-                                    initialSpringVelocity: 0.5,
-                                    options: [],
-                                    animations: {
-                                        self.applyTransformations()
-                                    }) { (success) in }
+                UIView.animate(
+                    withDuration: 0.5,
+                    delay: 0.0,
+                    usingSpringWithDamping: 0.5,
+                    initialSpringVelocity: 0.5,
+                    options: [],
+                    animations: {
+                        self.applyTransformations()
+                }) { (success) in }
             }
         default:
             break
         }
         
         sender.scale = 1
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
-                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
-    -> Bool {
-        // simultaneous gesture recognition will only be supported for chosenImageView
-        if gestureRecognizer.view != chosenImageView {
-            return false
-        }
-        
-        // neither of the recognized gestures should not be tap gesture
-        if gestureRecognizer is UITapGestureRecognizer
-            || otherGestureRecognizer is UITapGestureRecognizer
-            || gestureRecognizer is UIPanGestureRecognizer
-            || otherGestureRecognizer is UIPanGestureRecognizer {
-            return false
-        }
-        
-        return true
     }
     
     private func applyTransformations() {
@@ -239,6 +220,25 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         
         return imagePieces
+    }
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
+        -> Bool {
+            // simultaneous gesture recognition will only be supported for chosenImageView
+            if gestureRecognizer.view != chosenImageView {
+                return false
+            }
+
+            // neither of the recognized gestures should not be tap gesture
+            if gestureRecognizer is UITapGestureRecognizer
+                || otherGestureRecognizer is UITapGestureRecognizer
+                || gestureRecognizer is UIPanGestureRecognizer
+                || otherGestureRecognizer is UIPanGestureRecognizer {
+                return false
+            }
+
+            return true
     }
     
     override func viewDidLayoutSubviews() {

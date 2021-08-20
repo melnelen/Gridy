@@ -1017,7 +1017,7 @@
                     <connections>
                         <outlet property="hintImageView" destination="v1a-pO-3IJ" id="nVK-Ef-rQV"/>
                         <outlet property="movesLabel" destination="rGm-Km-7fz" id="IjO-AW-8NR"/>
-                        <outlet property="movesNimberLabel" destination="w6H-Ny-FNK" id="Zej-eR-dBE"/>
+                        <outlet property="movesNumberLabel" destination="w6H-Ny-FNK" id="Zej-eR-dBE"/>
                         <outlet property="newGameButton" destination="tBk-0b-V4O" id="8tq-K8-JsC"/>
                         <outlet property="soundImageView" destination="lq1-k4-Idf" id="utF-Tf-2IO"/>
                         <outletCollection property="puzzlePiecesImageViews" destination="a0X-cV-uvy" collectionClass="NSMutableArray" id="FAS-Q4-mGa"/>

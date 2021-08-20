@@ -12,10 +12,9 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var originalImagePieces: [UIImage]!
     var imageEditor: ImageEditorViewController!
-    var origin: CGRect!
-    var initialImageViewOffset = CGPoint()
-    var translation: CGPoint = .zero
-    
+    private var origin: CGRect!
+    private var initialImageViewOffset = CGPoint()
+    private var translation: CGPoint = .zero
     private var isDragging = false
     
     @IBOutlet var puzzlePiecesImageViews: [UIImageView]!
@@ -25,7 +24,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var hintImageView: UIImageView!
     @IBOutlet weak var soundImageView: UIImageView!
     @IBOutlet weak var movesLabel: UILabel!
-    @IBOutlet weak var movesNimberLabel: UILabel!
+    @IBOutlet weak var movesNumberLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -95,7 +94,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         dismiss(animated: true)
     }
 
-    func configureGestures(view: UIView) {
+    private func configureGestures(view: UIView) {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectPuzzlePieceImageView(_:)))
         tapGestureRecognizer.delegate = self
         view.addGestureRecognizer(tapGestureRecognizer)
@@ -160,21 +159,21 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 
     private func checkSuccessCondition() -> Bool{
-            for puzzlePiece in puzzlePiecesImageViews {
-                guard (puzzlePiece.tag >= 17 && puzzlePiece.tag <= 33) else {
-                    return false
-                }
-                let indexInPuzzleContainer = puzzlePiece.tag - 17
-                let expectedImage = originalImagePieces[indexInPuzzleContainer]
-
-                if puzzlePiece.image != expectedImage {
-                    return false
-                } else {
-                    continue
-                }
+        for puzzlePiece in puzzlePiecesImageViews {
+            guard (puzzlePiece.tag >= 17 && puzzlePiece.tag <= 33) else {
+                return false
             }
-            return true
+            let indexInPuzzleContainer = puzzlePiece.tag - 17
+            let expectedImage = originalImagePieces[indexInPuzzleContainer]
+
+            if puzzlePiece.image != expectedImage {
+                return false
+            } else {
+                continue
+            }
         }
+        return true
+    }
 
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
                            shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)

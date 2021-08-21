@@ -34,7 +34,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Challenge yourself with a photo puzzle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Okp-qX-2S2">
-                                <rect key="frame" x="82" y="192" width="235" height="17"/>
+                                <rect key="frame" x="82" y="193.5" width="235" height="15.5"/>
                                 <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="13"/>
                                 <color key="textColor" name="DarkGray"/>
                                 <nil key="highlightedColor"/>
@@ -626,10 +626,16 @@
                                                 <rect key="frame" x="258" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="tintColor" name="DarkGray"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gridy-lookup" translatesAutoresizingMaskIntoConstraints="NO" id="v1a-pO-3IJ">
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hrv-Ih-ccd">
                                                 <rect key="frame" x="322.5" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="tintColor" name="DarkGray"/>
-                                            </imageView>
+                                                <state key="normal" image="Gridy-lookup">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="showHintImage:" destination="RzF-6g-6o0" eventType="touchUpInside" id="Wak-v7-xOQ"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag pieces to the grid. Swipe out of the grid to undo." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OoI-Ec-JcH">
@@ -1015,7 +1021,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="brb-i6-tfb"/>
                     <connections>
-                        <outlet property="hintImageView" destination="v1a-pO-3IJ" id="nVK-Ef-rQV"/>
                         <outlet property="movesLabel" destination="rGm-Km-7fz" id="IjO-AW-8NR"/>
                         <outlet property="movesNumberLabel" destination="w6H-Ny-FNK" id="Zej-eR-dBE"/>
                         <outlet property="newGameButton" destination="tBk-0b-V4O" id="8tq-K8-JsC"/>
@@ -1073,7 +1078,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Apc-Ou-c91" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="2qJ-qg-42L" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1661.3390928725703" y="135.98130841121494"/>
+            <point key="canvasLocation" x="1660.8695652173915" y="135.9375"/>
         </scene>
     </scenes>
     <resources>

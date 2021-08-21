@@ -42,4 +42,9 @@ struct Constant {
         static let camera = "Gridy-camera"
         static let library = "Gridy-library"
     }
+
+    struct Icon {
+        static let muteSound = "Gridy-sound-mute"
+        static let onSound = "Gridy-sound-on"
+    }
 }

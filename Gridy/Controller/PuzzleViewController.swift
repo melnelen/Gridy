@@ -22,7 +22,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var puzzleBlocksViews: [UIView]!
     @IBOutlet weak var newGameButton: UIButton!
     @IBOutlet weak var hintImageView: UIImageView!
-    @IBOutlet weak var soundImageView: UIImageView!
+    @IBOutlet weak var soundButton: UIButton!
     @IBOutlet weak var movesLabel: UILabel!
     @IBOutlet weak var movesNumberLabel: UILabel!
     
@@ -87,6 +87,14 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
             puzzlePiecePlaceholder.layer.masksToBounds = true
             puzzlePiecePlaceholder.contentMode = .scaleToFill
             puzzlePiecePlaceholder.layer.borderWidth = 1
+        }
+    }
+
+    @IBAction func changeSoundOption(_ sender: Any) {
+        if self.soundButton.currentImage == UIImage(named: Constant.Icon.muteSound) {
+            self.soundButton.setImage(UIImage(named: Constant.Icon.onSound), for: .normal)
+        } else {
+            self.soundButton.setImage(UIImage(named: Constant.Icon.muteSound), for: .normal)
         }
     }
 

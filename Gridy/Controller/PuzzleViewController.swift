@@ -9,7 +9,8 @@
 import UIKit
 
 class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
-    
+
+    var originalImage: UIImage!
     var originalImagePieces: [UIImage]!
     var imageEditor: ImageEditorViewController!
     private var origin: CGRect!
@@ -197,11 +198,27 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
                                                 message: "Congratulations! You have successfully completed this puzzle! Your score is: \(score)",
             preferredStyle: .alert)
 
+        let shareAction = UIAlertAction(title: "Share", style: .default) {
+            (action) in
+            self.showSharingOptions()
+        }
+        alertController.addAction(shareAction)
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: .none)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addAction(cancelAction)
 
         present(alertController, animated: true)
+    }
+
+    private func showSharingOptions() {
+        let note = "My score is: \(score). Can you do better?"
+        let image = originalImage
+        let items = [image as Any, note as Any]
+
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = view // so that iPads won't crash
+
+        present(activityViewController, animated: true, completion: nil)
     }
 
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,

@@ -18,6 +18,10 @@
 		D01038BA24918F84008E1ADE /* .github in Resources */ = {isa = PBXBuildFile; fileRef = D01038B924918F84008E1ADE /* .github */; };
 		D01038BC24919025008E1ADE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D01038BB24919024008E1ADE /* LICENSE */; };
 		D01038BE2491902B008E1ADE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D01038BD2491902B008E1ADE /* README.md */; };
+		D0B013FA26D18BA600F8B64D /* error.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0B013F726D18BA600F8B64D /* error.wav */; };
+		D0B013FB26D18BA600F8B64D /* pickup-click.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0B013F826D18BA600F8B64D /* pickup-click.wav */; };
+		D0B013FE26D18BC100F8B64D /* drop-click.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0B013FD26D18BC100F8B64D /* drop-click.wav */; };
+		D0B0140226D2827100F8B64D /* applause.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0B0140126D2827100F8B64D /* applause.wav */; };
 		D0B0AD812533742D00560A1B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0AD802533742D00560A1B /* Constant.swift */; };
 		D0B0AD8325338CC200560A1B /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0AD8225338CC200560A1B /* Position.swift */; };
 		D0B7808D24CB4D4700A42090 /* ImageEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7808C24CB4D4700A42090 /* ImageEditorViewController.swift */; };
@@ -40,6 +44,10 @@
 		D01038B924918F84008E1ADE /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		D01038BB24919024008E1ADE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D01038BD2491902B008E1ADE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D0B013F726D18BA600F8B64D /* error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = error.wav; sourceTree = "<group>"; };
+		D0B013F826D18BA600F8B64D /* pickup-click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "pickup-click.wav"; sourceTree = "<group>"; };
+		D0B013FD26D18BC100F8B64D /* drop-click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "drop-click.wav"; sourceTree = "<group>"; };
+		D0B0140126D2827100F8B64D /* applause.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = applause.wav; sourceTree = "<group>"; };
 		D0B0AD802533742D00560A1B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		D0B0AD8225338CC200560A1B /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		D0B7808C24CB4D4700A42090 /* ImageEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +135,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D0B013E826D1855500F8B64D /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				D0B013F826D18BA600F8B64D /* pickup-click.wav */,
+				D0B013FD26D18BC100F8B64D /* drop-click.wav */,
+				D0B013F726D18BA600F8B64D /* error.wav */,
+				D0B0140126D2827100F8B64D /* applause.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		D0D3EDFD2520F162007DB38A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +154,7 @@
 				D01038A224913770008E1ADE /* SceneDelegate.swift */,
 				D01038A924913772008E1ADE /* Assets.xcassets */,
 				D01038B6249145C2008E1ADE /* Fonts */,
+				D0B013E826D1855500F8B64D /* Sounds */,
 				D01038AB24913772008E1ADE /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
@@ -199,13 +219,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D01038BA24918F84008E1ADE /* .github in Resources */,
+				D0B013FA26D18BA600F8B64D /* error.wav in Resources */,
 				D01038B824918F61008E1ADE /* .gitignore in Resources */,
 				D01038AD24913772008E1ADE /* LaunchScreen.storyboard in Resources */,
 				D0CAA579254DB03D0040A8C5 /* Main.storyboard in Resources */,
+				D0B013FB26D18BA600F8B64D /* pickup-click.wav in Resources */,
 				D01038BC24919025008E1ADE /* LICENSE in Resources */,
+				D0B013FE26D18BC100F8B64D /* drop-click.wav in Resources */,
 				D01038AA24913772008E1ADE /* Assets.xcassets in Resources */,
 				D01038B5249145B2008E1ADE /* timeburnernormal.ttf in Resources */,
 				D01038BE2491902B008E1ADE /* README.md in Resources */,
+				D0B0140226D2827100F8B64D /* applause.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

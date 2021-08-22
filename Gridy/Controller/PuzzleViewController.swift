@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
+class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegate {
     
     var originalImagePieces: [UIImage]!
     var imageEditor: ImageEditorViewController!
@@ -16,7 +17,9 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     private var initialImageViewOffset = CGPoint()
     private var translation: CGPoint = .zero
     private var isDragging = false
-    
+
+
+    var audioPlayer: AVAudioPlayer!
     @IBOutlet var puzzlePiecesImageViews: [UIImageView]!
     @IBOutlet var puzzlePiecesPlaceholdersViews: [UIView]!
     @IBOutlet var puzzleBlocksViews: [UIView]!
@@ -31,6 +34,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         
         setupNewGameButton()
+        setupSoundButton()
         setupPuzzlePiecesImageViews()
         self.puzzlePiecesImageViews.forEach { puzzlePiece in
             configureGestures(view: puzzlePiece)
@@ -90,6 +94,10 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
 
+    private func setupSoundButton() {
+        self.soundButton.setImage(UIImage(named: Constant.Icon.muteSound), for: .normal)
+    }
+
     @IBAction func changeSoundOption(_ sender: Any) {
         if self.soundButton.currentImage == UIImage(named: Constant.Icon.muteSound) {
             self.soundButton.setImage(UIImage(named: Constant.Icon.onSound), for: .normal)
@@ -120,9 +128,17 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @objc func movePuzzlePieceImageView(_ sender: UIPanGestureRecognizer) {
         let location = sender.location(in: self.view)
+        let pickupSound = URL(fileURLWithPath: Bundle.main.path(forResource: "pickup-click", ofType: "wav")!)
+        let dropSound = URL(fileURLWithPath: Bundle.main.path(forResource: "drop-click", ofType: "wav")!)
+        let errorSound = URL(fileURLWithPath: Bundle.main.path(forResource: "error", ofType: "wav")!)
+        let applauseSound = URL(fileURLWithPath: Bundle.main.path(forResource: "applause", ofType: "wav")!)
 
         if sender.state == .began {
             origin = sender.view?.frame
+            self.view.bringSubviewToFront(sender.view!)
+            if soundIsOn() {
+                makeASound(sound: pickupSound)
+            }
         }
 
         if sender.state == .changed {
@@ -135,6 +151,9 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         if sender.state == .cancelled {
             sender.view?.frame = origin
             sender.view?.tag = 0
+            if soundIsOn() {
+                makeASound(sound: errorSound)
+            }
         }
 
         if sender.state == .ended {
@@ -142,6 +161,9 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
                 if self.view.convert(puzzlePiece.bounds, from: puzzlePiece).contains(location)
                     && sender.view?.tag != puzzlePiece.tag {
                     sender.view?.frame = origin
+                    if soundIsOn() {
+                        makeASound(sound: errorSound)
+                    }
                     return
                 }
             }
@@ -149,6 +171,9 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
                 if self.view.convert(puzzlePiecePlaceholder.bounds, from: puzzlePiecePlaceholder).contains(location) {
                     sender.view?.frame = self.view.convert(puzzlePiecePlaceholder.bounds, from: puzzlePiecePlaceholder)
                     sender.view?.tag = index + 1
+                    if soundIsOn() {
+                        makeASound(sound: dropSound)
+                    }
                     return
                 }
             }
@@ -156,13 +181,37 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
                 if self.view.convert(puzzleBlock.bounds, from: puzzleBlock).contains(location) {
                     sender.view?.frame = self.view.convert(puzzleBlock.bounds, from: puzzleBlock)
                     sender.view?.tag = index + 17
+                    if soundIsOn() {
+                        makeASound(sound: dropSound)
+                    }
                     if checkSuccessCondition() {
                         print("Success!")
+                        if soundIsOn() {
+                            makeASound(sound: applauseSound)
+                        }
                     }
                     return
                 }
             }
             sender.view?.frame = origin
+            if soundIsOn() {
+                makeASound(sound: errorSound)
+            }
+        }
+    }
+
+    private func soundIsOn() -> Bool {
+        return self.soundButton.currentImage == UIImage(named: Constant.Icon.onSound) ? true : false
+    }
+
+    private func makeASound(sound: URL) {
+        if self.soundButton.currentImage == UIImage(named: Constant.Icon.onSound) {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: sound)
+            } catch _{
+            }
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
         }
     }
 

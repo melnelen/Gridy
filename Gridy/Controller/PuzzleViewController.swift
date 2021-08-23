@@ -110,6 +110,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         for (index, puzzlePiece) in puzzlePiecesImageViews.enumerated() {
             puzzlePiece.translatesAutoresizingMaskIntoConstraints = true
             puzzlePiece.image = randomizedImagePieces[index]
+            puzzlePiece.contentMode = .scaleAspectFill
             puzzlePiece.tag = index + 1
         }
     }

@@ -150,18 +150,15 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         case .began, .changed:
             var newScale = currentScale * sender.scale
             if newScale < minScale {
-                newScale = minScale / currentScale
+                newScale = minScale
             } else if newScale > maxScale {
-                newScale = maxScale / currentScale
+                newScale = maxScale
             }
             self.scale = newScale
             
             self.applyTransformations()
             
         case .ended:
-            print(gridFrameView.frame)
-            print(chosenImageView.frame)
-            print(self.view.convert(gridFrameView.bounds, from: gridFrameView))
             if !self.chosenImageView.frame.contains(self.gridFrameView.frame) {
                 UIView.animate(
                     withDuration: 0.5,

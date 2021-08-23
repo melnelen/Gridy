@@ -20,7 +20,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var chosenImageView: UIImageView!
     @IBOutlet weak var whiteView: WhiteLayerView!
-    @IBOutlet weak var gridFrameView: UIView!
+    @IBOutlet weak var gridFrameView: GridView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var instructionsLabel: UILabel!

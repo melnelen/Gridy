@@ -247,6 +247,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "startGame" {
             let newVC: PuzzleViewController = segue.destination as! PuzzleViewController
+            newVC.imageSizeView = self.gridFrameView
             newVC.originalImage = self.croppedImage
             newVC.originalImagePieces = self.imagePieces
             newVC.imageEditor = self

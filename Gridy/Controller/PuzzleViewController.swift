@@ -11,6 +11,7 @@ import UIKit
 class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     var originalImage: UIImage!
     var originalImagePieces: [UIImage]!
+    var imageSizeView: UIView!
     var imageEditor: ImageEditorViewController!
     private var origin: CGRect!
     private var initialImageViewOffset = CGPoint()
@@ -33,8 +34,8 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         let imageView = UIImageView(frame: CGRect(
             x: 0,
             y: 0,
-            width: originalImage.size.width,
-            height: originalImage.size.height))
+            width: imageSizeView.frame.size.width,
+            height: imageSizeView.frame.size.height))
         imageView.image = originalImage
 
         alert.view.addSubview(imageView)

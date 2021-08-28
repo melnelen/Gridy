@@ -9,13 +9,14 @@
 import UIKit
 
 class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
-    
+
+    var originalImage: UIImage!
     var originalImagePieces: [UIImage]!
     var imageEditor: ImageEditorViewController!
     private var origin: CGRect!
     private var initialImageViewOffset = CGPoint()
     private var translation: CGPoint = .zero
-    private var isDragging = false
+    private var score = 0
     
     @IBOutlet var puzzlePiecesImageViews: [UIImageView]!
     @IBOutlet var puzzlePiecesPlaceholdersViews: [UIView]!
@@ -24,14 +25,15 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var hintImageView: UIImageView!
     @IBOutlet weak var soundImageView: UIImageView!
     @IBOutlet weak var movesLabel: UILabel!
-    @IBOutlet weak var movesNumberLabel: UILabel!
+    @IBOutlet weak var movesCountLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNewGameButton()
-        setupPuzzlePiecesImageViews()
+        self.setupNewGameButton()
+        self.setupMovesCountLabel()
+        self.setupPuzzlePiecesImageViews()
         self.puzzlePiecesImageViews.forEach { puzzlePiece in
             configureGestures(view: puzzlePiece)
         }
@@ -54,6 +56,19 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
             size: Constant.Font.Size.mediumButton)
         self.newGameButton.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
         self.newGameButton.clipsToBounds = true
+    }
+
+    private func setupMovesCountLabel() {
+        self.movesCountLabel.font = UIFont(
+            name: Constant.Font.Name.primary,
+            size: Constant.Font.Size.giantLabel)
+        self.movesCountLabel.textColor = UIColor (named: Constant.Color.primaryDark)
+        self.movesCountLabel.text = String(score)
+    }
+
+    private func updateMovesCountLabel() {
+        self.score += 1
+        self.movesCountLabel.text = String(score)
     }
     
     private func setupPuzzlePiecesImageViews() {
@@ -141,6 +156,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
                 if self.view.convert(puzzlePiecePlaceholder.bounds, from: puzzlePiecePlaceholder).contains(location) {
                     sender.view?.frame = self.view.convert(puzzlePiecePlaceholder.bounds, from: puzzlePiecePlaceholder)
                     sender.view?.tag = index + 1
+                    updateMovesCountLabel()
                     return
                 }
             }
@@ -148,8 +164,10 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
                 if self.view.convert(puzzleBlock.bounds, from: puzzleBlock).contains(location) {
                     sender.view?.frame = self.view.convert(puzzleBlock.bounds, from: puzzleBlock)
                     sender.view?.tag = index + 17
+                    updateMovesCountLabel()
                     if checkSuccessCondition() {
                         print("Success!")
+                        successfullyCompletedPuzzle()
                     }
                     return
                 }
@@ -173,6 +191,34 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }
         return true
+    }
+
+    private func successfullyCompletedPuzzle() {
+        let alertController = UIAlertController(title: "Hooray! 🎉🎉🎉",
+                                                message: "Congratulations! You have successfully completed this puzzle! Your score is: \(score)",
+            preferredStyle: .alert)
+
+        let shareAction = UIAlertAction(title: "Share", style: .default) {
+            (action) in
+            self.showSharingOptions()
+        }
+        alertController.addAction(shareAction)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true)
+    }
+
+    private func showSharingOptions() {
+        let note = "My score is: \(score). Can you do better?"
+        let image = originalImage
+        let items = [image as Any, note as Any]
+
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = view // so that iPads won't crash
+
+        present(activityViewController, animated: true, completion: nil)
     }
 
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,

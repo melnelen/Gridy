@@ -57,7 +57,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         self.closeButton.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
         self.closeButton.titleLabel?.font = UIFont(
             name: Constant.Font.Name.primary,
-            size: Constant.Font.Size.closeButton)
+            size: Constant.Font.Size.giantLabel)
     }
     
     private func setupStartButton() {
@@ -250,6 +250,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "startGame" {
             let newVC: PuzzleViewController = segue.destination as! PuzzleViewController
+            newVC.originalImage = self.croppedImage
             newVC.originalImagePieces = self.imagePieces
             newVC.imageEditor = self
         }

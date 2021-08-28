@@ -32,7 +32,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         
         self.setupNewGameButton()
-        self.setupMovesNumberLabel()
+        self.setupMovesCountLabel()
         self.setupPuzzlePiecesImageViews()
         self.puzzlePiecesImageViews.forEach { puzzlePiece in
             configureGestures(view: puzzlePiece)
@@ -58,7 +58,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         self.newGameButton.clipsToBounds = true
     }
 
-    private func setupMovesNumberLabel() {
+    private func setupMovesCountLabel() {
         self.movesCountLabel.font = UIFont(
             name: Constant.Font.Name.primary,
             size: Constant.Font.Size.giantLabel)
@@ -66,7 +66,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         self.movesCountLabel.text = String(score)
     }
 
-    private func updateMovesNumberLabel() {
+    private func updateMovesCountLabel() {
         self.score += 1
         self.movesCountLabel.text = String(score)
     }
@@ -156,7 +156,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
                 if self.view.convert(puzzlePiecePlaceholder.bounds, from: puzzlePiecePlaceholder).contains(location) {
                     sender.view?.frame = self.view.convert(puzzlePiecePlaceholder.bounds, from: puzzlePiecePlaceholder)
                     sender.view?.tag = index + 1
-                    updateMovesNumberLabel()
+                    updateMovesCountLabel()
                     return
                 }
             }
@@ -164,7 +164,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
                 if self.view.convert(puzzleBlock.bounds, from: puzzleBlock).contains(location) {
                     sender.view?.frame = self.view.convert(puzzleBlock.bounds, from: puzzleBlock)
                     sender.view?.tag = index + 17
-                    updateMovesNumberLabel()
+                    updateMovesCountLabel()
                     if checkSuccessCondition() {
                         print("Success!")
                         successfullyCompletedPuzzle()

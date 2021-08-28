@@ -22,7 +22,6 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var puzzlePiecesPlaceholdersViews: [UIView]!
     @IBOutlet var puzzleBlocksViews: [UIView]!
     @IBOutlet weak var newGameButton: UIButton!
-    @IBOutlet weak var hintImageView: UIImageView!
     @IBOutlet weak var soundImageView: UIImageView!
     @IBOutlet weak var movesLabel: UILabel!
     @IBOutlet weak var movesCountLabel: UILabel!

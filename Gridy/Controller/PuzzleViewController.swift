@@ -9,9 +9,9 @@
 import UIKit
 
 class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
-
     var originalImage: UIImage!
     var originalImagePieces: [UIImage]!
+    var imageSizeView: UIView!
     var imageEditor: ImageEditorViewController!
     private var origin: CGRect!
     private var initialImageViewOffset = CGPoint()
@@ -27,7 +27,56 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var movesLabel: UILabel!
     @IBOutlet weak var movesCountLabel: UILabel!
     
-    
+    @IBAction func showHintImage(_ sender: Any) {
+        let alert = UIAlertController(title: "",
+                                      message: nil,
+                                      preferredStyle: .alert)
+
+        let imageView = UIImageView(frame: CGRect(
+            x: 0,
+            y: 0,
+            width: imageSizeView.frame.size.width,
+            height: imageSizeView.frame.size.height))
+        imageView.image = originalImage
+
+        alert.view.addSubview(imageView)
+
+        let constraintWidth = NSLayoutConstraint(
+            item: alert.view!,
+            attribute: NSLayoutConstraint.Attribute.width,
+            relatedBy: NSLayoutConstraint.Relation.equal,
+            toItem: nil,
+            attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+            multiplier: 1,
+            constant: CGFloat(imageView.frame.width))
+        let constraintHeight = NSLayoutConstraint(
+            item: alert.view!,
+            attribute: NSLayoutConstraint.Attribute.height,
+            relatedBy: NSLayoutConstraint.Relation.equal,
+            toItem: nil,
+            attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+            multiplier: 1,
+            constant: CGFloat(imageView.frame.height))
+        for constraint in alert.view.constraints {
+            if constraint.firstAttribute == NSLayoutConstraint.Attribute.width
+                && constraint.constant == CGFloat(imageView.frame.width) {
+                NSLayoutConstraint.deactivate([constraint])
+                break
+            }
+        }
+        alert.view.addConstraint(constraintWidth)
+        alert.view.addConstraint(constraintHeight)
+
+        alert.popoverPresentationController?.sourceView = view // so it won't crash on iPad
+
+        present(alert, animated: true) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+                guard self?.presentedViewController == alert else { return }
+                self?.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,6 +126,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
         for (index, puzzlePiece) in puzzlePiecesImageViews.enumerated() {
             puzzlePiece.translatesAutoresizingMaskIntoConstraints = true
             puzzlePiece.image = randomizedImagePieces[index]
+            puzzlePiece.contentMode = .scaleAspectFill
             puzzlePiece.tag = index + 1
         }
     }

@@ -11,10 +11,19 @@ import UIKit
 class GridView: UIView {
     let splitCount = 4
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        isOpaque = false
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        isOpaque = false
+    }
+
     override func draw(_ rect: CGRect) {
         let path = UIBezierPath()
         path.lineWidth = 1.5
-        path.fill(with: .color, alpha: 0.8)
         UIColor(named: Constant.Color.secondaryLight)!.setStroke()
         
         for x in 0...splitCount {

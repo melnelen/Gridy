@@ -34,7 +34,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Challenge yourself with a photo puzzle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Okp-qX-2S2">
-                                <rect key="frame" x="82" y="193.5" width="235" height="15.5"/>
+                                <rect key="frame" x="82" y="192" width="235" height="17"/>
                                 <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="13"/>
                                 <color key="textColor" name="DarkGray"/>
                                 <nil key="highlightedColor"/>
@@ -218,7 +218,7 @@
                             <view userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRg-iN-bz1" userLabel="White View" customClass="WhiteLayerView" customModule="Gridy" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6G-Ry-l0J" userLabel="GridFrameView" customClass="GridView" customModule="Gridy" customModuleProvider="target">
+                                    <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6G-Ry-l0J" userLabel="GridFrameView">
                                         <rect key="frame" x="20" y="266" width="374" height="374"/>
                                         <color key="backgroundColor" name="GrassGreen"/>
                                         <constraints>
@@ -270,6 +270,9 @@
                                         <exclude reference="usm-Zv-hf4"/>
                                     </mask>
                                 </variation>
+                            </view>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsI-kc-gfj" userLabel="GridView" customClass="GridView" customModule="Gridy" customModuleProvider="target">
+                                <rect key="frame" x="20" y="266" width="374" height="374"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FEd-H7-cLY" userLabel="TopContainer">
                                 <rect key="frame" x="0.0" y="44" width="414" height="222"/>
@@ -343,11 +346,13 @@
                             <constraint firstItem="g27-9W-VGD" firstAttribute="height" secondItem="PfV-aZ-E5Q" secondAttribute="height" multiplier="1:2" id="6WP-pe-75g"/>
                             <constraint firstItem="g27-9W-VGD" firstAttribute="leading" secondItem="PfV-aZ-E5Q" secondAttribute="leading" id="7It-jb-6Zw"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="bottom" secondItem="g27-9W-VGD" secondAttribute="top" id="7un-vi-hda"/>
+                            <constraint firstItem="vsI-kc-gfj" firstAttribute="trailing" secondItem="F6G-Ry-l0J" secondAttribute="trailing" id="FoW-ia-aOs"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="leading" secondItem="PfV-aZ-E5Q" secondAttribute="leading" constant="20" id="JZH-Et-UV2">
                                 <variation key="heightClass=compact-widthClass=compact" constant="2"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="10"/>
                             </constraint>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="width" secondItem="OgK-fM-DeC" secondAttribute="height" multiplier="1:1.35" id="KAv-Xi-QB8"/>
+                            <constraint firstItem="vsI-kc-gfj" firstAttribute="bottom" secondItem="F6G-Ry-l0J" secondAttribute="bottom" id="QWz-uI-ndf"/>
                             <constraint firstItem="wRg-iN-bz1" firstAttribute="top" secondItem="OgK-fM-DeC" secondAttribute="top" id="TFt-C2-nK8"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="centerX" secondItem="PfV-aZ-E5Q" secondAttribute="centerX" id="U4n-Ei-W61"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="width" secondItem="OgK-fM-DeC" secondAttribute="height" multiplier="1:1.2" id="V1b-XA-Ray"/>
@@ -357,9 +362,11 @@
                             <constraint firstItem="JWV-3x-gyw" firstAttribute="centerY" secondItem="OgK-fM-DeC" secondAttribute="centerY" id="d7o-Mx-PdL"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="top" secondItem="FEd-H7-cLY" secondAttribute="bottom" id="hUK-sF-DJX"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="centerY" secondItem="PfV-aZ-E5Q" secondAttribute="centerY" priority="750" id="lNl-Ha-XYL"/>
+                            <constraint firstItem="vsI-kc-gfj" firstAttribute="leading" secondItem="F6G-Ry-l0J" secondAttribute="leading" id="lk2-U5-YmB"/>
                             <constraint firstItem="FEd-H7-cLY" firstAttribute="leading" secondItem="F6G-Ry-l0J" secondAttribute="trailing" priority="750" id="m9p-Ye-5Uz"/>
                             <constraint firstItem="JWV-3x-gyw" firstAttribute="centerX" secondItem="OgK-fM-DeC" secondAttribute="centerX" id="meM-H1-RtJ"/>
                             <constraint firstItem="PfV-aZ-E5Q" firstAttribute="bottom" secondItem="g27-9W-VGD" secondAttribute="bottom" id="nBi-17-SMq"/>
+                            <constraint firstItem="vsI-kc-gfj" firstAttribute="top" secondItem="F6G-Ry-l0J" secondAttribute="top" id="rId-ok-TVq"/>
                             <constraint firstItem="PfV-aZ-E5Q" firstAttribute="trailing" secondItem="h39-Qd-GUC" secondAttribute="trailing" constant="20" id="scc-p5-kco"/>
                             <constraint firstItem="FEd-H7-cLY" firstAttribute="top" secondItem="PfV-aZ-E5Q" secondAttribute="top" id="t07-iA-xvi"/>
                             <constraint firstItem="PfV-aZ-E5Q" firstAttribute="bottom" secondItem="FEd-H7-cLY" secondAttribute="bottom" multiplier="2:1" id="tzf-GB-4JN"/>
@@ -373,8 +380,8 @@
                         <viewLayoutGuide key="safeArea" id="PfV-aZ-E5Q"/>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="tzf-GB-4JN"/>
                                 <exclude reference="m9p-Ye-5Uz"/>
+                                <exclude reference="tzf-GB-4JN"/>
                                 <exclude reference="2Lt-B1-4j5"/>
                                 <exclude reference="JZH-Et-UV2"/>
                                 <exclude reference="KAv-Xi-QB8"/>
@@ -385,9 +392,9 @@
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="constraints">
+                                <include reference="m9p-Ye-5Uz"/>
                                 <exclude reference="bHW-sV-lEC"/>
                                 <include reference="tzf-GB-4JN"/>
-                                <include reference="m9p-Ye-5Uz"/>
                                 <include reference="2Lt-B1-4j5"/>
                                 <exclude reference="7un-vi-hda"/>
                                 <include reference="KAv-Xi-QB8"/>
@@ -402,9 +409,9 @@
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
                             <mask key="constraints">
+                                <include reference="m9p-Ye-5Uz"/>
                                 <exclude reference="bHW-sV-lEC"/>
                                 <include reference="tzf-GB-4JN"/>
-                                <include reference="m9p-Ye-5Uz"/>
                                 <include reference="2Lt-B1-4j5"/>
                                 <exclude reference="7un-vi-hda"/>
                                 <exclude reference="U4n-Ei-W61"/>
@@ -421,6 +428,7 @@
                         <outlet property="chosenImageView" destination="JWV-3x-gyw" id="Lc0-w4-6dT"/>
                         <outlet property="closeButton" destination="h39-Qd-GUC" id="ZX0-qf-JAO"/>
                         <outlet property="gridFrameView" destination="F6G-Ry-l0J" id="Y84-SP-nIa"/>
+                        <outlet property="gridView" destination="vsI-kc-gfj" id="BhG-Qb-hHQ"/>
                         <outlet property="instructionsLabel" destination="VCO-TC-K1r" id="EM4-Lw-erf"/>
                         <outlet property="startButton" destination="hzp-8i-wNG" id="95W-7l-ZNZ"/>
                         <outlet property="whiteView" destination="wRg-iN-bz1" id="hYU-Lh-Wmb"/>
@@ -428,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7PF-MH-I2J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="137"/>
+            <point key="canvasLocation" x="901.44927536231887" y="136.60714285714286"/>
         </scene>
         <!--Puzzle View Controller-->
         <scene sceneID="g0r-Cu-CH1">

@@ -34,7 +34,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Challenge yourself with a photo puzzle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Okp-qX-2S2">
-                                <rect key="frame" x="82" y="193.5" width="235" height="15.5"/>
+                                <rect key="frame" x="82" y="192" width="235" height="17"/>
                                 <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="13"/>
                                 <color key="textColor" name="DarkGray"/>
                                 <nil key="highlightedColor"/>
@@ -428,7 +428,7 @@
                         <outlet property="chosenImageView" destination="JWV-3x-gyw" id="Lc0-w4-6dT"/>
                         <outlet property="closeButton" destination="h39-Qd-GUC" id="ZX0-qf-JAO"/>
                         <outlet property="gridFrameView" destination="F6G-Ry-l0J" id="Y84-SP-nIa"/>
-                        <outlet property="gridView" destination="vsI-kc-gfj" id="BhG-Qb-hHQ"/>
+                        <outlet property="gridView" destination="vsI-kc-gfj" id="5Ve-ri-KrR"/>
                         <outlet property="instructionsLabel" destination="VCO-TC-K1r" id="EM4-Lw-erf"/>
                         <outlet property="startButton" destination="hzp-8i-wNG" id="95W-7l-ZNZ"/>
                         <outlet property="whiteView" destination="wRg-iN-bz1" id="hYU-Lh-Wmb"/>
@@ -631,10 +631,13 @@
                                                 <rect key="frame" x="193.5" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="backgroundColor" name="SmoothBeige"/>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gridy-sound-mute" translatesAutoresizingMaskIntoConstraints="NO" id="lq1-k4-Idf">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cK7-6K-mMz" userLabel="Sound Button">
                                                 <rect key="frame" x="258" y="0.0" width="59.5" height="59.5"/>
-                                                <color key="tintColor" name="DarkGray"/>
-                                            </imageView>
+                                                <state key="normal" image="Gridy-sound-mute"/>
+                                                <connections>
+                                                    <action selector="changeSoundOption:" destination="RzF-6g-6o0" eventType="touchUpInside" id="9E8-z1-Zeo"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjC-OR-6dC" userLabel="Show Hint Image">
                                                 <rect key="frame" x="322.5" y="0.0" width="59.5" height="59.5"/>
                                                 <color key="tintColor" name="DarkGray"/>
@@ -1017,7 +1020,7 @@
                         <outlet property="movesCountLabel" destination="w6H-Ny-FNK" id="Zej-eR-dBE"/>
                         <outlet property="movesLabel" destination="rGm-Km-7fz" id="IjO-AW-8NR"/>
                         <outlet property="newGameButton" destination="tBk-0b-V4O" id="8tq-K8-JsC"/>
-                        <outlet property="soundImageView" destination="lq1-k4-Idf" id="utF-Tf-2IO"/>
+                        <outlet property="soundButton" destination="cK7-6K-mMz" id="E9T-AK-OSA"/>
                         <outletCollection property="puzzlePiecesImageViews" destination="a0X-cV-uvy" collectionClass="NSMutableArray" id="FAS-Q4-mGa"/>
                         <outletCollection property="puzzlePiecesImageViews" destination="wSf-ji-pWz" collectionClass="NSMutableArray" id="hB1-0s-41C"/>
                         <outletCollection property="puzzlePiecesImageViews" destination="dwM-BX-lBm" collectionClass="NSMutableArray" id="D92-qH-htR"/>

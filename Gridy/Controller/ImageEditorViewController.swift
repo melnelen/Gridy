@@ -24,7 +24,8 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var instructionsLabel: UILabel!
-    
+    @IBOutlet weak var gridView: GridView!
+
     @IBAction func closeButtonTouched(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

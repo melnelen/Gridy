@@ -9,13 +9,18 @@
 import UIKit
 import AVFoundation
 
+class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
+    var originalImage: UIImage!
 class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegate {
     
     var originalImagePieces: [UIImage]!
+    var imageSizeView: UIView!
     var imageEditor: ImageEditorViewController!
     private var origin: CGRect!
     private var initialImageViewOffset = CGPoint()
     private var translation: CGPoint = .zero
+    private var score = 0
+    
     private var isDragging = false
 
 
@@ -24,15 +29,68 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
     @IBOutlet var puzzlePiecesPlaceholdersViews: [UIView]!
     @IBOutlet var puzzleBlocksViews: [UIView]!
     @IBOutlet weak var newGameButton: UIButton!
+    @IBOutlet weak var soundImageView: UIImageView!
     @IBOutlet weak var hintImageView: UIImageView!
     @IBOutlet weak var soundButton: UIButton!
     @IBOutlet weak var movesLabel: UILabel!
-    @IBOutlet weak var movesNumberLabel: UILabel!
+    @IBOutlet weak var movesCountLabel: UILabel!
     
-    
+    @IBAction func showHintImage(_ sender: Any) {
+        let alert = UIAlertController(title: "",
+                                      message: nil,
+                                      preferredStyle: .alert)
+
+        let imageView = UIImageView(frame: CGRect(
+            x: 0,
+            y: 0,
+            width: imageSizeView.frame.size.width,
+            height: imageSizeView.frame.size.height))
+        imageView.image = originalImage
+
+        alert.view.addSubview(imageView)
+
+        let constraintWidth = NSLayoutConstraint(
+            item: alert.view!,
+            attribute: NSLayoutConstraint.Attribute.width,
+            relatedBy: NSLayoutConstraint.Relation.equal,
+            toItem: nil,
+            attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+            multiplier: 1,
+            constant: CGFloat(imageView.frame.width))
+        let constraintHeight = NSLayoutConstraint(
+            item: alert.view!,
+            attribute: NSLayoutConstraint.Attribute.height,
+            relatedBy: NSLayoutConstraint.Relation.equal,
+            toItem: nil,
+            attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+            multiplier: 1,
+            constant: CGFloat(imageView.frame.height))
+        for constraint in alert.view.constraints {
+            if constraint.firstAttribute == NSLayoutConstraint.Attribute.width
+                && constraint.constant == CGFloat(imageView.frame.width) {
+                NSLayoutConstraint.deactivate([constraint])
+                break
+            }
+        }
+        alert.view.addConstraint(constraintWidth)
+        alert.view.addConstraint(constraintHeight)
+
+        alert.popoverPresentationController?.sourceView = view // so it won't crash on iPad
+
+        present(alert, animated: true) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+                guard self?.presentedViewController == alert else { return }
+                self?.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupNewGameButton()
+        self.setupMovesCountLabel()
+        self.setupPuzzlePiecesImageViews()
         setupNewGameButton()
         setupSoundButton()
         setupPuzzlePiecesImageViews()
@@ -59,6 +117,19 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
         self.newGameButton.layer.cornerRadius = Constant.Layout.cornerRadius.buttonRadius
         self.newGameButton.clipsToBounds = true
     }
+
+    private func setupMovesCountLabel() {
+        self.movesCountLabel.font = UIFont(
+            name: Constant.Font.Name.primary,
+            size: Constant.Font.Size.giantLabel)
+        self.movesCountLabel.textColor = UIColor (named: Constant.Color.primaryDark)
+        self.movesCountLabel.text = String(score)
+    }
+
+    private func updateMovesCountLabel() {
+        self.score += 1
+        self.movesCountLabel.text = String(score)
+    }
     
     private func setupPuzzlePiecesImageViews() {
         let randomizedImagePieces = originalImagePieces.shuffled()
@@ -66,6 +137,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
         for (index, puzzlePiece) in puzzlePiecesImageViews.enumerated() {
             puzzlePiece.translatesAutoresizingMaskIntoConstraints = true
             puzzlePiece.image = randomizedImagePieces[index]
+            puzzlePiece.contentMode = .scaleAspectFill
             puzzlePiece.tag = index + 1
         }
     }
@@ -171,6 +243,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
                 if self.view.convert(puzzlePiecePlaceholder.bounds, from: puzzlePiecePlaceholder).contains(location) {
                     sender.view?.frame = self.view.convert(puzzlePiecePlaceholder.bounds, from: puzzlePiecePlaceholder)
                     sender.view?.tag = index + 1
+                    updateMovesCountLabel()
                     if soundIsOn() {
                         makeASound(sound: dropSound)
                     }
@@ -181,11 +254,13 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
                 if self.view.convert(puzzleBlock.bounds, from: puzzleBlock).contains(location) {
                     sender.view?.frame = self.view.convert(puzzleBlock.bounds, from: puzzleBlock)
                     sender.view?.tag = index + 17
+                    updateMovesCountLabel()
                     if soundIsOn() {
                         makeASound(sound: dropSound)
                     }
                     if checkSuccessCondition() {
                         print("Success!")
+                        successfullyCompletedPuzzle()
                         if soundIsOn() {
                             makeASound(sound: applauseSound)
                         }
@@ -230,6 +305,34 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
             }
         }
         return true
+    }
+
+    private func successfullyCompletedPuzzle() {
+        let alertController = UIAlertController(title: "Hooray! 🎉🎉🎉",
+                                                message: "Congratulations! You have successfully completed this puzzle! Your score is: \(score)",
+            preferredStyle: .alert)
+
+        let shareAction = UIAlertAction(title: "Share", style: .default) {
+            (action) in
+            self.showSharingOptions()
+        }
+        alertController.addAction(shareAction)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true)
+    }
+
+    private func showSharingOptions() {
+        let note = "My score is: \(score). Can you do better?"
+        let image = originalImage
+        let items = [image as Any, note as Any]
+
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = view // so that iPads won't crash
+
+        present(activityViewController, animated: true, completion: nil)
     }
 
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,

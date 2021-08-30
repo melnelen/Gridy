@@ -34,7 +34,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Challenge yourself with a photo puzzle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Okp-qX-2S2">
-                                <rect key="frame" x="82" y="192" width="235" height="17"/>
+                                <rect key="frame" x="82" y="193.5" width="235" height="15.5"/>
                                 <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="13"/>
                                 <color key="textColor" name="DarkGray"/>
                                 <nil key="highlightedColor"/>
@@ -380,8 +380,8 @@
                         <viewLayoutGuide key="safeArea" id="PfV-aZ-E5Q"/>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="m9p-Ye-5Uz"/>
                                 <exclude reference="tzf-GB-4JN"/>
+                                <exclude reference="m9p-Ye-5Uz"/>
                                 <exclude reference="2Lt-B1-4j5"/>
                                 <exclude reference="JZH-Et-UV2"/>
                                 <exclude reference="KAv-Xi-QB8"/>
@@ -392,9 +392,9 @@
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="m9p-Ye-5Uz"/>
                                 <exclude reference="bHW-sV-lEC"/>
                                 <include reference="tzf-GB-4JN"/>
+                                <include reference="m9p-Ye-5Uz"/>
                                 <include reference="2Lt-B1-4j5"/>
                                 <exclude reference="7un-vi-hda"/>
                                 <include reference="KAv-Xi-QB8"/>
@@ -409,9 +409,9 @@
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
                             <mask key="constraints">
-                                <include reference="m9p-Ye-5Uz"/>
                                 <exclude reference="bHW-sV-lEC"/>
                                 <include reference="tzf-GB-4JN"/>
+                                <include reference="m9p-Ye-5Uz"/>
                                 <include reference="2Lt-B1-4j5"/>
                                 <exclude reference="7un-vi-hda"/>
                                 <exclude reference="U4n-Ei-W61"/>

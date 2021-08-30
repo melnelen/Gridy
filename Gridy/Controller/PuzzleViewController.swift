@@ -9,22 +9,18 @@
 import UIKit
 import AVFoundation
 
-class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate {
-    var originalImage: UIImage!
 class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegate {
-    
+    var originalImage: UIImage!
     var originalImagePieces: [UIImage]!
     var imageSizeView: UIView!
     var imageEditor: ImageEditorViewController!
+
     private var origin: CGRect!
     private var initialImageViewOffset = CGPoint()
     private var translation: CGPoint = .zero
     private var score = 0
-    
-    private var isDragging = false
+    private var audioPlayer: AVAudioPlayer!
 
-
-    var audioPlayer: AVAudioPlayer!
     @IBOutlet var puzzlePiecesImageViews: [UIImageView]!
     @IBOutlet var puzzlePiecesPlaceholdersViews: [UIView]!
     @IBOutlet var puzzleBlocksViews: [UIView]!
@@ -90,10 +86,8 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
         
         self.setupNewGameButton()
         self.setupMovesCountLabel()
+        self.setupSoundButton()
         self.setupPuzzlePiecesImageViews()
-        setupNewGameButton()
-        setupSoundButton()
-        setupPuzzlePiecesImageViews()
         self.puzzlePiecesImageViews.forEach { puzzlePiece in
             configureGestures(view: puzzlePiece)
         }

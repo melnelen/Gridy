@@ -58,7 +58,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         self.closeButton.setTitleColor(UIColor(named: Constant.Color.primaryDark), for: .normal)
         self.closeButton.titleLabel?.font = UIFont(
             name: Constant.Font.Name.primary,
-            size: Constant.Font.Size.closeButton)
+            size: Constant.Font.Size.giantLabel)
     }
     
     private func setupStartButton() {
@@ -151,18 +151,15 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         case .began, .changed:
             var newScale = currentScale * sender.scale
             if newScale < minScale {
-                newScale = minScale / currentScale
+                newScale = minScale
             } else if newScale > maxScale {
-                newScale = maxScale / currentScale
+                newScale = maxScale
             }
             self.scale = newScale
             
             self.applyTransformations()
             
         case .ended:
-            print(gridFrameView.frame)
-            print(chosenImageView.frame)
-            print(self.view.convert(gridFrameView.bounds, from: gridFrameView))
             if !self.chosenImageView.frame.contains(self.gridFrameView.frame) {
                 UIView.animate(
                     withDuration: 0.5,
@@ -251,6 +248,8 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "startGame" {
             let newVC: PuzzleViewController = segue.destination as! PuzzleViewController
+            newVC.imageSizeView = self.gridFrameView
+            newVC.originalImage = self.croppedImage
             newVC.originalImagePieces = self.imagePieces
             newVC.imageEditor = self
         }

@@ -237,8 +237,8 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        self.whiteView.layoutIfNeeded()
-//        self.whiteView.gridFrame = self.gridFrameView.frame
+        self.whiteView.layoutIfNeeded()
+        self.whiteView.gridFrame = self.gridFrameView.frame
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

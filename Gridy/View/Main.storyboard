@@ -352,7 +352,7 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="2"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="10"/>
                             </constraint>
-                            <constraint firstItem="nIX-5Y-xvl" firstAttribute="leading" secondItem="OgK-fM-DeC" secondAttribute="leadingMargin" id="69R-cZ-4sz"/>
+                            <constraint firstItem="nIX-5Y-xvl" firstAttribute="top" secondItem="vsI-kc-gfj" secondAttribute="top" id="3Xs-4N-Hfj"/>
                             <constraint firstItem="g27-9W-VGD" firstAttribute="height" secondItem="PfV-aZ-E5Q" secondAttribute="height" multiplier="1:2" id="6WP-pe-75g"/>
                             <constraint firstItem="g27-9W-VGD" firstAttribute="leading" secondItem="PfV-aZ-E5Q" secondAttribute="leading" id="7It-jb-6Zw"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="bottom" secondItem="g27-9W-VGD" secondAttribute="top" id="7un-vi-hda"/>
@@ -367,25 +367,25 @@
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="centerX" secondItem="PfV-aZ-E5Q" secondAttribute="centerX" id="U4n-Ei-W61"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="width" secondItem="OgK-fM-DeC" secondAttribute="height" multiplier="1:1.2" id="V1b-XA-Ray"/>
                             <constraint firstItem="wRg-iN-bz1" firstAttribute="bottom" secondItem="OgK-fM-DeC" secondAttribute="bottom" id="V1m-dh-W2z"/>
+                            <constraint firstItem="nIX-5Y-xvl" firstAttribute="trailing" secondItem="vsI-kc-gfj" secondAttribute="trailing" id="VVl-er-5pU"/>
+                            <constraint firstItem="nIX-5Y-xvl" firstAttribute="bottom" secondItem="vsI-kc-gfj" secondAttribute="bottom" id="Z8t-FP-OYN"/>
                             <constraint firstItem="PfV-aZ-E5Q" firstAttribute="leading" secondItem="FEd-H7-cLY" secondAttribute="leading" id="bHW-sV-lEC"/>
                             <constraint firstItem="g27-9W-VGD" firstAttribute="leading" secondItem="F6G-Ry-l0J" secondAttribute="trailing" priority="750" id="bWO-2x-32X"/>
-                            <constraint firstItem="g27-9W-VGD" firstAttribute="top" secondItem="nIX-5Y-xvl" secondAttribute="bottom" id="gDe-vc-9GT"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="top" secondItem="FEd-H7-cLY" secondAttribute="bottom" id="hUK-sF-DJX"/>
                             <constraint firstItem="F6G-Ry-l0J" firstAttribute="centerY" secondItem="PfV-aZ-E5Q" secondAttribute="centerY" priority="750" id="lNl-Ha-XYL"/>
                             <constraint firstItem="vsI-kc-gfj" firstAttribute="leading" secondItem="F6G-Ry-l0J" secondAttribute="leading" id="lk2-U5-YmB"/>
                             <constraint firstItem="FEd-H7-cLY" firstAttribute="leading" secondItem="F6G-Ry-l0J" secondAttribute="trailing" priority="750" id="m9p-Ye-5Uz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="nIX-5Y-xvl" secondAttribute="trailing" id="myJ-9K-UEj"/>
                             <constraint firstItem="PfV-aZ-E5Q" firstAttribute="bottom" secondItem="g27-9W-VGD" secondAttribute="bottom" id="nBi-17-SMq"/>
                             <constraint firstItem="vsI-kc-gfj" firstAttribute="top" secondItem="F6G-Ry-l0J" secondAttribute="top" id="rId-ok-TVq"/>
                             <constraint firstItem="PfV-aZ-E5Q" firstAttribute="trailing" secondItem="h39-Qd-GUC" secondAttribute="trailing" constant="20" id="scc-p5-kco"/>
                             <constraint firstItem="FEd-H7-cLY" firstAttribute="top" secondItem="PfV-aZ-E5Q" secondAttribute="top" id="t07-iA-xvi"/>
-                            <constraint firstItem="nIX-5Y-xvl" firstAttribute="top" secondItem="FEd-H7-cLY" secondAttribute="bottom" id="tk2-uN-nIJ"/>
                             <constraint firstItem="PfV-aZ-E5Q" firstAttribute="bottom" secondItem="FEd-H7-cLY" secondAttribute="bottom" multiplier="2:1" id="tzf-GB-4JN"/>
                             <constraint firstItem="h39-Qd-GUC" firstAttribute="top" secondItem="PfV-aZ-E5Q" secondAttribute="top" constant="5" id="uOf-4d-Gpv"/>
                             <constraint firstItem="FEd-H7-cLY" firstAttribute="trailing" secondItem="PfV-aZ-E5Q" secondAttribute="trailing" id="uaq-mC-WEE">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="wRg-iN-bz1" firstAttribute="leading" secondItem="OgK-fM-DeC" secondAttribute="leading" id="z1p-vF-cQz"/>
+                            <constraint firstItem="nIX-5Y-xvl" firstAttribute="leading" secondItem="vsI-kc-gfj" secondAttribute="leading" id="zBs-z7-q2V"/>
                             <constraint firstItem="PfV-aZ-E5Q" firstAttribute="trailing" secondItem="g27-9W-VGD" secondAttribute="trailing" id="zbb-gc-SK4"/>
                         </constraints>
                         <variation key="default">

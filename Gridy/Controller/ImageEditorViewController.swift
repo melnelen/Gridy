@@ -252,7 +252,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 }
 
-extension UIView {
+private extension UIView {
     /// Create image snapshot of view.
     ///
     /// - Parameters:

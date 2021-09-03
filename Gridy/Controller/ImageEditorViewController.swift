@@ -18,6 +18,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     private var rotation: CGFloat = 0
     private var translation: CGPoint = .zero
     
+    @IBOutlet weak var snapshotView: UIView!
     @IBOutlet weak var chosenImageView: UIImageView!
     @IBOutlet weak var whiteView: WhiteLayerView!
     @IBOutlet weak var gridFrameView: UIView!
@@ -187,14 +188,8 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func crop(image: UIImage) -> UIImage {
-        let scale: CGFloat = image.scale
-        let rectangle = self.chosenImageView.convert(self.gridFrameView.bounds, from: self.gridFrameView)
-        let scaledRectangle = CGRect(x: rectangle.origin.x * scale,
-                                     y: rectangle.origin.y * scale,
-                                     width: rectangle.size.width * scale,
-                                     height: rectangle.size.height * scale)
-        let cgImage = image.cgImage!.cropping (to: scaledRectangle)
-        let croppedImage = UIImage(cgImage: cgImage!, scale: scale, orientation: .up)
+        let rectangle = self.snapshotView.convert(self.gridFrameView.bounds, from: self.gridFrameView)
+        let croppedImage = self.snapshotView.snapshot(of: rectangle, afterScreenUpdates: true)
         return croppedImage
     }
     
@@ -253,6 +248,22 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
             newVC.originalImage = self.croppedImage
             newVC.originalImagePieces = self.imagePieces
             newVC.imageEditor = self
+        }
+    }
+}
+
+private extension UIView {
+    /// Create image snapshot of view.
+    ///
+    /// - Parameters:
+    ///   - rect: The coordinates (in the view's own coordinate space) to be captured. If omitted, the entire `bounds` will be captured.
+    ///   - afterScreenUpdates: A Boolean value that indicates whether the snapshot should be rendered after recent changes have been incorporated.
+    ///   Specify the value false if you want to render a snapshot in the view hierarchy’s current state, which might not include recent changes. Defaults to `true`.
+    ///
+    /// - Returns: The `UIImage` snapshot.
+    func snapshot(of rect: CGRect? = nil, afterScreenUpdates: Bool = true) -> UIImage {
+        return UIGraphicsImageRenderer(bounds: rect ?? bounds).image { _ in
+            drawHierarchy(in: bounds, afterScreenUpdates: afterScreenUpdates)
         }
     }
 }

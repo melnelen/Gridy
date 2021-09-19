@@ -34,10 +34,12 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
 
     // #MARK: - Actions
 
+    // IBActions were private in `StartViewController`
     @IBAction func closeButtonTouched(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+
+    // IBActions were private in `StartViewController`
     @IBAction func startButtonTouchedDown(_ sender: Any) {
         let ImageRectangle = CGRect(
             x: self.chosenImageView.frame.minX,

@@ -24,6 +24,7 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     private func setupGridyPickButton() {
+        // You sometime use `self`, sometime don't
         self.gridyPickButton.setImage(UIImage(named: Constant.Image.nameSmall), for: .normal)
         self.gridyPickButton.setTitle(" Pick", for: .normal)
         setupSecondary(button: self.gridyPickButton)
@@ -71,6 +72,7 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
         displayMediaPicker(sourceType: sourceType)
     }
     
+    // private, is this method useful?
     @IBAction func unwindToStart(_ sender: UIStoryboardSegue) {}
     
     /// Use the Image Picker for: camera or photo library
@@ -181,6 +183,7 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
         print("User did cancel.")
     }
     
+    // private
     func processPicked(image: UIImage) {
         guard let editingViewController = storyboard?.instantiateViewController(withIdentifier: "ImageEditorViewController")
             as? ImageEditorViewController else { return }

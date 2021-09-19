@@ -40,6 +40,10 @@ class GridView: UIView {
             }
         }
     }
+    
+    // Indentation of the function bellow
+    // The function is not very efficient since the value of width and height is always the same in a draw(rect:)
+    // I think this function has little purpose and can be deleted
   private func getPoint(_ rect: CGRect, x: CGFloat, y: CGFloat) -> CGPoint {
     let width = rect.width / CGFloat(splitCount)
     let height = rect.height / CGFloat(splitCount)

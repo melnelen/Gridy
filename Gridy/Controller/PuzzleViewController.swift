@@ -36,11 +36,13 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
 
     // #MARK: - Actions
 
+    // IBAction were private in `StartViewController`
     @IBAction func startNewGame(_ sender: Any) {
         dismiss(animated: true)
     }
 
     @IBAction func changeSoundOption(_ sender: Any) {
+        // You could also use the selected state of UIButton for this kind of imge switch
         if self.soundButton.currentImage == UIImage(named: Constant.Icon.muteSound) {
             self.soundButton.setImage(UIImage(named: Constant.Icon.onSound), for: .normal)
         } else {
@@ -151,6 +153,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
             puzzlePiece.translatesAutoresizingMaskIntoConstraints = true
             puzzlePiece.image = randomizedImagePieces[index]
             puzzlePiece.contentMode = .scaleAspectFill
+            // Maybe some document to explain how tags work?
             puzzlePiece.tag = index + 1
         }
     }

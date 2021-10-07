@@ -10,6 +10,9 @@ import UIKit
 import AVFoundation
 
 class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegate {
+
+    // #MARK: - Parameters
+
     var originalImage: UIImage!
     var originalImagePieces: [UIImage]!
     var imageSizeView: UIView!
@@ -21,6 +24,8 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
     private var score = 0
     private var audioPlayer: AVAudioPlayer!
 
+    // #MARK: - Elements
+
     @IBOutlet var puzzlePiecesImageViews: [UIImageView]!
     @IBOutlet var puzzlePiecesPlaceholdersViews: [UIView]!
     @IBOutlet var puzzleBlocksViews: [UIView]!
@@ -28,7 +33,21 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
     @IBOutlet weak var soundButton: UIButton!
     @IBOutlet weak var movesLabel: UILabel!
     @IBOutlet weak var movesCountLabel: UILabel!
-    
+
+    // #MARK: - Actions
+
+    @IBAction func startNewGame(_ sender: Any) {
+        dismiss(animated: true)
+    }
+
+    @IBAction func changeSoundOption(_ sender: Any) {
+        if self.soundButton.currentImage == UIImage(named: Constant.Icon.muteSound) {
+            self.soundButton.setImage(UIImage(named: Constant.Icon.onSound), for: .normal)
+        } else {
+            self.soundButton.setImage(UIImage(named: Constant.Icon.muteSound), for: .normal)
+        }
+    }
+
     @IBAction func showHintImage(_ sender: Any) {
         let alert = UIAlertController(title: "",
                                       message: nil,
@@ -78,6 +97,8 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
             }
         }
     }
+
+    // #MARK: - Setup Elements
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,17 +183,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
         self.soundButton.setImage(UIImage(named: Constant.Icon.muteSound), for: .normal)
     }
 
-    @IBAction func changeSoundOption(_ sender: Any) {
-        if self.soundButton.currentImage == UIImage(named: Constant.Icon.muteSound) {
-            self.soundButton.setImage(UIImage(named: Constant.Icon.onSound), for: .normal)
-        } else {
-            self.soundButton.setImage(UIImage(named: Constant.Icon.muteSound), for: .normal)
-        }
-    }
-
-    @IBAction func startNewGame(_ sender: Any) {
-        dismiss(animated: true)
-    }
+    // #MARK: - Configure Gestures
 
     private func configureGestures(view: UIView) {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectPuzzlePieceImageView(_:)))
@@ -185,6 +196,29 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
 
         view.isUserInteractionEnabled = true
     }
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
+        -> Bool {
+            // simultaneous gesture recognition will only be supported for a puzzlePiece
+            for puzzlePiece in puzzlePiecesImageViews {
+                if gestureRecognizer.view != puzzlePiece {
+                    return false
+                }
+            }
+
+            // neither of the recognized gestures should not be tap gesture
+            if gestureRecognizer is UITapGestureRecognizer
+                || otherGestureRecognizer is UITapGestureRecognizer
+                || gestureRecognizer is UIPanGestureRecognizer
+                || otherGestureRecognizer is UIPanGestureRecognizer {
+                return false
+            }
+
+            return true
+    }
+
+    // #MARK: - Move Puzzle Pieces
 
     @objc func selectPuzzlePieceImageView(_ sender: UILongPressGestureRecognizer) {
         origin = sender.view?.frame
@@ -251,7 +285,6 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
                         makeASound(sound: dropSound)
                     }
                     if checkSuccessCondition() {
-                        print("Success!")
                         successfullyCompletedPuzzle()
                         if soundIsOn() {
                             makeASound(sound: applauseSound)
@@ -282,6 +315,8 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
         }
     }
 
+    // #MARK: - Complete Puzzle
+
     private func checkSuccessCondition() -> Bool{
         for puzzlePiece in puzzlePiecesImageViews {
             guard (puzzlePiece.tag >= 17 && puzzlePiece.tag <= 33) else {
@@ -300,8 +335,9 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
     }
 
     private func successfullyCompletedPuzzle() {
-        let alertController = UIAlertController(title: "Hooray! 🎉🎉🎉",
-                                                message: "Congratulations! You have successfully completed this puzzle! Your score is: \(score)",
+        let alertController = UIAlertController(
+            title: "Hooray! 🎉🎉🎉",
+            message: "Congratulations! You have successfully completed this puzzle! Your score is: \(score)",
             preferredStyle: .alert)
 
         let shareAction = UIAlertAction(title: "Share", style: .default) {
@@ -326,26 +362,4 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
 
         present(activityViewController, animated: true, completion: nil)
     }
-
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
-                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
-        -> Bool {
-            // simultaneous gesture recognition will only be supported for a puzzlePiece
-            for puzzlePiece in puzzlePiecesImageViews {
-                if gestureRecognizer.view != puzzlePiece {
-                    return false
-                }
-            }
-
-            // neither of the recognized gestures should not be tap gesture
-            if gestureRecognizer is UITapGestureRecognizer
-                || otherGestureRecognizer is UITapGestureRecognizer
-                || gestureRecognizer is UIPanGestureRecognizer
-                || otherGestureRecognizer is UIPanGestureRecognizer {
-                return false
-            }
-
-            return true
-    }
-
 }

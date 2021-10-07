@@ -9,6 +9,9 @@
 import UIKit
 
 class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
+
+    // #MARK: - Parameters
+
     var image: UIImage!
     var croppedImage: UIImage!
     var imagePieces: [UIImage]!
@@ -17,6 +20,8 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     private var scale: CGFloat = 1
     private var rotation: CGFloat = 0
     private var translation: CGPoint = .zero
+
+    // #MARK: - Elements
     
     @IBOutlet weak var snapshotView: UIView!
     @IBOutlet weak var chosenImageView: UIImageView!
@@ -27,15 +32,38 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var instructionsLabel: UILabel!
 
-    
+    // #MARK: - Actions
+
     @IBAction func closeButtonTouched(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func startButtonTouchedDown(_ sender: Any) {
-        self.croppedImage = crop(image: image)
-        self.imagePieces = cropIn(pieces: croppedImage)
+        let ImageRectangle = CGRect(
+            x: self.chosenImageView.frame.minX,
+            y: self.chosenImageView.frame.minY,
+            width: self.chosenImageView.frame.width,
+            height: self.chosenImageView.frame.height)
+        let SnapshotRectangle = CGRect(
+            x: self.snapshotView.frame.minX,
+            y: self.snapshotView.frame.minY,
+            width: self.snapshotView.frame.width,
+            height:self.snapshotView.frame.height)
+        if ImageRectangle.contains(SnapshotRectangle) {
+            self.croppedImage = crop(image: image)
+            self.imagePieces = cropIn(pieces: croppedImage)
+        } else {
+            let alertController = UIAlertController(
+                title: "Oh, no! 😱",
+                message: "Some puzzle pieces are not full!",
+                preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            alertController.addAction(cancelAction)
+            present(alertController, animated: true)
+        }
     }
+
+    // #MARK: - Setup Elements
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +74,12 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         setupInstructionsLabel()
         configureGestures(view: self.chosenImageView)
     }
-    
-    // #MARK: - Setup Elements
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.whiteView.layoutIfNeeded()
+        self.whiteView.gridFrame = self.gridFrameView.frame
+    }
     
     private func setupUserImageView() {
         self.chosenImageView.image = image
@@ -84,6 +116,8 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
             name: Constant.Font.Name.secondary,
             size: Constant.Font.Size.primaryLabel)
     }
+
+    // #MARK: - Configure Gestures
     
     func configureGestures(view: UIView) {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetImage(_:)))
@@ -103,7 +137,28 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         pinchGestureRecognizer.delegate = self
         view.addGestureRecognizer(pinchGestureRecognizer)
     }
-    
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
+    -> Bool {
+        // simultaneous gesture recognition will only be supported for chosenImageView
+        if gestureRecognizer.view != chosenImageView {
+            return false
+        }
+
+        // neither of the recognized gestures should not be tap gesture
+        if gestureRecognizer is UITapGestureRecognizer
+            || otherGestureRecognizer is UITapGestureRecognizer
+            || gestureRecognizer is UIPanGestureRecognizer
+            || otherGestureRecognizer is UIPanGestureRecognizer {
+            return false
+        }
+
+        return true
+    }
+
+    // #MARK: - Transform Image
+
     @objc func resetImage(_ sender: Any) {
         
         self.scale = 1
@@ -118,7 +173,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
             options: [],
             animations: {
                 self.applyTransformations()
-        },
+            },
             completion: nil
         )
     }
@@ -171,7 +226,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
                     options: [],
                     animations: {
                         self.applyTransformations()
-                }) { (success) in }
+                    }) { (success) in }
             }
         default:
             break
@@ -186,6 +241,8 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
             .rotated(by: self.rotation)
             .scaledBy(x: self.scale, y: self.scale)
     }
+
+    // #MARK: - Crop Image
     
     private func crop(image: UIImage) -> UIImage {
         let rectangle = self.snapshotView.convert(self.gridFrameView.bounds, from: self.gridFrameView)
@@ -203,10 +260,11 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         
         for column in 0..<4 {
             for line in 0..<4 {
-                rectangle = CGRect(x: CGFloat(line) * piecesWidth * scale,
-                                   y: CGFloat(column) * piecesHeight * scale,
-                                   width: piecesWidth  * scale,
-                                   height: piecesHeight  * scale)
+                rectangle = CGRect(
+                    x: CGFloat(line) * piecesWidth * scale,
+                    y: CGFloat(column) * piecesHeight * scale,
+                    width: piecesWidth  * scale,
+                    height: piecesHeight  * scale)
                 let cgImage = image.cgImage!.cropping (to: rectangle)
                 let croppedImage = UIImage(cgImage: cgImage!, scale: scale, orientation: .up)
                 imagePieces.append(croppedImage)
@@ -216,30 +274,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         return imagePieces
     }
 
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
-                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
-        -> Bool {
-            // simultaneous gesture recognition will only be supported for chosenImageView
-            if gestureRecognizer.view != chosenImageView {
-                return false
-            }
-
-            // neither of the recognized gestures should not be tap gesture
-            if gestureRecognizer is UITapGestureRecognizer
-                || otherGestureRecognizer is UITapGestureRecognizer
-                || gestureRecognizer is UIPanGestureRecognizer
-                || otherGestureRecognizer is UIPanGestureRecognizer {
-                return false
-            }
-
-            return true
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.whiteView.layoutIfNeeded()
-        self.whiteView.gridFrame = self.gridFrameView.frame
-    }
+    // #MARK: - Pepere for Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "startGame" {
@@ -251,6 +286,8 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
 }
+
+// #MARK: - Extensions
 
 private extension UIView {
     /// Create image snapshot of view.

@@ -11,7 +11,7 @@ import AVFoundation
 
 class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegate {
 
-    // #MARK: - Parameters
+    //MARK: - Parameters
 
     var originalImage: UIImage!
     var originalImagePieces: [UIImage]!
@@ -24,7 +24,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
     private var score = 0
     private var audioPlayer: AVAudioPlayer!
 
-    // #MARK: - Elements
+    //MARK: - Elements
 
     @IBOutlet var puzzlePiecesImageViews: [UIImageView]!
     @IBOutlet var puzzlePiecesPlaceholdersViews: [UIView]!
@@ -34,7 +34,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
     @IBOutlet weak var movesLabel: UILabel!
     @IBOutlet weak var movesCountLabel: UILabel!
 
-    // #MARK: - Actions
+    //MARK: - Actions
 
     @IBAction func startNewGame(_ sender: Any) {
         dismiss(animated: true)
@@ -98,7 +98,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
         }
     }
 
-    // #MARK: - Setup Elements
+    //MARK: - Setup Elements
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -183,7 +183,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
         self.soundButton.setImage(UIImage(named: Constant.Icon.muteSound), for: .normal)
     }
 
-    // #MARK: - Configure Gestures
+    //MARK: - Configure Gestures
 
     private func configureGestures(view: UIView) {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectPuzzlePieceImageView(_:)))
@@ -207,7 +207,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
                 }
             }
 
-            // neither of the recognized gestures should not be tap gesture
+            // if one of the gestures is a tap gesture do not recognise
             if gestureRecognizer is UITapGestureRecognizer
                 || otherGestureRecognizer is UITapGestureRecognizer
                 || gestureRecognizer is UIPanGestureRecognizer
@@ -218,7 +218,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
             return true
     }
 
-    // #MARK: - Move Puzzle Pieces
+    //MARK: - Move Puzzle Pieces
 
     @objc func selectPuzzlePieceImageView(_ sender: UILongPressGestureRecognizer) {
         origin = sender.view?.frame
@@ -315,7 +315,7 @@ class PuzzleViewController: UIViewController, UIGestureRecognizerDelegate, AVAud
         }
     }
 
-    // #MARK: - Complete Puzzle
+    //MARK: - Complete Puzzle
 
     private func checkSuccessCondition() -> Bool{
         for puzzlePiece in puzzlePiecesImageViews {

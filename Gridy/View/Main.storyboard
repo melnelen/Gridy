@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -36,7 +36,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Challenge yourself with a photo puzzle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Okp-qX-2S2">
-                                <rect key="frame" x="62.666666666666657" y="193.66666666666666" width="234.99999999999997" height="15.333333333333343"/>
+                                <rect key="frame" x="62.666666666666657" y="192" width="234.99999999999997" height="17"/>
                                 <fontDescription key="fontDescription" name="TimeBurner" family="TimeBurner" pointSize="13"/>
                                 <color key="textColor" name="DarkGray"/>
                                 <nil key="highlightedColor"/>
@@ -133,10 +133,10 @@
                                     <mask key="constraints">
                                         <exclude reference="DHF-fB-edV"/>
                                         <exclude reference="Ect-ou-RHk"/>
-                                        <exclude reference="V2M-nr-Hx8"/>
-                                        <exclude reference="sb3-WR-szj"/>
                                         <exclude reference="P1O-dT-4qB"/>
                                         <exclude reference="gRk-W8-RIe"/>
+                                        <exclude reference="V2M-nr-Hx8"/>
+                                        <exclude reference="sb3-WR-szj"/>
                                         <exclude reference="78O-dF-1Yi"/>
                                     </mask>
                                 </variation>
@@ -145,13 +145,13 @@
                                         <include reference="DHF-fB-edV"/>
                                         <include reference="Ect-ou-RHk"/>
                                         <exclude reference="j9Z-bd-jco"/>
-                                        <include reference="V2M-nr-Hx8"/>
-                                        <exclude reference="Vst-tD-bC1"/>
-                                        <include reference="sb3-WR-szj"/>
                                         <exclude reference="8LN-ai-4EA"/>
                                         <exclude reference="DgI-xb-ZcP"/>
                                         <include reference="P1O-dT-4qB"/>
                                         <include reference="gRk-W8-RIe"/>
+                                        <include reference="V2M-nr-Hx8"/>
+                                        <exclude reference="Vst-tD-bC1"/>
+                                        <include reference="sb3-WR-szj"/>
                                         <include reference="78O-dF-1Yi"/>
                                         <exclude reference="nO1-Jc-3dt"/>
                                     </mask>
@@ -161,13 +161,13 @@
                                         <include reference="DHF-fB-edV"/>
                                         <include reference="Ect-ou-RHk"/>
                                         <exclude reference="j9Z-bd-jco"/>
-                                        <include reference="V2M-nr-Hx8"/>
-                                        <exclude reference="Vst-tD-bC1"/>
-                                        <include reference="sb3-WR-szj"/>
                                         <exclude reference="8LN-ai-4EA"/>
                                         <exclude reference="DgI-xb-ZcP"/>
                                         <include reference="P1O-dT-4qB"/>
                                         <include reference="gRk-W8-RIe"/>
+                                        <include reference="V2M-nr-Hx8"/>
+                                        <exclude reference="Vst-tD-bC1"/>
+                                        <include reference="sb3-WR-szj"/>
                                         <include reference="78O-dF-1Yi"/>
                                         <exclude reference="nO1-Jc-3dt"/>
                                     </mask>
@@ -222,7 +222,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nIX-5Y-xvl" userLabel="Snapshot View">
                                 <rect key="frame" x="20" y="243.66666666666663" width="335" height="335"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" image="bruna-branco-7r1HxvVC7AY-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="JWV-3x-gyw">
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" image="bruna-branco-7r1HxvVC7AY-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="JWV-3x-gyw">
                                         <rect key="frame" x="-360" y="-656" width="960" height="1440"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <viewLayoutGuide key="safeArea" id="7fx-7P-ee4"/>
@@ -397,11 +397,11 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="tzf-GB-4JN"/>
+                                <exclude reference="m9p-Ye-5Uz"/>
                                 <exclude reference="2Lt-B1-4j5"/>
                                 <exclude reference="JZH-Et-UV2"/>
                                 <exclude reference="KAv-Xi-QB8"/>
                                 <exclude reference="V1b-XA-Ray"/>
-                                <exclude reference="m9p-Ye-5Uz"/>
                                 <exclude reference="6WP-pe-75g"/>
                                 <exclude reference="bWO-2x-32X"/>
                             </mask>
@@ -410,6 +410,7 @@
                             <mask key="constraints">
                                 <exclude reference="bHW-sV-lEC"/>
                                 <include reference="tzf-GB-4JN"/>
+                                <include reference="m9p-Ye-5Uz"/>
                                 <include reference="2Lt-B1-4j5"/>
                                 <exclude reference="7un-vi-hda"/>
                                 <include reference="KAv-Xi-QB8"/>
@@ -417,7 +418,6 @@
                                 <exclude reference="V1b-XA-Ray"/>
                                 <exclude reference="hUK-sF-DJX"/>
                                 <exclude reference="lNl-Ha-XYL"/>
-                                <include reference="m9p-Ye-5Uz"/>
                                 <include reference="6WP-pe-75g"/>
                                 <exclude reference="7It-jb-6Zw"/>
                                 <include reference="bWO-2x-32X"/>
@@ -427,13 +427,13 @@
                             <mask key="constraints">
                                 <exclude reference="bHW-sV-lEC"/>
                                 <include reference="tzf-GB-4JN"/>
+                                <include reference="m9p-Ye-5Uz"/>
                                 <include reference="2Lt-B1-4j5"/>
                                 <exclude reference="7un-vi-hda"/>
                                 <exclude reference="U4n-Ei-W61"/>
                                 <include reference="V1b-XA-Ray"/>
                                 <exclude reference="hUK-sF-DJX"/>
                                 <exclude reference="lNl-Ha-XYL"/>
-                                <include reference="m9p-Ye-5Uz"/>
                                 <include reference="6WP-pe-75g"/>
                                 <exclude reference="7It-jb-6Zw"/>
                                 <include reference="bWO-2x-32X"/>
@@ -506,7 +506,7 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="moves:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rGm-Km-7fz" userLabel="Moves Label">
-                                        <rect key="frame" x="229.66666666666666" y="21" width="58.666666666666657" height="31"/>
+                                        <rect key="frame" x="243.33333333333329" y="21" width="55.666666666666657" height="31"/>
                                         <accessibility key="accessibilityConfiguration" identifier="MovesLabel"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="750" constant="40" id="19b-jX-1t9"/>
@@ -518,7 +518,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w6H-Ny-FNK" userLabel="Moves Count Label">
-                                        <rect key="frame" x="290.33333333333331" y="8" width="44.666666666666686" height="44"/>
+                                        <rect key="frame" x="301" y="8" width="34" height="44"/>
                                         <accessibility key="accessibilityConfiguration" identifier="MovesCountLabel"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="250" constant="42" id="cuk-ry-YRj"/>

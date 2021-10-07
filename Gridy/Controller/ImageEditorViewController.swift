@@ -10,7 +10,7 @@ import UIKit
 
 class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
 
-    // #MARK: - Parameters
+    //MARK: - Parameters
 
     var image: UIImage!
     var croppedImage: UIImage!
@@ -21,7 +21,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     private var rotation: CGFloat = 0
     private var translation: CGPoint = .zero
 
-    // #MARK: - Elements
+    //MARK: - Elements
     
     @IBOutlet weak var snapshotView: UIView!
     @IBOutlet weak var chosenImageView: UIImageView!
@@ -32,24 +32,24 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var instructionsLabel: UILabel!
 
-    // #MARK: - Actions
+    //MARK: - Actions
 
     @IBAction func closeButtonTouched(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func startButtonTouchedDown(_ sender: Any) {
-        let ImageRectangle = CGRect(
+        let imageRectangle = CGRect(
             x: self.chosenImageView.frame.minX,
             y: self.chosenImageView.frame.minY,
             width: self.chosenImageView.frame.width,
             height: self.chosenImageView.frame.height)
-        let SnapshotRectangle = CGRect(
+        let snapshotRectangle = CGRect(
             x: self.snapshotView.frame.minX,
             y: self.snapshotView.frame.minY,
             width: self.snapshotView.frame.width,
             height:self.snapshotView.frame.height)
-        if ImageRectangle.contains(SnapshotRectangle) {
+        if imageRectangle.contains(snapshotRectangle) {
             self.croppedImage = crop(image: image)
             self.imagePieces = cropIn(pieces: croppedImage)
         } else {
@@ -63,7 +63,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
 
-    // #MARK: - Setup Elements
+    //MARK: - Setup Elements
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,9 +117,9 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
             size: Constant.Font.Size.primaryLabel)
     }
 
-    // #MARK: - Configure Gestures
+    //MARK: - Configure Gestures
     
-    func configureGestures(view: UIView) {
+    private func configureGestures(view: UIView) {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetImage(_:)))
         tapGestureRecognizer.numberOfTapsRequired = 2
         tapGestureRecognizer.delegate = self
@@ -146,7 +146,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
             return false
         }
 
-        // neither of the recognized gestures should not be tap gesture
+        // if one of the gestures is a tap gesture do not recognise
         if gestureRecognizer is UITapGestureRecognizer
             || otherGestureRecognizer is UITapGestureRecognizer
             || gestureRecognizer is UIPanGestureRecognizer
@@ -157,7 +157,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         return true
     }
 
-    // #MARK: - Transform Image
+    //MARK: - Transform Image
 
     @objc func resetImage(_ sender: Any) {
         
@@ -242,7 +242,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
             .scaledBy(x: self.scale, y: self.scale)
     }
 
-    // #MARK: - Crop Image
+    //MARK: - Crop Image
     
     private func crop(image: UIImage) -> UIImage {
         let rectangle = self.snapshotView.convert(self.gridFrameView.bounds, from: self.gridFrameView)
@@ -274,7 +274,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         return imagePieces
     }
 
-    // #MARK: - Pepere for Segue
+    //MARK: - Prepare for Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "startGame" {
@@ -287,7 +287,7 @@ class ImageEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 }
 
-// #MARK: - Extensions
+//MARK: - Extensions
 
 private extension UIView {
     /// Create image snapshot of view.

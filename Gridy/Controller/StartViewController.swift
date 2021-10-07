@@ -104,11 +104,13 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
         switch status {
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { (granted) in
-                if granted {
-                    self.presentImagePicker(sourceType: sourceType)
-                    print ("Access authorized.")
-                } else {
-                    self.troubleAlert(message: noPermissionMessage)
+                DispatchQueue.main.async {
+                    if granted {
+                        self.presentImagePicker(sourceType: sourceType)
+                        print ("Access authorized.")
+                    } else {
+                        self.troubleAlert(message: noPermissionMessage)
+                    }
                 }
             })
         case .authorized:
@@ -133,12 +135,14 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
         switch status {
         case .notDetermined:
             PHPhotoLibrary.requestAuthorization({ (newStatus) in
-                if newStatus == .authorized {
-                    self.presentImagePicker(sourceType: sourceType)
-                    print ("Access authorized.")
-                }
-                else {
-                    self.troubleAlert(message: noPermissionMessage)
+                DispatchQueue.main.async {
+                    if newStatus == .authorized {
+                        self.presentImagePicker(sourceType: sourceType)
+                        print ("Access authorized.")
+                    }
+                    else {
+                        self.troubleAlert(message: noPermissionMessage)
+                    }
                 }
             })
         case .authorized:
@@ -172,7 +176,7 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
         guard let newImage = info[UIImagePickerController.InfoKey.originalImage]
-            as? UIImage else { return }
+                as? UIImage else { return }
         processPicked(image: newImage)
     }
     
@@ -183,7 +187,7 @@ class StartViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func processPicked(image: UIImage) {
         guard let editingViewController = storyboard?.instantiateViewController(withIdentifier: "ImageEditorViewController")
-            as? ImageEditorViewController else { return }
+                as? ImageEditorViewController else { return }
         editingViewController.image = image
         self.present(editingViewController, animated: true, completion: nil)
     }
